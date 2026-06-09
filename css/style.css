@@ -587,19 +587,19 @@ body {
   box-shadow: 0 0 10px rgba(255, 139, 171, 0.6);
 }
 
-.html {
+.python {
   background: linear-gradient(90deg, var(--rose), #ff9fbf);
 }
 
-.css {
+.html {
   background: linear-gradient(90deg, var(--sage), #d4e8c7);
 }
 
-.js {
+.css {
   background: linear-gradient(90deg, #ffb5a7, #ff8fab);
 }
 
-.cyber {
+.javascript {
   background: linear-gradient(90deg, #95d5b2, #7dbe8f);
 }
 
