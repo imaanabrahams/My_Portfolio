@@ -76,16 +76,7 @@ body {
   }
 }
 
-@keyframes fillBar {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes fillHtml {
+@keyframes fillPython {
   from {
     width: 0;
   }
@@ -94,7 +85,7 @@ body {
   }
 }
 
-@keyframes fillCss {
+@keyframes fillHtml {
   from {
     width: 0;
   }
@@ -103,7 +94,7 @@ body {
   }
 }
 
-@keyframes fillJs {
+@keyframes fillCss {
   from {
     width: 0;
   }
@@ -112,7 +103,7 @@ body {
   }
 }
 
-@keyframes fillCyber {
+@keyframes fillJs {
   from {
     width: 0;
   }
@@ -592,7 +583,7 @@ body {
 }
 
 .html {
-  background: linear-gradient(90deg, var(--sage), #d4e8c7);
+  background: linear-gradient(90deg, var(--sage), #bae49d);
 }
 
 .css {
@@ -600,7 +591,7 @@ body {
 }
 
 .javascript {
-  background: linear-gradient(90deg, #95d5b2, #7dbe8f);
+  background: linear-gradient(90deg, #5eec9efb, #7eee9e);
 }
 
 /* ============================================================
