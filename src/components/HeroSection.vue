@@ -5,7 +5,7 @@ const phrases = [
   'Full-Stack Web Developer',
   'Vue.js Enthusiast',
   'Cybersecurity Explorer',
-  'Lifelong Learner',
+  'UI/UX Designer',
   'Problem Solver',
 ]
 
