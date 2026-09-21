@@ -46,7 +46,7 @@ onBeforeUnmount(() => {
         <button class="modal-close" aria-label="Close" @click="closeProject">×</button>
 
         <div v-if="activeProject.screenshot" class="modal-media">
-          <img :src="activeProject.screenshot" :alt="`${activeProject.title} screenshot`" />
+          <img :src="activeProject.screenshot" :alt="`${activeProject.title} screenshot`" loading="lazy" />
           <span v-if="activeProject.featured" class="modal-badge">Featured Project</span>
         </div>
         <div v-else class="modal-icon">{{ activeProject.icon }}</div>
