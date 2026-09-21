@@ -193,7 +193,7 @@ onUnmounted(() => {
 }
 
 .name {
-  background: linear-gradient(135deg, var(--rose), var(--lavender));
+  background: linear-gradient(135deg, var(--rose), var(--sage));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

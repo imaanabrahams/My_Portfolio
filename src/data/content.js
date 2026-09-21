@@ -66,10 +66,10 @@ export const timelineItems = [
 export const skills = [
   { label: 'Python', percent: 90, color: 'var(--rose)' },
   { label: 'HTML', percent: 85, color: 'var(--sage)' },
-  { label: 'CSS', percent: 70, color: '#ff9d8f' },
-  { label: 'JavaScript', percent: 65, color: '#ffb54d' },
-  { label: 'Vue.js', percent: 60, color: '#f9a8c0' },
-  { label: 'Back-End Development', percent: 55, color: '#c39bd8' },
+  { label: 'CSS', percent: 70, color: '#ffb3cf' },
+  { label: 'JavaScript', percent: 65, color: '#ff7ba6' },
+  { label: 'Vue.js', percent: 60, color: '#93bd7f' },
+  { label: 'Back-End Development', percent: 55, color: '#a9c98f' },
 ]
 
 export const learningStatus = [
