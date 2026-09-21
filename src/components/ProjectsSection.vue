@@ -4,28 +4,25 @@ import { featuredProjects } from '../data/projects.js'
 </script>
 
 <template>
-  <section id="projects" class="projects-section">
+  <section id="projects" class="projects-section section">
     <h2 class="section-title">Completed Projects</h2>
     <div class="section-title-underline"></div>
 
     <div class="project-grid">
-      <ProjectCard
-        v-for="project in featuredProjects"
+      <div
+        v-for="(project, i) in featuredProjects"
         :key="project.id"
-        :project="project"
-      />
+        v-reveal="i * 150"
+      >
+        <ProjectCard :project="project" />
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
 .projects-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 214, 232, 0.3),
-    rgba(248, 255, 245, 0.3)
-  );
+  background: var(--section-strip);
 }
 
 .project-grid {

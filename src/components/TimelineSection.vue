@@ -3,7 +3,7 @@ import { timelineItems } from '../data/content.js'
 </script>
 
 <template>
-  <section id="timeline" class="timeline-section">
+  <section id="timeline" class="timeline-section section">
     <h2 class="section-title">My Journey</h2>
     <div class="section-title-underline"></div>
 
@@ -11,7 +11,8 @@ import { timelineItems } from '../data/content.js'
       <div
         v-for="(item, index) in timelineItems"
         :key="item.title"
-        class="timeline-item slide-in"
+        class="timeline-item"
+        v-reveal="index * 90"
       >
         <div class="timeline-dot"></div>
         <h3>{{ item.title }}</h3>
@@ -24,12 +25,7 @@ import { timelineItems } from '../data/content.js'
 
 <style scoped>
 .timeline-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 214, 232, 0.3)
-  );
+  background: var(--section-strip);
 }
 
 .timeline {
@@ -51,10 +47,10 @@ import { timelineItems } from '../data/content.js'
 }
 
 .timeline-item {
-  background: white;
+  background: var(--surface);
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
   position: relative;
   transition: var(--transition);
   margin-bottom: 3rem;
@@ -82,7 +78,7 @@ import { timelineItems } from '../data/content.js'
 }
 
 .timeline-item p {
-  color: var(--dark);
+  color: var(--text-muted);
   line-height: 1.8;
 }
 
@@ -91,7 +87,7 @@ import { timelineItems } from '../data/content.js'
   width: 15px;
   height: 15px;
   background: var(--rose);
-  border: 3px solid var(--white);
+  border: 3px solid var(--surface);
   border-radius: 50%;
   left: 50%;
   top: 22px;

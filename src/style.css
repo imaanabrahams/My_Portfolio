@@ -1,16 +1,62 @@
 /* ============================================================
-   PORTFOLIO GLOBAL STYLESHEET - Clean & Animated Design
+   PORTFOLIO GLOBAL STYLESHEET - Clean, Themed & Interactive
    ============================================================ */
 
 :root {
   --pink: #ffd6e8;
   --rose: #ff8fab;
-  --rose-deep: #ff9fbf;
+  --rose-deep: #ff7799;
   --sage: #c8d5b9;
-  --dark: #3a3a3a;
-  --light-bg: #fff5f8;
-  --white: #ffffff;
+  --lavender: #cfc3ff;
+  --mint: #a8e6cf;
+
+  --dark: #3b3540;
+  --text-muted: #6b6572;
+  --border: #e3dde8;
+  --surface: #ffffff;
+  --surface-soft: #fdf7fa;
+  --bg-grad-1: #fff5f8;
+  --bg-grad-2: #f4faf0;
+
+  --card-shadow: 0 4px 20px rgba(80, 40, 70, 0.1);
+  --card-shadow-hover: 0 14px 40px rgba(255, 120, 165, 0.35);
+  --glow: rgba(255, 120, 165, 0.45);
+
+  --blob-1: rgba(255, 143, 171, 0.35);
+  --blob-2: rgba(200, 213, 185, 0.35);
+  --blob-3: rgba(207, 195, 255, 0.3);
+  --section-strip: linear-gradient(
+    135deg,
+    rgba(255, 214, 232, 0.16),
+    rgba(200, 213, 185, 0.16)
+  );
+
   --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --dark: #efe9f5;
+  --text-muted: #b6aec3;
+  --border: #3d3846;
+  --surface: #251f2c;
+  --surface-soft: #2c2636;
+  --bg-grad-1: #171220;
+  --bg-grad-2: #1a1916;
+
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --card-shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.55);
+  --glow: rgba(255, 120, 165, 0.3);
+
+  --blob-1: rgba(255, 143, 171, 0.2);
+  --blob-2: rgba(200, 213, 185, 0.13);
+  --blob-3: rgba(207, 195, 255, 0.16);
+  --section-strip: linear-gradient(
+    135deg,
+    rgba(74, 52, 96, 0.32),
+    rgba(58, 74, 54, 0.26)
+  );
+  color-scheme: dark;
 }
 
 * {
@@ -21,14 +67,16 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
   font-family: "Times New Roman", Times, serif;
-  background: linear-gradient(135deg, #fff5f8, #f8fff5);
+  background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
   color: var(--dark);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 img {
@@ -40,10 +88,54 @@ a {
   color: inherit;
 }
 
+::selection {
+  background: var(--rose);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--rose);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 #app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* ============================================================
+   SCROLL REVEAL (v-reveal directive)
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal[data-direction="up"] {
+  transform: translateY(28px);
+}
+.reveal[data-direction="down"] {
+  transform: translateY(-28px);
+}
+.reveal[data-direction="left"] {
+  transform: translateX(-38px);
+}
+.reveal[data-direction="right"] {
+  transform: translateX(38px);
+}
+.reveal[data-direction="zoom"] {
+  transform: scale(0.92);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* ============================================================
@@ -117,6 +209,42 @@ a {
   }
 }
 
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 25px) scale(0.95);
+  }
+}
+
+@keyframes blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bounceSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+}
+
 /* Animation Utility Classes */
 .fade-in {
   animation: fadeIn 0.8s ease-out forwards;
@@ -133,12 +261,16 @@ a {
 /* ============================================================
    SHARED SECTION STYLES
    ============================================================ */
+.section {
+  padding: 5rem 2rem;
+  background: var(--section-strip);
+}
+
 .section-title {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
   color: var(--dark);
-  animation: fadeIn 0.8s ease-out;
 }
 
 .section-title-underline {
@@ -169,13 +301,13 @@ a {
   background: var(--rose);
   color: white;
   border: none;
-  box-shadow: 0 4px 15px rgba(255, 139, 171, 0.4);
+  box-shadow: 0 4px 15px var(--glow);
   text-align: center;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 139, 171, 0.6);
+  box-shadow: 0 8px 25px var(--glow);
 }
 
 .btn-secondary {
@@ -192,9 +324,93 @@ a {
 }
 
 /* ============================================================
+   SCROLL PROGRESS + BACK TO TOP
+   ============================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--rose), var(--sage));
+  z-index: 2200;
+  border-radius: 0 3px 3px 0;
+}
+
+.to-top {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--rose);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px var(--glow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: var(--transition);
+  z-index: 1200;
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px var(--glow);
+}
+
+/* ============================================================
+   MODALS / LIGHTBOX (global)
+   ============================================================ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 10, 18, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 2000;
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* ============================================================
+   MISC
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 3000;
+  background: var(--rose);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ============================================================
    RESPONSIVE DESIGN
    ============================================================ */
 @media (max-width: 768px) {
+  .section {
+    padding: 4rem 1.4rem;
+  }
+
   .section-title {
     font-size: 2rem;
   }
@@ -203,5 +419,24 @@ a {
 @media (max-width: 480px) {
   .section-title {
     font-size: 1.6rem;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

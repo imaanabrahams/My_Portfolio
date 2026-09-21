@@ -12,6 +12,18 @@ A responsive single-page portfolio rebuilt with **Vue 3 + Vite**, showcasing my 
 - Vanilla JavaScript (no router needed — single-page scroll sections)
 - Scoped CSS with the original brand palette (rose / sage / pink)
 
+## Features
+
+- 🌓 **Dark / light theme** — persists in `localStorage`, respects system preference
+- ✨ **Scroll-reveal animations** — IntersectionObserver-driven `v-reveal` directive with staggered cards
+- 🔍 **Project modals** — click any project card for full details, features, tech and links (ESC / overlay to close)
+- 🖼️ **Gallery lightbox** — click an image to enlarge it with prev/next navigation and keyboard support
+- 💌 **Contact form** — live per-field validation, sending state, success panel, and a pre-filled email fallback if online delivery fails
+- 📊 **Animated skill counters** — percentages count up as bars fill on scroll
+- 🧭 **Scroll progress bar** + floating back-to-top button
+- 📱 **Mobile hamburger menu** with animated toggle
+- ♿ **Accessibility** — `focus-visible` states, `aria` labels/roles, skip link, `prefers-reduced-motion` support
+
 ## Getting Started
 
 ```bash
@@ -25,21 +37,27 @@ npm run preview   # preview the production build
 
 ```
 src/
-├── main.js                  # Vue bootstrap
-├── App.vue                  # Section assembly + loader state
-├── style.css                # Global tokens, animations, shared styles
+├── main.js                  # Vue bootstrap (registers v-reveal directive)
+├── App.vue                  # Section assembly + loader, progress bar, back-to-top
+├── style.css                # Theme tokens, animations, reveal + shared styles
+├── directives/
+│   └── reveal.js            # IntersectionObserver scroll-reveal directive
+├── composables/
+│   ├── useTheme.js          # Dark/light theme + localStorage persistence
+│   └── useProject.js        # Shared project-modal state
 ├── data/
 │   ├── content.js           # Timeline, skills, gallery, learning status
 │   └── projects.js          # Featured + learning project data
 └── components/
     ├── SiteLoader.vue       # Welcome / loading animation
-    ├── NavBar.vue           # Sticky nav + active-section highlighting
-    ├── HeroSection.vue      # Typewriter hero + CV download
+    ├── NavBar.vue           # Sticky nav, theme toggle, mobile hamburger
+    ├── HeroSection.vue      # Typewriter hero, animated blobs, stats
     ├── TimelineSection.vue  # My Journey timeline
-    ├── GallerySection.vue   # Interest gallery
-    ├── SkillsSection.vue    # Animated skill bars
+    ├── GallerySection.vue   # Interest gallery + lightbox
+    ├── SkillsSection.vue    # Animated skill bars + counters
     ├── ProjectsSection.vue  # Completed (featured) projects
-    ├── ProjectCard.vue      # Reusable project card
+    ├── ProjectCard.vue      # Reusable card (click to open modal)
+    ├── ProjectModal.vue     # Teleport modal with project details
     ├── LearningSection.vue  # Learning journey + exercise projects
     ├── AboutSection.vue     # Who I am / interests
     ├── ContactSection.vue   # Formspree form + contact links

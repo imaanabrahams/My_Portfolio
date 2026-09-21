@@ -41,23 +41,20 @@ const statusLabels = {
     </div>
 
     <div class="learning-grid">
-      <ProjectCard
-        v-for="project in learningProjects"
+      <div
+        v-for="(project, i) in learningProjects"
         :key="project.id"
-        :project="project"
-      />
+        v-reveal="(i % 6) * 80"
+      >
+        <ProjectCard :project="project" />
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
 .learning-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 181, 167, 0.2)
-  );
+  background: var(--section-strip);
 }
 
 .learning-status {
@@ -81,7 +78,7 @@ const statusLabels = {
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
+  background: var(--surface);
   overflow: hidden;
 }
 
@@ -98,7 +95,7 @@ table th {
 
 table td {
   padding: 1rem 1.2rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border);
   color: var(--dark);
   text-align: left;
 }
@@ -121,17 +118,17 @@ table tbody tr:hover {
 }
 
 .status.completed {
-  background: #95d5b2;
+  background: #57a773;
   color: white;
 }
 
 .status.learning {
-  background: #ffd6e8;
+  background: var(--pink);
   color: var(--dark);
 }
 
 .status.exploring {
-  background: #ffb5a7;
+  background: #e07a5f;
   color: white;
 }
 

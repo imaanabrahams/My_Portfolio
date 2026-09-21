@@ -4,8 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Imaan Abrahams - Aspiring full-stack web developer and cybersecurity enthusiast. Explore my projects, journey and skills." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ff8fab" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Imaan Abrahams | Portfolio" />
+    <meta property="og:description" content="Aspiring full-stack web developer and cybersecurity enthusiast. Explore my projects, journey and skills." />
+    <meta property="og:url" content="https://imaanabrahams.github.io/My_Portfolio/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Imaan Abrahams | Portfolio" />
+    <meta name="twitter:description" content="Aspiring full-stack web developer and cybersecurity enthusiast." />
     <title>Imaan Abrahams | Portfolio</title>
     <link rel="icon" type="image/x-icon" href="./ImaanWebIcon.PNG" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('ia-theme')
+          if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          document.documentElement.dataset.theme = t
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light'
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>

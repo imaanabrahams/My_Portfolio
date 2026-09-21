@@ -1,9 +1,11 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { skills } from '../data/content.js'
 
 const visible = ref(false)
 const barEl = ref(null)
+
+const displays = skills.map(() => ref(0))
 
 const onScroll = () => {
   if (barEl.value) {
@@ -14,6 +16,21 @@ const onScroll = () => {
     }
   }
 }
+
+watch(visible, (isVisible) => {
+  if (!isVisible) return
+  skills.forEach((skill, i) => {
+    const start = performance.now()
+    const duration = 1100
+    const step = (now) => {
+      const progress = Math.min(1, (now - start) / duration)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      displays[i].value = Math.round(eased * skill.percent)
+      if (progress < 1) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
+  })
+})
 
 onMounted(() => {
   document.addEventListener('scroll', onScroll, { passive: true })
@@ -26,15 +43,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="skills-section">
+  <section class="skills-section section">
     <h2 class="section-title">My Skills</h2>
     <div class="section-title-underline"></div>
 
     <div ref="barEl" class="skills-container">
-      <div v-for="skill in skills" :key="skill.label" class="skill">
+      <div v-for="(skill, i) in skills" :key="skill.label" class="skill" v-reveal="i * 80">
         <div class="skill-header">
           <p>{{ skill.label }}</p>
-          <span class="skill-percent">{{ skill.percent }}%</span>
+          <span class="skill-percent">{{ displays[i].value }}%</span>
         </div>
         <div class="bar">
           <div
@@ -52,15 +69,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.skills-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.5),
-    rgba(200, 213, 185, 0.2)
-  );
-}
-
 .skills-container {
   max-width: 800px;
   margin: auto;
@@ -90,10 +98,12 @@ onUnmounted(() => {
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 700;
+  min-width: 52px;
+  text-align: center;
 }
 
 .bar {
-  background: #e0e0e0;
+  background: var(--border);
   height: 12px;
   border-radius: 20px;
   overflow: hidden;

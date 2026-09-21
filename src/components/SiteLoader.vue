@@ -24,7 +24,7 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, var(--light-bg), var(--pink));
+  background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
   position: relative;
   transition:
     opacity 0.6s ease,

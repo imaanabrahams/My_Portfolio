@@ -1,14 +1,30 @@
 <script setup>
-defineProps({
+import { openProject } from '../composables/useProject.js'
+
+const props = defineProps({
   project: {
     type: Object,
     required: true,
   },
 })
+
+const onKey = (event) => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault()
+    openProject(props.project)
+  }
+}
 </script>
 
 <template>
-  <article class="project-card zoom-in">
+  <article
+    class="project-card zoom-in"
+    role="button"
+    tabindex="0"
+    :aria-label="`Open details for ${project.title}`"
+    @click="openProject(project)"
+    @keydown="onKey"
+  >
     <div v-if="project.screenshot" class="card-media">
       <img
         :src="project.screenshot"
@@ -16,6 +32,7 @@ defineProps({
         loading="lazy"
       />
       <span v-if="project.featured" class="card-badge">Featured</span>
+      <span class="card-open">View Details</span>
     </div>
 
     <div v-else class="card-icon">{{ project.icon }}</div>
@@ -25,20 +42,12 @@ defineProps({
       <p class="card-tagline">{{ project.tagline }}</p>
       <p class="card-description">{{ project.description }}</p>
 
-      <ul v-if="project.features && project.features.length" class="card-features">
-        <li v-for="feature in project.features" :key="feature">{{ feature }}</li>
-      </ul>
-
-      <p
-        v-if="project.demoLogin"
-        class="card-demo-login"
-      >
-        Demo login: <code>{{ project.demoLogin }}</code>
-      </p>
-
       <div class="card-tech">
-        <span v-for="tech in project.technologies" :key="tech" class="tech-chip">
+        <span v-for="tech in project.technologies.slice(0, 5)" :key="tech" class="tech-chip">
           {{ tech }}
+        </span>
+        <span v-if="project.technologies.length > 5" class="tech-more">
+          +{{ project.technologies.length - 5 }}
         </span>
       </div>
 
@@ -49,6 +58,7 @@ defineProps({
           target="_blank"
           rel="noopener noreferrer"
           class="btn"
+          @click.stop
         >
           Live Demo
         </a>
@@ -57,19 +67,13 @@ defineProps({
           target="_blank"
           rel="noopener noreferrer"
           class="btn-secondary"
+          @click.stop
         >
           GitHub
         </a>
-        <a
-          v-for="link in project.repoLinks"
-          :key="link.url"
-          :href="link.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card-link"
-        >
-          {{ link.label }} →
-        </a>
+        <button class="card-details" @click.stop="openProject(project)">
+          Details →
+        </button>
       </div>
     </div>
   </article>
@@ -77,25 +81,27 @@ defineProps({
 
 <style scoped>
 .project-card {
-  background: white;
+  background: var(--surface);
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
   transition: var(--transition);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-card:focus-visible {
   transform: translateY(-10px);
-  box-shadow: 0 12px 40px rgba(255, 139, 171, 0.3);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .card-media {
   position: relative;
   overflow: hidden;
   border-radius: 20px 20px 0 0;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   background: linear-gradient(135deg, var(--pink), var(--sage));
 }
 
@@ -114,7 +120,7 @@ defineProps({
 .card-badge {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  left: 1rem;
   background: var(--rose);
   color: white;
   font-size: 0.75rem;
@@ -123,7 +129,29 @@ defineProps({
   text-transform: uppercase;
   padding: 0.35rem 0.8rem;
   border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(255, 139, 171, 0.5);
+  box-shadow: 0 4px 12px var(--glow);
+}
+
+.card-open {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(15, 10, 18, 0.6);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: var(--transition);
+  backdrop-filter: blur(4px);
+}
+
+.project-card:hover .card-open,
+.project-card:focus-visible .card-open {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card-icon {
@@ -157,47 +185,13 @@ defineProps({
 }
 
 .card-description {
-  color: #666;
+  color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 1rem;
-}
-
-.card-features {
-  list-style: none;
-  margin-bottom: 1rem;
-  padding-left: 0;
-}
-
-.card-features li {
-  color: var(--dark);
-  padding: 0.35rem 0;
-  padding-left: 1.4rem;
-  position: relative;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.card-features li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--rose);
-  font-weight: 700;
-}
-
-.card-demo-login {
-  background: var(--pink);
-  color: var(--dark);
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  width: fit-content;
-}
-
-.card-demo-login code {
-  font-weight: 700;
-  color: var(--rose);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-tech {
@@ -208,16 +202,19 @@ defineProps({
 }
 
 .tech-chip {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 139, 171, 0.1),
-    rgba(200, 213, 185, 0.1)
-  );
+  background: linear-gradient(135deg, rgba(255, 139, 171, 0.12), rgba(200, 213, 185, 0.12));
   color: var(--rose);
   padding: 0.4rem 0.9rem;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
+}
+
+.tech-more {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.85rem;
+  align-self: center;
 }
 
 .card-actions {
@@ -228,15 +225,19 @@ defineProps({
   margin-top: auto;
 }
 
-.card-link {
+.card-details {
+  background: transparent;
+  border: none;
   color: var(--rose);
-  text-decoration: none;
+  font-family: inherit;
   font-weight: 700;
-  transition: var(--transition);
   font-size: 0.95rem;
+  cursor: pointer;
+  padding: 0.4rem 0.2rem;
+  transition: var(--transition);
 }
 
-.card-link:hover {
+.card-details:hover {
   color: var(--dark);
   transform: translateX(5px);
 }

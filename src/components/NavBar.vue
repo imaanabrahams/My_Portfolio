@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useTheme } from '../composables/useTheme.js'
 
 const links = [
   { id: 'hero', label: 'Home' },
@@ -10,13 +11,15 @@ const links = [
 
 const active = ref('hero')
 const scrolled = ref(false)
+const menuOpen = ref(false)
+const { theme, toggleTheme } = useTheme()
 
 const onScroll = () => {
   scrolled.value = window.scrollY > 40
   let current = 'hero'
   for (const { id } of links) {
     const el = document.getElementById(id)
-    if (el && window.scrollY >= el.offsetTop - 140) {
+    if (el && window.scrollY >= el.offsetTop - 160) {
       current = id
     }
   }
@@ -25,6 +28,7 @@ const onScroll = () => {
 
 const scrollTo = (event, id) => {
   event.preventDefault()
+  menuOpen.value = false
   const el = document.getElementById(id)
   if (el) {
     el.scrollIntoView({ behavior: 'smooth' })
@@ -43,11 +47,14 @@ onUnmounted(() => {
 
 <template>
   <header class="navbar" :class="{ 'is-scrolled': scrolled }" id="navbar">
-    <nav class="nav-container">
+    <nav class="nav-container" aria-label="Main navigation">
       <div class="nav-logo">
-        <h1>IA ؛༊</h1>
+        <a href="#hero" @click="scrollTo($event, 'hero')" aria-label="Back to top">
+          <h1>IA ؛༊</h1>
+        </a>
       </div>
-      <ul class="nav-menu">
+
+      <ul class="nav-menu" :class="{ open: menuOpen }">
         <li v-for="{ id, label } in links" :key="id">
           <a
             :href="`#${id}`"
@@ -59,6 +66,28 @@ onUnmounted(() => {
           </a>
         </li>
       </ul>
+
+      <div class="nav-tools">
+        <button
+          class="theme-toggle"
+          :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+          :title="theme === 'dark' ? 'Light mode' : 'Dark mode'"
+          @click="toggleTheme"
+        >
+          <span class="theme-icon">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
+        </button>
+        <button
+          class="hamburger"
+          :class="{ open: menuOpen }"
+          :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
+          :aria-expanded="menuOpen"
+          @click="menuOpen = !menuOpen"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
   </header>
 </template>
@@ -68,8 +97,8 @@ onUnmounted(() => {
   position: sticky;
   top: 0;
   background: linear-gradient(135deg, var(--rose), var(--rose-deep));
-  padding: 1rem 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 0.85rem 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
   z-index: 1000;
   animation: slideIn 0.6s ease-out;
 }
@@ -81,6 +110,11 @@ onUnmounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  gap: 1rem;
+}
+
+.nav-logo a {
+  text-decoration: none;
 }
 
 .nav-logo h1 {
@@ -88,6 +122,11 @@ onUnmounted(() => {
   font-size: 1.8rem;
   letter-spacing: 2px;
   font-weight: 700;
+  transition: var(--transition);
+}
+
+.nav-logo h1:hover {
+  transform: scale(1.06);
 }
 
 .nav-menu {
@@ -131,10 +170,102 @@ onUnmounted(() => {
   padding-bottom: 5px;
 }
 
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: rotate(20deg);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  border-radius: 3px;
+  background: white;
+  transition: var(--transition);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
   .nav-menu {
-    gap: 1rem;
-    font-size: 0.9rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .nav-menu.open {
+    max-height: 320px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  }
+
+  .nav-menu li {
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .nav-link.active {
+    border-bottom: none;
   }
 }
 
@@ -145,14 +276,6 @@ onUnmounted(() => {
 
   .nav-logo h1 {
     font-size: 1.4rem;
-  }
-
-  .nav-menu {
-    gap: 0.5rem;
-  }
-
-  .nav-link {
-    font-size: 0.9rem;
   }
 }
 </style>

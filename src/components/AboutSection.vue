@@ -1,10 +1,10 @@
 <template>
-  <section id="about" class="about-section">
+  <section id="about" class="about-section section">
     <h2 class="section-title">About Me</h2>
     <div class="section-title-underline"></div>
 
     <div class="about-content">
-      <div class="about-card slide-in">
+      <div class="about-card" v-reveal>
         <h3>Who Am I?</h3>
         <p>
           My name is Imaan Abrahams. I am an aspiring Web Developer with a passion
@@ -23,7 +23,7 @@
         </p>
       </div>
 
-      <div class="about-card slide-in">
+      <div class="about-card" v-reveal="150">
         <h3>My Interests</h3>
         <ul class="interests-list">
           <li>🎨 Web Development</li>
@@ -42,12 +42,7 @@
 
 <style scoped>
 .about-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(200, 213, 185, 0.2),
-    rgba(255, 214, 232, 0.2)
-  );
+  background: var(--section-strip);
 }
 
 .about-content {
@@ -59,10 +54,10 @@
 }
 
 .about-card {
-  background: white;
+  background: var(--surface);
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
   transition: var(--transition);
   border-top: 4px solid var(--rose);
 }
@@ -79,7 +74,7 @@
 }
 
 .about-card p {
-  color: var(--dark);
+  color: var(--text-muted);
   line-height: 1.8;
   margin-bottom: 0.8rem;
 }
@@ -93,7 +88,7 @@
   padding: 0.8rem 0;
   color: var(--dark);
   font-weight: 500;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border);
   transition: var(--transition);
 }
 
