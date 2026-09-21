@@ -44,28 +44,28 @@
   --rose-deep: #ff5f86;
   --sage: #c8d5b9;
 
-  --dark: #ffe9f4;
-  --text-muted: #e2b0c9;
-  --border: #9a4f82;
-  --surface: #6b2a58;
-  --surface-soft: #7a3165;
-  --bg-grad-1: #5e2350;
-  --bg-grad-2: #471a3d;
+  --dark: #ffeaf3;
+  --text-muted: #e5aec5;
+  --border: #b4628a;
+  --surface: #8a2f5a;
+  --surface-soft: #983666;
+  --bg-grad-1: #7e2852;
+  --bg-grad-2: #5d1a3c;
 
-  --card-shadow: 0 4px 20px rgba(30, 8, 24, 0.45);
-  --card-shadow-hover: 0 14px 40px rgba(30, 8, 24, 0.6);
-  --glow: rgba(255, 143, 171, 0.4);
+  --card-shadow: 0 4px 20px rgba(40, 10, 26, 0.45);
+  --card-shadow-hover: 0 14px 40px rgba(40, 10, 26, 0.6);
+  --glow: rgba(255, 143, 171, 0.45);
   --success: #8be0ac;
   --error: #ff9d92;
   --field-error: #ff9d92;
 
-  --blob-1: rgba(255, 143, 171, 0.35);
-  --blob-2: rgba(255, 120, 190, 0.28);
-  --blob-3: rgba(255, 170, 140, 0.2);
+  --blob-1: rgba(255, 143, 171, 0.4);
+  --blob-2: rgba(255, 110, 160, 0.3);
+  --blob-3: rgba(255, 170, 140, 0.22);
   --section-strip: linear-gradient(
     135deg,
-    rgba(160, 70, 120, 0.4),
-    rgba(140, 55, 105, 0.35)
+    rgba(190, 60, 110, 0.4),
+    rgba(150, 45, 90, 0.34)
   );
   color-scheme: dark;
 }
