@@ -21,6 +21,12 @@
           perseverance. Technology became an important outlet for me, helping me
           focus on building skills and creating opportunities for my future.
         </p>
+        <p>
+          I am currently pursuing a career in Web Development, and I approach
+          each project with a focus on quality, innovation and meaningful impact.
+          My goal is to contribute thoughtful, well-crafted solutions to the tech
+          community while continuing to learn and grow.
+        </p>
       </div>
 
       <div class="about-card" v-reveal="150">
