@@ -33,6 +33,15 @@ import { featuredProjects } from '../data/projects.js'
   gap: 2rem;
 }
 
+.project-grid > div {
+  display: flex;
+}
+
+.project-grid .project-card {
+  width: 100%;
+  flex: 1;
+}
+
 @media (max-width: 480px) {
   .project-grid {
     grid-template-columns: 1fr;
