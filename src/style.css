@@ -1,0 +1,207 @@
+/* ============================================================
+   PORTFOLIO GLOBAL STYLESHEET - Clean & Animated Design
+   ============================================================ */
+
+:root {
+  --pink: #ffd6e8;
+  --rose: #ff8fab;
+  --rose-deep: #ff9fbf;
+  --sage: #c8d5b9;
+  --dark: #3a3a3a;
+  --light-bg: #fff5f8;
+  --white: #ffffff;
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background: linear-gradient(135deg, #fff5f8, #f8fff5);
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    transform: rotate(45deg) scale(1.1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Animation Utility Classes */
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.zoom-in {
+  animation: zoomIn 0.6s ease-out forwards;
+}
+
+/* ============================================================
+   SHARED SECTION STYLES
+   ============================================================ */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--dark);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.section-title-underline {
+  width: 70px;
+  height: 4px;
+  margin: -1.5rem auto 3rem;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--rose), var(--sage));
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn,
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn {
+  background: var(--rose);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 139, 171, 0.4);
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 139, 171, 0.6);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--rose);
+  border: 2px solid var(--rose);
+  text-align: center;
+}
+
+.btn-secondary:hover {
+  background: var(--rose);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
