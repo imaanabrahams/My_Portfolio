@@ -155,13 +155,15 @@ const onKey = (event) => {
 }
 
 .card-icon {
-  font-size: 3.5rem;
-  padding: 1.5rem;
-  margin: 1rem;
-  border-radius: 20px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.2rem;
+  border-radius: 20px 20px 0 0;
   background: linear-gradient(135deg, var(--pink), var(--sage));
-  width: fit-content;
-  animation: float 3s ease-in-out infinite;
 }
 
 .card-body {

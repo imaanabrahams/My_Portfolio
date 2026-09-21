@@ -140,6 +140,15 @@ table tbody tr:hover {
   gap: 2rem;
 }
 
+.learning-grid > div {
+  display: flex;
+}
+
+.learning-grid .project-card {
+  width: 100%;
+  flex: 1;
+}
+
 @media (max-width: 768px) {
   table {
     font-size: 0.9rem;
