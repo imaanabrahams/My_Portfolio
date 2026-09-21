@@ -22,10 +22,9 @@
           focus on building skills and creating opportunities for my future.
         </p>
         <p>
-          I am currently pursuing a career in Web Development, and I approach
-          each project with a focus on quality, innovation and meaningful impact.
-          My goal is to contribute thoughtful, well-crafted solutions to the tech
-          community while continuing to learn and grow.
+          I am currently pursuing a career in Web Development and am excited to
+          continue learning and growing in this field. I am committed to creating
+          innovative and impactful projects that contribute to the tech community.
         </p>
       </div>
 
