@@ -274,13 +274,13 @@ const resetForm = () => {
 }
 
 .field-error {
-  color: #e05c4f;
+  color: var(--field-error);
   font-size: 0.85rem;
   margin-top: 0.35rem;
 }
 
 .form-error {
-  color: #b3463a;
+  color: var(--error);
   background: rgba(224, 92, 79, 0.12);
   padding: 0.85rem 1rem;
   border-radius: 8px;
@@ -295,7 +295,7 @@ const resetForm = () => {
 }
 
 .form-success {
-  color: #2e7d32;
+  color: var(--success);
   background: rgba(87, 167, 115, 0.16);
   padding: 0.85rem 1rem;
   border-radius: 8px;

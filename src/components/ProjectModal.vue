@@ -226,7 +226,7 @@ onBeforeUnmount(() => {
 
 .modal-demo-login {
   background: var(--pink);
-  color: var(--dark);
+  color: #54203a;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   font-size: 0.9rem;

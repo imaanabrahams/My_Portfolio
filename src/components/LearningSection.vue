@@ -124,7 +124,7 @@ table tbody tr:hover {
 
 .status.learning {
   background: var(--pink);
-  color: var(--dark);
+  color: #54203a;
 }
 
 .status.exploring {

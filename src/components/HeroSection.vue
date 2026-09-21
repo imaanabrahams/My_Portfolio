@@ -12,36 +12,61 @@ const phrases = [
 const typed = ref('')
 let phraseIndex = 0
 let charIndex = 0
-let deleting = false
-let interval = null
+let state = 'typing' // typing | holding | deleting
+let acc = 0
+let lastFrame = 0
+let rafId = null
 
-const tick = () => {
+const TYPE_SPEED = 40
+const DELETE_SPEED = 26
+const HOLD_TIME = 1400
+
+const loop = (timestamp) => {
+  rafId = requestAnimationFrame(loop)
+  const dt = Math.min(timestamp - lastFrame, 100)
+  lastFrame = timestamp
+  acc += dt
+
   const current = phrases[phraseIndex]
-  if (!deleting) {
-    charIndex += 1
-    typed.value = current.slice(0, charIndex)
-    if (charIndex === current.length) {
-      deleting = true
-      window.clearInterval(interval)
-      interval = window.setInterval(tick, 1800)
-      return
+
+  if (state === 'typing') {
+    const steps = Math.floor(acc / TYPE_SPEED)
+    if (steps > 0) {
+      acc %= TYPE_SPEED
+      charIndex = Math.min(charIndex + steps, current.length)
+      typed.value = current.slice(0, charIndex)
+      if (charIndex === current.length) {
+        state = 'holding'
+        acc = 0
+      }
+    }
+  } else if (state === 'holding') {
+    if (acc >= HOLD_TIME) {
+      state = 'deleting'
+      acc = 0
     }
   } else {
-    charIndex -= 1
-    typed.value = current.slice(0, charIndex)
-    if (charIndex === 0) {
-      deleting = false
-      phraseIndex = (phraseIndex + 1) % phrases.length
+    const steps = Math.floor(acc / DELETE_SPEED)
+    if (steps > 0) {
+      acc %= DELETE_SPEED
+      charIndex = Math.max(charIndex - steps, 0)
+      typed.value = current.slice(0, charIndex)
+      if (charIndex === 0) {
+        state = 'typing'
+        acc = 0
+        phraseIndex = (phraseIndex + 1) % phrases.length
+      }
     }
   }
 }
 
 onMounted(() => {
-  interval = window.setInterval(tick, 85)
+  lastFrame = performance.now()
+  rafId = requestAnimationFrame(loop)
 })
 
 onUnmounted(() => {
-  if (interval) window.clearInterval(interval)
+  if (rafId) cancelAnimationFrame(rafId)
 })
 </script>
 
@@ -87,10 +112,6 @@ onUnmounted(() => {
         <a href="./ImaanAbrahams-CV.pdf" download class="btn-ghost">Download CV</a>
       </div>
     </div>
-
-    <a href="#timeline" class="scroll-indicator" aria-label="Scroll to journey">
-      <span></span>
-    </a>
   </section>
 </template>
 
@@ -253,35 +274,6 @@ onUnmounted(() => {
   border-color: var(--rose);
   color: var(--rose);
   transform: translateY(-3px);
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 26px;
-  height: 44px;
-  border: 2px solid var(--rose);
-  border-radius: 14px;
-  display: flex;
-  justify-content: center;
-  padding-top: 8px;
-  opacity: 0.75;
-  transition: var(--transition);
-}
-
-.scroll-indicator span {
-  width: 4px;
-  height: 9px;
-  border-radius: 4px;
-  background: var(--rose);
-  animation: bounceSlow 1.6s infinite;
-}
-
-.scroll-indicator:hover {
-  opacity: 1;
-  transform: translateX(-50%) scale(1.1);
 }
 
 @media (max-width: 480px) {

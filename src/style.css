@@ -5,30 +5,33 @@
 :root {
   --pink: #ffd6e8;
   --rose: #ff8fab;
-  --rose-deep: #ff7799;
+  --rose-deep: #ff6f90;
   --sage: #c8d5b9;
   --lavender: #cfc3ff;
   --mint: #a8e6cf;
 
-  --dark: #3b3540;
-  --text-muted: #6b6572;
-  --border: #e3dde8;
+  --dark: #4b3345;
+  --text-muted: #8a6f82;
+  --border: #f2d7e2;
   --surface: #ffffff;
-  --surface-soft: #fdf7fa;
-  --bg-grad-1: #fff5f8;
-  --bg-grad-2: #f4faf0;
+  --surface-soft: #fdf1f6;
+  --bg-grad-1: #fff3f7;
+  --bg-grad-2: #ffeaef;
 
-  --card-shadow: 0 4px 20px rgba(80, 40, 70, 0.1);
-  --card-shadow-hover: 0 14px 40px rgba(255, 120, 165, 0.35);
-  --glow: rgba(255, 120, 165, 0.45);
+  --card-shadow: 0 4px 20px rgba(190, 100, 140, 0.14);
+  --card-shadow-hover: 0 14px 40px rgba(255, 111, 150, 0.35);
+  --glow: rgba(255, 120, 165, 0.4);
+  --success: #2e7d32;
+  --error: #b3463a;
+  --field-error: #e05c4f;
 
-  --blob-1: rgba(255, 143, 171, 0.35);
-  --blob-2: rgba(200, 213, 185, 0.35);
-  --blob-3: rgba(207, 195, 255, 0.3);
+  --blob-1: rgba(255, 143, 171, 0.4);
+  --blob-2: rgba(255, 128, 180, 0.3);
+  --blob-3: rgba(255, 188, 160, 0.28);
   --section-strip: linear-gradient(
     135deg,
-    rgba(255, 214, 232, 0.16),
-    rgba(200, 213, 185, 0.16)
+    rgba(255, 214, 232, 0.22),
+    rgba(255, 230, 242, 0.16)
   );
 
   --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -36,25 +39,33 @@
 }
 
 [data-theme="dark"] {
-  --dark: #efe9f5;
-  --text-muted: #b6aec3;
-  --border: #3d3846;
-  --surface: #251f2c;
-  --surface-soft: #2c2636;
-  --bg-grad-1: #171220;
-  --bg-grad-2: #1a1916;
+  --pink: #ffb3d1;
+  --rose: #ff8fab;
+  --rose-deep: #ff5f86;
+  --sage: #c8d5b9;
 
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --dark: #ffe9f2;
+  --text-muted: #d9a7bc;
+  --border: #7c3a52;
+  --surface: #4a1d30;
+  --surface-soft: #582038;
+  --bg-grad-1: #3a1120;
+  --bg-grad-2: #2a0c16;
+
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   --card-shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.55);
-  --glow: rgba(255, 120, 165, 0.3);
+  --glow: rgba(255, 143, 171, 0.35);
+  --success: #8be0ac;
+  --error: #ff9d92;
+  --field-error: #ff9d92;
 
-  --blob-1: rgba(255, 143, 171, 0.2);
-  --blob-2: rgba(200, 213, 185, 0.13);
-  --blob-3: rgba(207, 195, 255, 0.16);
+  --blob-1: rgba(255, 143, 171, 0.3);
+  --blob-2: rgba(255, 120, 180, 0.22);
+  --blob-3: rgba(255, 175, 140, 0.18);
   --section-strip: linear-gradient(
     135deg,
-    rgba(74, 52, 96, 0.32),
-    rgba(58, 74, 54, 0.26)
+    rgba(128, 42, 72, 0.35),
+    rgba(96, 38, 64, 0.3)
   );
   color-scheme: dark;
 }
