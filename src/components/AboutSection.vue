@@ -7,24 +7,24 @@
       <div class="about-card" v-reveal>
         <h3>Who Am I?</h3>
         <p>
-          My name is Imaan Abrahams. I am an aspiring Web Developer with a passion
-          for technology, creativity and learning. I am dedicated to building my
-          skills and creating projects that make a positive impact.
+          My name is Imaan Abrahams. I am an aspiring Web Developer with a
+          passion for technology, creativity and learning. I am dedicated to
+          building my skills and creating projects that make a positive impact.
         </p>
         <p>
-          I have a strong interest in cybersecurity and enjoy learning how systems
-          are protected against cyber threats.
+          I have a strong interest in cybersecurity and enjoy learning how
+          systems are protected against cyber threats. I am also fascinated by the world of 3D printing and maker culture, and I enjoy exploring new technologies and tools that allow me to bring my ideas to life.
         </p>
         <p>
-          At 19, I was diagnosed with Stage 4 Endometriosis and underwent surgery.
-          The experience taught me resilience, determination and the importance of
-          perseverance. Technology became an important outlet for me, helping me
-          focus on building skills and creating opportunities for my future.
+          I am also a creative individual who enjoys exploring design and
+          innovation in my projects. I believe that technology and creativity go
+          hand in hand, and I strive to bring a unique perspective to my work. 
         </p>
         <p>
-          I am currently pursuing a career in Web Development and am excited to
-          continue learning and growing in this field. I am committed to creating
-          innovative and impactful projects that contribute to the tech community.
+          I am currently pursuing a career in Web Development, and I approach
+          each project with a focus on quality, innovation and meaningful
+          impact. My goal is to contribute thoughtful, well-crafted solutions to
+          the tech community while continuing to learn and grow.
         </p>
       </div>
 
