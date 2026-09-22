@@ -3,36 +3,36 @@
    ============================================================ */
 
 :root {
-  --pink: #ffd6e8;
-  --rose: #ff8fab;
-  --rose-deep: #ff6f9b;
+  --pink: #ffd9e2;
+  --rose: #ff6f9b;
+  --rose-deep: #f2538f;
   --sage: #a9c48f;
   --sage-deep: #7a9c63;
   --lavender: #cfc3ff;
   --mint: #a8e6cf;
 
-  --dark: #4b5a48;
-  --text-muted: #7c9483;
-  --border: #e0ecd3;
+  --dark: #3d1226;
+  --text-muted: #6b3a52;
+  --border: #efb7c1;
   --surface: #ffffff;
-  --surface-soft: #fdf2f6;
-  --bg-grad-1: #fff0f6;
-  --bg-grad-2: #f1f9e9;
+  --surface-soft: #ffe3e9;
+  --bg-grad-1: #ffb6c1;
+  --bg-grad-2: #ffd2db;
 
-  --card-shadow: 0 4px 20px rgba(140, 110, 130, 0.14);
-  --card-shadow-hover: 0 14px 40px rgba(255, 111, 155, 0.35);
-  --glow: rgba(255, 138, 171, 0.45);
-  --success: #5f8a53;
-  --error: #b3463a;
-  --field-error: #e05c4f;
+  --card-shadow: 0 4px 20px rgba(160, 60, 90, 0.16);
+  --card-shadow-hover: 0 14px 40px rgba(242, 83, 143, 0.35);
+  --glow: rgba(242, 83, 143, 0.35);
+  --success: #4f8a47;
+  --error: #c63b4a;
+  --field-error: #d64550;
 
-  --blob-1: rgba(255, 150, 182, 0.4);
-  --blob-2: rgba(169, 196, 143, 0.45);
-  --blob-3: rgba(255, 120, 160, 0.3);
+  --blob-1: rgba(255, 150, 185, 0.45);
+  --blob-2: rgba(169, 196, 143, 0.4);
+  --blob-3: rgba(255, 120, 160, 0.28);
   --section-strip: linear-gradient(
     135deg,
-    rgba(255, 214, 232, 0.22),
-    rgba(211, 232, 190, 0.22)
+    rgba(255, 182, 193, 0.5),
+    rgba(211, 232, 190, 0.5)
   );
 
   --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -41,8 +41,8 @@
 
 [data-theme="dark"] {
   --pink: #d8f2d8;
-  --rose: #90ee90;
-  --rose-deep: #5fbf5f;
+  --rose: #5fbf5f;
+  --rose-deep: #3f9d4f;
   --sage: #a9c48f;
   --sage-deep: #7a9c63;
 
