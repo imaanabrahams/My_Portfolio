@@ -5,7 +5,7 @@ const STORAGE_KEY = 'ia-theme'
 
 function apply(value) {
   document.documentElement.dataset.theme = value
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', value === 'dark' ? '#ffb6c1' : '#ff8fab')
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', value === 'dark' ? '#90ee90' : '#ff8fab')
 }
 
 export function useTheme() {
