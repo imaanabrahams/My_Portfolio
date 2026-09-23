@@ -195,6 +195,26 @@ onUnmounted(() => {
   transform: rotate(20deg);
 }
 
+.theme-toggle:active .theme-icon {
+  animation: iconPop 0.4s ease;
+}
+
+@keyframes iconPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.6) rotate(15deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.theme-icon {
+  display: inline-block;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;

@@ -64,22 +64,22 @@ export const timelineItems = [
 ]
 
 export const skills = [
-  { label: 'Python', percent: 90, color: 'var(--rose)' },
-  { label: 'HTML', percent: 85, color: 'var(--sage)' },
-  { label: 'CSS', percent: 70, color: '#ffb3cf' },
-  { label: 'JavaScript', percent: 65, color: '#ff7ba6' },
-  { label: 'Vue.js', percent: 60, color: '#93bd7f' },
-  { label: 'Back-End Development', percent: 55, color: '#a9c98f' },
+  { label: 'Python', percent: 78, color: 'var(--rose)' },
+  { label: 'HTML', percent: 92, color: 'var(--sage)' },
+  { label: 'CSS', percent: 82, color: '#ffb3cf' },
+  { label: 'JavaScript', percent: 80, color: '#ff7ba6' },
+  { label: 'Vue.js', percent: 78, color: '#93bd7f' },
+  { label: 'Back-End Development', percent: 72, color: '#a9c98f' },
 ]
 
 export const learningStatus = [
   { skill: 'HTML', status: 'completed' },
   { skill: 'CSS', status: 'completed' },
-  { skill: 'JavaScript', status: 'learning' },
-  { skill: 'Vue.js', status: 'learning' },
+  { skill: 'JavaScript', status: 'ongoing' },
+  { skill: 'Vue.js', status: 'ongoing' },
   { skill: 'Python', status: 'completed' },
   { skill: 'MySQL / Databases', status: 'learning' },
   { skill: 'PHP', status: 'learning' },
-  { skill: 'Back-End Development', status: 'learning' },
+  { skill: 'Back-End Development', status: 'ongoing' },
   { skill: 'Cybersecurity', status: 'exploring' },
 ]

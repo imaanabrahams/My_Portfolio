@@ -105,6 +105,28 @@ const onKey = (event) => {
   background: linear-gradient(135deg, var(--pink), var(--sage));
 }
 
+.card-media::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .card-media::after {
+  left: 130%;
+}
+
 .card-media img {
   width: 100%;
   height: 100%;
@@ -245,7 +267,25 @@ const onKey = (event) => {
 }
 
 @media (max-width: 480px) {
-  .card-body {
+.project-card:hover .card-icon,
+.project-card:focus-visible .card-icon {
+  animation: iconBounce 0.6s ease;
+}
+
+@keyframes iconBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  40% {
+    transform: translateY(-12px) rotate(-8deg);
+  }
+  70% {
+    transform: translateY(-6px) rotate(5deg);
+  }
+}
+
+.card-body {
     padding: 1.25rem 1.25rem 1.5rem;
   }
 

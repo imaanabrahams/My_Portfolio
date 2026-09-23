@@ -114,6 +114,30 @@ onUnmounted(() => {
   height: 100%;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(255, 139, 171, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 70%
+  );
+  animation: barShimmer 2.2s linear infinite;
+}
+
+@keyframes barShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 @media (max-width: 480px) {

@@ -75,6 +75,11 @@ import { timelineItems } from '../data/content.js'
   color: var(--rose);
   margin-bottom: 1rem;
   font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.timeline-item:hover h3 {
+  transform: translateX(4px);
 }
 
 .timeline-item p {
@@ -93,6 +98,33 @@ import { timelineItems } from '../data/content.js'
   top: 22px;
   transform: translateX(-50%);
   box-shadow: 0 0 0 4px rgba(255, 139, 171, 0.2);
+  z-index: 1;
+}
+
+.timeline-dot::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--rose);
+  opacity: 0;
+  animation: dotPing 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.timeline-item:nth-child(even) .timeline-dot::after {
+  animation-delay: 1.2s;
+}
+
+@keyframes dotPing {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.4);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
 }
 
 .timeline-index {

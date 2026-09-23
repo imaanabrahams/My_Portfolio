@@ -95,6 +95,32 @@
   font-weight: 500;
   border-bottom: 1px solid var(--border);
   transition: var(--transition);
+  opacity: 0;
+}
+
+.about-card:nth-of-type(2).reveal.is-visible .interests-list li {
+  animation: interestIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 0.08s);
+}
+
+.interests-list li:nth-child(1) { --i: 1; }
+.interests-list li:nth-child(2) { --i: 2; }
+.interests-list li:nth-child(3) { --i: 3; }
+.interests-list li:nth-child(4) { --i: 4; }
+.interests-list li:nth-child(5) { --i: 5; }
+.interests-list li:nth-child(6) { --i: 6; }
+.interests-list li:nth-child(7) { --i: 7; }
+.interests-list li:nth-child(8) { --i: 8; }
+
+@keyframes interestIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .interests-list li:last-child {
@@ -104,6 +130,20 @@
 .interests-list li:hover {
   color: var(--rose);
   padding-left: 10px;
+  animation: interestWiggle 0.35s ease;
+}
+
+@keyframes interestWiggle {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
 }
 
 @media (max-width: 768px) {

@@ -3,16 +3,16 @@
    ============================================================ */
 
 :root {
-  --pink: #ffd9e2;
-  --rose: #ff6f9b;
-  --rose-deep: #f2538f;
+  --pink: #ffd6e8;
+  --rose: #ff8fab;
+  --rose-deep: #ff6f9b;
   --sage: #a9c48f;
   --sage-deep: #7a9c63;
   --lavender: #cfc3ff;
   --mint: #a8e6cf;
 
-  --dark: #3d1226;
-  --text-muted: #6b3a52;
+  --dark: #4b1e35;
+  --text-muted: #7a4a60;
   --border: #efb7c1;
   --surface: #ffffff;
   --surface-soft: #ffe3e9;
@@ -20,11 +20,11 @@
   --bg-grad-2: #ffd2db;
 
   --card-shadow: 0 4px 20px rgba(160, 60, 90, 0.16);
-  --card-shadow-hover: 0 14px 40px rgba(242, 83, 143, 0.35);
-  --glow: rgba(242, 83, 143, 0.35);
-  --success: #4f8a47;
-  --error: #c63b4a;
-  --field-error: #d64550;
+  --card-shadow-hover: 0 14px 40px rgba(255, 111, 155, 0.35);
+  --glow: rgba(255, 138, 171, 0.4);
+  --success: #5f8a53;
+  --error: #b3463a;
+  --field-error: #e05c4f;
 
   --blob-1: rgba(255, 150, 185, 0.45);
   --blob-2: rgba(169, 196, 143, 0.4);
@@ -46,28 +46,28 @@
   --sage: #a9c48f;
   --sage-deep: #7a9c63;
 
-  --dark: #1e3a1e;
-  --text-muted: #3f6b3f;
-  --border: #b6e6b6;
+  --dark: #16310c;
+  --text-muted: #3a6b27;
+  --border: #c8f0c8;
   --surface: #ffffff;
-  --surface-soft: #e9f8e9;
+  --surface-soft: #eaf8ea;
   --bg-grad-1: #90ee90;
-  --bg-grad-2: #c5f5c5;
+  --bg-grad-2: #d0f7d0;
 
   --card-shadow: 0 4px 20px rgba(80, 140, 80, 0.16);
   --card-shadow-hover: 0 14px 40px rgba(95, 191, 95, 0.35);
-  --glow: rgba(95, 191, 95, 0.35);
-  --success: #4f8a47;
+  --glow: rgba(95, 191, 95, 0.4);
+  --success: #2f7a3a;
   --error: #c63b4a;
   --field-error: #d64550;
 
   --blob-1: rgba(144, 238, 144, 0.5);
-  --blob-2: rgba(169, 196, 143, 0.5);
+  --blob-2: rgba(169, 196, 143, 0.45);
   --blob-3: rgba(95, 191, 95, 0.32);
   --section-strip: linear-gradient(
     135deg,
     rgba(144, 238, 144, 0.5),
-    rgba(197, 245, 197, 0.5)
+    rgba(208, 247, 208, 0.5)
   );
   color-scheme: light;
 }
@@ -246,6 +246,15 @@ a {
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 @keyframes bounceSlow {
   0%,
   100% {
@@ -291,7 +300,9 @@ a {
   height: 4px;
   margin: -1.5rem auto 3rem;
   border-radius: 4px;
-  background: linear-gradient(90deg, var(--rose), var(--sage));
+  background: linear-gradient(90deg, var(--rose), var(--sage), var(--rose));
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
 }
 
 /* ============================================================

@@ -62,7 +62,8 @@ onUnmounted(() => {
         v-for="(item, i) in galleryItems"
         :key="item.alt"
         class="gallery-item"
-        v-reveal="200"
+        :style="{ '--i': i }"
+        v-reveal="i * 120"
         :aria-label="`Open ${item.label} image`"
         @click="open(i)"
       >
@@ -130,6 +131,8 @@ onUnmounted(() => {
   background: var(--surface);
   padding: 0;
   font-family: inherit;
+  animation: cardGlow 5s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.4s);
 }
 
 .gallery-item:hover,
@@ -145,11 +148,13 @@ onUnmounted(() => {
   display: block;
   border-radius: 20px;
   transition: var(--transition);
+  animation: kenBurns 16s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 .gallery-item:hover .gallery-img {
-  transform: scale(1.1);
   filter: brightness(0.75);
+  animation-play-state: paused;
 }
 
 .gallery-overlay {
@@ -178,10 +183,7 @@ onUnmounted(() => {
   font-size: 1.8rem;
   transform: scale(1);
   transition: var(--transition);
-}
-
-.gallery-item:hover .gallery-zoom {
-  transform: scale(1.2) rotate(10deg);
+  animation: floatIcon 3s ease-in-out infinite;
 }
 
 .gallery-overlay h3 {
@@ -190,6 +192,41 @@ onUnmounted(() => {
   text-align: center;
   font-weight: 700;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.15) translate(-2%, 2%);
+  }
+}
+
+@keyframes cardGlow {
+  0%,
+  100% {
+    box-shadow: var(--card-shadow);
+  }
+  50% {
+    box-shadow: 0 10px 30px var(--glow);
+  }
+}
+
+@keyframes floatIcon {
+  0%,
+  100% {
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.15) translateY(-4px) rotate(0deg);
+  }
+}
+
+.gallery-item:hover .gallery-zoom,
+.gallery-item:focus-visible .gallery-zoom {
+  animation-play-state: paused;
+  transform: scale(1.2) rotate(10deg);
 }
 
 /* Lightbox */
