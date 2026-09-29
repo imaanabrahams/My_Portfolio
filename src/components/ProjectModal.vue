@@ -104,6 +104,9 @@ onBeforeUnmount(() => {
             >
               {{ link.label }} →
             </a>
+            <button type="button" class="modal-close-bottom" @click="closeProject">
+              Close
+            </button>
           </div>
         </div>
       </div>
@@ -117,7 +120,11 @@ onBeforeUnmount(() => {
   border-radius: 20px;
   width: min(720px, 100%);
   max-height: 88vh;
+  max-height: 88svh;
+  max-height: 88dvh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
   position: relative;
   animation: zoomIn 0.28s ease-out;
@@ -127,8 +134,8 @@ onBeforeUnmount(() => {
   position: absolute;
   top: 0.8rem;
   right: 0.8rem;
-  width: 40px;
-  height: 40px;
+  width: var(--tap);
+  height: var(--tap);
   border: none;
   border-radius: 50%;
   background: rgba(15, 10, 18, 0.55);
@@ -138,6 +145,7 @@ onBeforeUnmount(() => {
   cursor: pointer;
   z-index: 5;
   transition: var(--transition);
+  touch-action: manipulation;
 }
 
 .modal-close:hover {
@@ -174,7 +182,7 @@ onBeforeUnmount(() => {
 }
 
 .modal-icon {
-  font-size: 4rem;
+  font-size: clamp(3rem, 14vw, 4rem);
   padding: 2rem;
   background: linear-gradient(135deg, var(--pink), var(--sage));
   text-align: center;
@@ -185,7 +193,7 @@ onBeforeUnmount(() => {
 }
 
 .modal-head h3 {
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
   color: var(--dark);
   margin-bottom: 0.3rem;
 }
@@ -231,7 +239,8 @@ onBeforeUnmount(() => {
   border-radius: 10px;
   font-size: 0.9rem;
   margin-bottom: 1rem;
-  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .modal-demo-login code {
@@ -275,15 +284,80 @@ onBeforeUnmount(() => {
   transform: translateX(5px);
 }
 
-@media (max-width: 480px) {
+/* The header X is absolutely positioned inside the scrolling card, so it
+   rides up out of reach on a long modal. This stays pinned in the actions. */
+.modal-close-bottom {
+  display: none;
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  color: var(--dark);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  min-height: var(--tap);
+  padding: 0 1.5rem;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: var(--transition);
+}
+
+.modal-close-bottom:hover {
+  border-color: var(--rose);
+  color: var(--rose);
+}
+
+@media (max-width: 768px) {
+  .modal-card {
+    max-height: 92svh;
+    max-height: 92dvh;
+    border-radius: 16px;
+  }
+
   .modal-body {
-    padding: 1.25rem 1.25rem 1.5rem;
+    padding: 1.35rem 1.35rem 1.5rem;
+  }
+
+  .modal-features li {
+    padding-left: 1.2rem;
+  }
+
+  .modal-actions {
+    gap: 0.5rem;
   }
 
   .modal-actions .btn,
   .modal-actions .btn-secondary {
-    flex: 1;
-    padding: 10px 16px;
+    flex: 1 1 calc(50% - 0.25rem);
+    text-align: center;
+  }
+
+  .modal-close-bottom {
+    display: block;
+    flex: 1 1 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-body {
+    padding: 1.15rem 1.1rem 1.35rem;
+  }
+
+  .modal-features li {
+    font-size: 0.9rem;
+  }
+
+  .modal-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (hover: none) {
+  .modal-link:hover,
+  .modal-close:hover {
+    transform: none;
   }
 }
 </style>

@@ -20,8 +20,10 @@ A responsive single-page portfolio rebuilt with **Vue 3 + Vite**, showcasing my 
 - 🖼️ **Gallery lightbox** — click an image to enlarge it with prev/next navigation and keyboard support
 - 💌 **Contact form** — live per-field validation, sending state, success panel, and a pre-filled email fallback if online delivery fails
 - 📊 **Animated skill counters** — percentages count up as bars fill on scroll
+- 📱 **Mobile-first responsive layout** — fluid type scale via `clamp()`, overflow-safe grids, and breakpoints at 1024 / 768 / 480 / 360px
+- 🍔 **Mobile hamburger menu** — dismisses on link tap, outside tap, `Esc` or resize back to desktop; locks background scroll while open
+- 📲 **Touch-first interactions** — 44px minimum tap targets, `viewport-fit=cover` with safe-area insets, no hover-only affordances, `dvh/svh` viewports so mobile browser chrome can't clip content
 - 🧭 **Scroll progress bar** + floating back-to-top button
-- 📱 **Mobile hamburger menu** with animated toggle
 - ♿ **Accessibility** — `focus-visible` states, `aria` labels/roles, skip link, `prefers-reduced-motion` support
 
 ## Getting Started

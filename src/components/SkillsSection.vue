@@ -87,8 +87,9 @@ onUnmounted(() => {
 
 .skill-header p {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 3.6vw, 1.1rem);
   color: var(--dark);
+  padding-right: 0.75rem;
 }
 
 .skill-percent {
@@ -143,6 +144,10 @@ onUnmounted(() => {
 @media (max-width: 480px) {
   .skill {
     margin-bottom: 1.5rem;
+  }
+
+  .skill-header {
+    margin-bottom: 0.6rem;
   }
 }
 </style>

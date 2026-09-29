@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 import { useTheme } from '../composables/useTheme.js'
 
 const links = [
@@ -8,6 +8,8 @@ const links = [
   { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
 ]
+
+const MOBILE_QUERY = '(max-width: 768px)'
 
 const active = ref('hero')
 const scrolled = ref(false)
@@ -35,13 +37,46 @@ const scrollTo = (event, id) => {
   }
 }
 
+const onKey = (event) => {
+  if (event.key === 'Escape' && menuOpen.value) menuOpen.value = false
+}
+
+const onPointerDown = (event) => {
+  if (!menuOpen.value) return
+  if (!event.target.closest('.nav-container')) menuOpen.value = false
+}
+
+const onResize = () => {
+  if (menuOpen.value && !window.matchMedia(MOBILE_QUERY).matches) {
+    menuOpen.value = false
+  }
+}
+
+// Freeze the page behind the dropdown so a stray touch cannot scroll it away.
+let previousOverflow = ''
+watch(menuOpen, (open) => {
+  if (open) {
+    previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = previousOverflow
+  }
+})
+
 onMounted(() => {
   document.addEventListener('scroll', onScroll, { passive: true })
+  document.addEventListener('keydown', onKey)
+  document.addEventListener('pointerdown', onPointerDown)
+  window.addEventListener('resize', onResize)
   onScroll()
 })
 
 onUnmounted(() => {
   document.removeEventListener('scroll', onScroll)
+  document.removeEventListener('keydown', onKey)
+  document.removeEventListener('pointerdown', onPointerDown)
+  window.removeEventListener('resize', onResize)
+  document.body.style.overflow = previousOverflow
 })
 </script>
 
@@ -98,6 +133,7 @@ onUnmounted(() => {
   top: 0;
   background: linear-gradient(135deg, var(--rose), var(--rose-deep));
   padding: 0.85rem 0;
+  padding-top: calc(0.85rem + env(safe-area-inset-top, 0px));
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
   z-index: 1000;
   animation: slideIn 0.6s ease-out;
@@ -109,12 +145,16 @@ onUnmounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
   gap: 1rem;
+  padding: 0 calc(2rem + env(safe-area-inset-right, 0px)) 0
+    calc(2rem + env(safe-area-inset-left, 0px));
 }
 
 .nav-logo a {
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
 }
 
 .nav-logo h1 {
@@ -177,8 +217,8 @@ onUnmounted(() => {
 }
 
 .theme-toggle {
-  width: 42px;
-  height: 42px;
+  width: var(--tap);
+  height: var(--tap);
   border: none;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
@@ -188,6 +228,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   transition: var(--transition);
+  touch-action: manipulation;
 }
 
 .theme-toggle:hover {
@@ -219,18 +260,20 @@ onUnmounted(() => {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 42px;
-  height: 42px;
+  width: var(--tap);
+  height: var(--tap);
   border: none;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   cursor: pointer;
-  padding: 0 10px;
+  touch-action: manipulation;
 }
 
 .hamburger span {
   display: block;
+  width: 20px;
   height: 3px;
   border-radius: 3px;
   background: white;
@@ -249,9 +292,20 @@ onUnmounted(() => {
   transform: translateY(-8px) rotate(-45deg);
 }
 
+@media (max-width: 900px) {
+  .nav-menu {
+    gap: 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
+  }
+
+  .nav-container {
+    padding: 0 calc(1.1rem + env(safe-area-inset-right, 0px)) 0
+      calc(1.1rem + env(safe-area-inset-left, 0px));
   }
 
   .nav-menu {
@@ -264,13 +318,15 @@ onUnmounted(() => {
     background: linear-gradient(135deg, var(--rose), var(--rose-deep));
     padding: 0;
     max-height: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     transition: max-height 0.35s ease;
     border-radius: 0 0 16px 16px;
   }
 
   .nav-menu.open {
-    max-height: 320px;
+    max-height: 60vh;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
   }
 
@@ -278,24 +334,46 @@ onUnmounted(() => {
     text-align: center;
   }
 
+  .nav-menu li:first-child .nav-link {
+    border-top: none;
+  }
+
   .nav-link {
-    display: block;
-    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    min-height: var(--tap);
     border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link:hover {
+    transform: none;
   }
 
   .nav-link.active {
     border-bottom: none;
+    background: rgba(255, 255, 255, 0.18);
+    font-weight: 700;
   }
 }
 
 @media (max-width: 480px) {
   .nav-container {
-    padding: 0 1rem;
+    padding: 0 calc(0.85rem + env(safe-area-inset-right, 0px)) 0
+      calc(0.85rem + env(safe-area-inset-left, 0px));
   }
 
   .nav-logo h1 {
     font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+
+  .navbar {
+    padding: 0.6rem 0;
   }
 }
 </style>

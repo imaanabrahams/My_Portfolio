@@ -19,7 +19,8 @@ onMounted(() => {
 
 <style scoped>
 .loader {
-  height: 100vh;
+  min-height: 100vh;
+  min-height: var(--vh);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,17 +50,13 @@ onMounted(() => {
 
 .loader h1 {
   color: var(--dark);
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 6vw, 2rem);
+  text-align: center;
+  padding: 0 1.25rem;
   animation: bounce 2s infinite;
 }
 
 @media (max-width: 480px) {
-  .loader h1 {
-    font-size: 1.4rem;
-    padding: 0 1rem;
-    text-align: center;
-  }
-
   .heart {
     width: 80px;
     height: 80px;

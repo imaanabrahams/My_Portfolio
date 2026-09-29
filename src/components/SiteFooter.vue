@@ -20,6 +20,9 @@ const year = new Date().getFullYear()
   color: white;
   text-align: center;
   padding: 2rem;
+  padding-right: calc(2rem + env(safe-area-inset-right, 0px));
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+  padding-left: calc(2rem + env(safe-area-inset-left, 0px));
   font-weight: 600;
   box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
   margin-top: auto;
@@ -49,7 +52,10 @@ const year = new Date().getFullYear()
   text-decoration: none;
   opacity: 0.9;
   transition: var(--transition);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  touch-action: manipulation;
 }
 
 .footer-links a:hover {
@@ -71,6 +77,18 @@ const year = new Date().getFullYear()
 @media (max-width: 480px) {
   .footer {
     font-size: 0.9rem;
+    padding: 1.5rem 1rem;
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .footer-links {
+    gap: 0.5rem 1.25rem;
+  }
+}
+
+@media (hover: none) {
+  .footer-links a:hover {
+    transform: none;
   }
 }
 </style>

@@ -239,6 +239,7 @@ const resetForm = () => {
   padding: 2.5rem;
   border-radius: 15px;
   box-shadow: var(--card-shadow);
+  min-width: 0;
 }
 
 .form-group {
@@ -260,10 +261,13 @@ const resetForm = () => {
   border: 2px solid var(--border);
   border-radius: 8px;
   font-family: "Times New Roman", Times, serif;
-  font-size: 1rem;
+  /* 16px floor: anything smaller makes iOS Safari zoom on focus. */
+  font-size: max(1rem, 16px);
   color: var(--dark);
   background: var(--surface-soft);
   transition: var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .form-group input:focus,
@@ -341,6 +345,7 @@ const resetForm = () => {
   padding: 2.5rem;
   border-radius: 15px;
   box-shadow: var(--card-shadow);
+  min-width: 0;
 }
 
 .contact-info h3 {
@@ -415,10 +420,13 @@ const resetForm = () => {
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.3rem 0.7rem;
+  min-height: var(--tap);
+  min-width: var(--tap);
   border-radius: 20px;
   cursor: pointer;
   flex-shrink: 0;
   transition: var(--transition);
+  touch-action: manipulation;
 }
 
 .quick-copy:hover {
@@ -447,12 +455,41 @@ const resetForm = () => {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
+  .contact-form,
+  .contact-info {
+    padding: 1.75rem;
+  }
 }
 
 @media (max-width: 480px) {
   .contact-form,
   .contact-info {
-    padding: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .contact-item {
+    gap: 0.75rem;
+    padding: 0.85rem 0;
+  }
+
+  .contact-item:hover {
+    padding-left: 0;
+  }
+
+  .contact-arrow {
+    display: none;
+  }
+
+  .form-hint {
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (hover: none) {
+  .contact-item:hover {
+    padding-left: 0;
   }
 }
 </style>

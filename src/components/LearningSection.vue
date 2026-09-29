@@ -12,7 +12,7 @@ const statusLabels = {
 </script>
 
 <template>
-  <section class="learning-section">
+  <section class="learning-section section">
     <h2 class="section-title">Learning Projects &amp; Exercises</h2>
     <div class="section-title-underline"></div>
 
@@ -71,12 +71,15 @@ const statusLabels = {
 
 .learning-table {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 table {
   width: 100%;
+  min-width: 260px;
   border-collapse: collapse;
   background: var(--surface);
   overflow: hidden;
@@ -136,7 +139,7 @@ table tbody tr:hover {
   max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -150,19 +153,35 @@ table tbody tr:hover {
 }
 
 @media (max-width: 768px) {
+  .learning-grid {
+    gap: 1.5rem;
+  }
+
+  .learning-status {
+    margin-bottom: 3rem;
+  }
+
   table {
     font-size: 0.9rem;
   }
 
-  table th,
-  table td {
+  table th {
     padding: 0.8rem;
+  }
+
+  table td {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .status {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .learning-grid {
-    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }
 </style>

@@ -54,7 +54,7 @@
   max-width: 1000px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -75,7 +75,7 @@
 .about-card h3 {
   color: var(--rose);
   margin-bottom: 1rem;
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 4.4vw, 1.4rem);
 }
 
 .about-card p {
@@ -149,6 +149,32 @@
 @media (max-width: 768px) {
   .about-content {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-card {
+    padding: 1.25rem;
+  }
+
+  .interests-list li {
+    padding: 0.65rem 0;
+  }
+}
+
+@media (hover: none) {
+  .about-card:hover {
+    transform: none;
+  }
+
+  .interests-list li:hover {
+    color: var(--dark);
+    padding-left: 0;
   }
 }
 </style>

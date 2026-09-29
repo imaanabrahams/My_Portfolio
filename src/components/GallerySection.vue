@@ -115,7 +115,7 @@ onUnmounted(() => {
   max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -247,6 +247,8 @@ onUnmounted(() => {
 
 .lightbox-content img {
   max-height: 78vh;
+  max-height: 78svh;
+  max-height: 78dvh;
   max-width: 100%;
   border-radius: 14px;
   object-fit: contain;
@@ -313,12 +315,12 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
     gap: 1rem;
   }
 
   .gallery-item {
-    height: 200px;
+    height: 190px;
   }
 
   .gallery-overlay {
@@ -326,23 +328,86 @@ onUnmounted(() => {
     background: linear-gradient(135deg, rgba(255, 139, 171, 0.55), rgba(200, 213, 185, 0.55));
   }
 
+  .gallery-overlay h3 {
+    font-size: 1.05rem;
+    padding: 0 0.5rem;
+  }
+
   .gallery-zoom {
     display: none;
   }
 
+  /* Stack the lightbox: image takes the full width, arrows float over the
+     edges instead of stealing a column from an already narrow viewport. */
   .lightbox {
-    gap: 0.4rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 3.5rem 0.75rem 1rem;
+    padding-right: calc(0.75rem + env(safe-area-inset-right, 0px));
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    padding-left: calc(0.75rem + env(safe-area-inset-left, 0px));
+  }
+
+  .lightbox-content {
+    width: 100%;
+  }
+
+  .lightbox-content img {
+    max-height: 62vh;
+    max-height: 62svh;
+    max-height: 62dvh;
+    max-width: 100%;
+  }
+
+  .lightbox-content figcaption {
+    margin-top: 0.75rem;
+  }
+
+  .lightbox-content h3 {
+    font-size: 1.05rem;
+    text-align: center;
   }
 
   .lightbox-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1.6rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--tap);
+    height: var(--tap);
+    font-size: 1.7rem;
+    background: rgba(15, 10, 18, 0.45);
+  }
+
+  .lightbox-nav.prev {
+    left: 0.6rem;
+  }
+
+  .lightbox-nav.next {
+    right: 0.6rem;
   }
 
   .lightbox-close {
-    width: 40px;
-    height: 40px;
+    width: var(--tap);
+    height: var(--tap);
+    top: 0.6rem;
+    right: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-item {
+    height: 160px;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 0.95rem;
+  }
+}
+
+@media (hover: none) {
+  .gallery-item:hover,
+  .gallery-item:focus-visible {
+    transform: none;
   }
 }
 </style>

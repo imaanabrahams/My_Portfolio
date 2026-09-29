@@ -74,7 +74,7 @@ import { timelineItems } from '../data/content.js'
 .timeline-item h3 {
   color: var(--rose);
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4.6vw, 1.5rem);
   transition: var(--transition);
 }
 
@@ -138,18 +138,47 @@ import { timelineItems } from '../data/content.js'
 }
 
 @media (max-width: 768px) {
+  .timeline {
+    padding: 0.5rem 0;
+  }
+
   .timeline::before {
     display: none;
   }
 
+  .timeline-item,
   .timeline-item:nth-child(odd),
   .timeline-item:nth-child(even) {
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
   }
 
   .timeline-dot {
     display: none;
+  }
+
+  .timeline-item:hover {
+    transform: none;
+  }
+
+  .timeline-item:hover h3 {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    padding: 1.25rem;
+  }
+
+  .timeline-index {
+    font-size: 1.5rem;
+    top: 1rem;
+    right: 1rem;
   }
 }
 </style>

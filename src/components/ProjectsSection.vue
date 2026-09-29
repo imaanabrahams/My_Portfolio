@@ -29,7 +29,7 @@ import { featuredProjects } from '../data/projects.js'
   max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -42,9 +42,9 @@ import { featuredProjects } from '../data/projects.js'
   flex: 1;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .project-grid {
-    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 </style>

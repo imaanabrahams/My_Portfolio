@@ -183,7 +183,7 @@ const onKey = (event) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4.2rem;
+  font-size: clamp(2.8rem, 12vw, 4.2rem);
   border-radius: 20px 20px 0 0;
   background: linear-gradient(135deg, var(--pink), var(--sage));
 }
@@ -193,12 +193,13 @@ const onKey = (event) => {
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-width: 0;
 }
 
 .card-body h3 {
   color: var(--dark);
   margin-bottom: 0.4rem;
-  font-size: 1.5rem;
+  font-size: clamp(1.15rem, 4.2vw, 1.5rem);
 }
 
 .card-tagline {
@@ -258,18 +259,14 @@ const onKey = (event) => {
   font-size: 0.95rem;
   cursor: pointer;
   padding: 0.4rem 0.2rem;
+  min-height: var(--tap);
   transition: var(--transition);
+  touch-action: manipulation;
 }
 
 .card-details:hover {
   color: var(--dark);
   transform: translateX(5px);
-}
-
-@media (max-width: 480px) {
-.project-card:hover .card-icon,
-.project-card:focus-visible .card-icon {
-  animation: iconBounce 0.6s ease;
 }
 
 @keyframes iconBounce {
@@ -285,14 +282,65 @@ const onKey = (event) => {
   }
 }
 
-.card-body {
+@media (max-width: 768px) {
+  .card-body {
     padding: 1.25rem 1.25rem 1.5rem;
   }
 
   .card-actions .btn,
   .card-actions .btn-secondary {
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 0;
     padding: 10px 16px;
   }
+}
+
+@media (max-width: 480px) {
+  .card-tech {
+    gap: 0.4rem;
+  }
+
+  .tech-chip {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .card-actions {
+    gap: 0.5rem;
+  }
+
+  .card-actions .btn,
+  .card-actions .btn-secondary {
+    flex: 1 1 calc(50% - 0.25rem);
+    text-align: center;
+  }
+
+  .card-details {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* No hover on touch, so drive the icon bounce from the tap instead and pin
+   the "View Details" pill open rather than leaving it invisible. */
+@media (hover: none) {
+  .project-card:hover,
+  .project-card:focus-visible {
+    transform: none;
+  }
+
+  .card-open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-details:hover {
+    color: var(--rose);
+    transform: none;
+  }
+}
+
+.project-card:active .card-icon {
+  animation: iconBounce 0.6s ease;
 }
 </style>
