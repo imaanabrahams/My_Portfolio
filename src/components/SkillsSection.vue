@@ -143,7 +143,7 @@ onUnmounted(() => {
 
 @media (max-width: 480px) {
   .skill {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .skill-header {

@@ -368,7 +368,7 @@ onUnmounted(() => {
   }
 
   .nav-logo h1 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     letter-spacing: 1px;
   }
 

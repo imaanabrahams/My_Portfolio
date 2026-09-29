@@ -154,7 +154,8 @@ table tbody tr:hover {
 
 @media (max-width: 768px) {
   .learning-grid {
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 
   .learning-status {
@@ -181,7 +182,7 @@ table tbody tr:hover {
 
 @media (max-width: 480px) {
   .learning-grid {
-    gap: 1.25rem;
+    gap: 1rem;
   }
 }
 </style>

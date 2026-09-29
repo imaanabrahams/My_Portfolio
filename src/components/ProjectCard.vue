@@ -321,6 +321,27 @@ const onKey = (event) => {
   }
 }
 
+/* Two-up cards on phones get very narrow, so the action buttons stack
+   full-width instead of squeezing side-by-side — matches the desktop card
+   hierarchy scaled down. */
+@media (max-width: 560px) {
+  .card-body {
+    padding: 1rem 1rem 1.25rem;
+  }
+
+  .card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card-actions .btn,
+  .card-actions .btn-secondary,
+  .card-details {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+}
+
 /* No hover on touch, so drive the icon bounce from the tap instead and pin
    the "View Details" pill open rather than leaving it invisible. */
 @media (hover: none) {

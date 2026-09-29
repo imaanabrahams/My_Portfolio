@@ -148,8 +148,8 @@
 
 @media (max-width: 768px) {
   .about-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 
   .about-card {
@@ -157,11 +157,18 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .about-card {
     padding: 1.25rem;
   }
 
+  .about-card p {
+    line-height: 1.65;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
   .interests-list li {
     padding: 0.65rem 0;
   }

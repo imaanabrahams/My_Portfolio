@@ -452,8 +452,8 @@ const resetForm = () => {
 
 @media (max-width: 768px) {
   .contact-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
   .contact-form,
@@ -462,7 +462,27 @@ const resetForm = () => {
   }
 }
 
+@media (max-width: 560px) {
+  .contact-container {
+    gap: 1.25rem;
+  }
+
+  .contact-form,
+  .contact-info {
+    padding: 1.35rem;
+  }
+
+  .contact-item {
+    gap: 0.75rem;
+  }
+}
+
 @media (max-width: 480px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
   .contact-form,
   .contact-info {
     padding: 1.25rem;

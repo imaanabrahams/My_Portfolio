@@ -493,47 +493,53 @@ h4 {
 @media (max-width: 768px) {
   :root {
     --nav-height: 64px;
-    --gutter: 1.4rem;
-    --section-pad: 3.75rem;
+    --gutter: 1.75rem;
+    --section-pad: 4.5rem;
   }
 
   .section-title {
-    font-size: 2rem;
-    margin-bottom: 2.4rem;
+    font-size: 2.25rem;
+    margin-bottom: 2.5rem;
   }
 
   .section-title-underline {
-    margin: -1.1rem auto 2.4rem;
+    margin: -1.3rem auto 2.5rem;
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --gutter: 1rem;
-    --section-pad: 3rem;
+    --gutter: 1.3rem;
+    --section-pad: 3.75rem;
   }
 
   .section-title {
-    font-size: 1.6rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
   }
 
   .section-title-underline {
-    margin: -0.9rem auto 2rem;
+    margin: -1.1rem auto 2rem;
   }
 
   .btn,
   .btn-secondary {
-    padding: 12px 20px;
+    padding: 12px 22px;
   }
 }
 
 @media (max-width: 360px) {
   :root {
-    --gutter: 0.85rem;
+    --gutter: 1rem;
   }
 
   .section-title {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .section-title-underline {
+    margin: -0.9rem auto 1.75rem;
   }
 }
 

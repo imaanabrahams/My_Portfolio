@@ -182,14 +182,14 @@ onUnmounted(() => {
 }
 
 .hero-greeting {
-  font-size: clamp(1.05rem, 3.8vw, 1.3rem);
+  font-size: clamp(1.15rem, 3.8vw, 1.3rem);
   color: var(--text-muted);
   margin-bottom: 0.4rem;
   letter-spacing: 1px;
 }
 
 .hero-content h2 {
-  font-size: clamp(2.1rem, 8.5vw, 4.2rem);
+  font-size: clamp(2.4rem, 8.5vw, 4.2rem);
   margin-bottom: 1rem;
   letter-spacing: -1px;
   white-space: normal;
@@ -203,7 +203,7 @@ onUnmounted(() => {
 }
 
 .typing {
-  font-size: clamp(1.15rem, 4.6vw, 1.9rem);
+  font-size: clamp(1.3rem, 4.6vw, 1.9rem);
   color: var(--rose);
   min-height: 56px;
   font-weight: 600;
@@ -220,7 +220,7 @@ onUnmounted(() => {
 }
 
 .hero-sub {
-  font-size: clamp(1rem, 3.4vw, 1.15rem);
+  font-size: clamp(1.05rem, 3.4vw, 1.15rem);
   color: var(--text-muted);
   margin: 1.5rem auto 2.5rem;
   max-width: 560px;
@@ -283,9 +283,9 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .hero {
-    padding: 3.5rem 1.4rem 3rem;
-    padding-right: calc(1.4rem + env(safe-area-inset-right, 0px));
-    padding-left: calc(1.4rem + env(safe-area-inset-left, 0px));
+    padding: 4.5rem 2rem 3.5rem;
+    padding-right: calc(2rem + env(safe-area-inset-right, 0px));
+    padding-left: calc(2rem + env(safe-area-inset-left, 0px));
   }
 
   .typing {
@@ -326,32 +326,26 @@ onUnmounted(() => {
 
 @media (max-width: 480px) {
   .hero {
-    padding: 3rem 1rem 2.5rem;
-    padding-right: calc(1rem + env(safe-area-inset-right, 0px));
-    padding-left: calc(1rem + env(safe-area-inset-left, 0px));
+    padding: 4rem 1.5rem 3rem;
+    padding-right: calc(1.5rem + env(safe-area-inset-right, 0px));
+    padding-left: calc(1.5rem + env(safe-area-inset-left, 0px));
   }
 
   .hero-stats {
-    gap: 1.25rem;
+    gap: 1.75rem 1.5rem;
   }
 
   .stat-number {
-    font-size: 1.6rem;
+    font-size: 1.75rem;
   }
 
   .stat-label {
-    font-size: 0.8rem;
-    max-width: 7rem;
+    font-size: 0.85rem;
+    max-width: 8rem;
   }
 
   .hero-buttons {
-    gap: 0.75rem;
-  }
-
-  .hero-buttons .btn,
-  .hero-buttons .btn-secondary,
-  .hero-buttons .btn-ghost {
-    width: 100%;
+    gap: 1rem;
   }
 }
 

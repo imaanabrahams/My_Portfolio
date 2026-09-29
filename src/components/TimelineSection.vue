@@ -139,24 +139,28 @@ import { timelineItems } from '../data/content.js'
 
 @media (max-width: 768px) {
   .timeline {
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 0;
   }
 
+  /* Swap the desktop centre-spine zigzag for a left rail so the mobile
+     timeline keeps the same visual language as the desktop one. */
   .timeline::before {
-    display: none;
+    left: 19px;
+    transform: translateX(-50%);
   }
 
   .timeline-item,
   .timeline-item:nth-child(odd),
   .timeline-item:nth-child(even) {
-    margin-left: 0;
+    margin-left: 2.75rem;
     margin-right: 0;
     margin-bottom: 1.5rem;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 1.5rem 1.75rem;
   }
 
   .timeline-dot {
-    display: none;
+    left: 19px;
+    top: 22px;
   }
 
   .timeline-item:hover {
@@ -172,7 +176,8 @@ import { timelineItems } from '../data/content.js'
   .timeline-item,
   .timeline-item:nth-child(odd),
   .timeline-item:nth-child(even) {
-    padding: 1.25rem;
+    padding: 1.25rem 1.25rem 1.25rem 1.6rem;
+    margin-left: 2.5rem;
   }
 
   .timeline-index {
