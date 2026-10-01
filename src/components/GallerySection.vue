@@ -290,6 +290,7 @@ onUnmounted(() => {
 
 .lightbox-nav:hover {
   background: var(--rose);
+  color: var(--on-accent);
 }
 
 .lightbox-close {
@@ -310,6 +311,7 @@ onUnmounted(() => {
 
 .lightbox-close:hover {
   background: var(--rose);
+  color: var(--on-accent);
   transform: rotate(90deg);
 }
 

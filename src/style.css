@@ -13,6 +13,7 @@
 
   --dark: #4b1e35;
   --text-muted: #7a4a60;
+  --on-accent: #4a2338;
   --on-sage: #f4f8ee;
   --border: #efb7c1;
   --surface: #ffffff;
@@ -74,6 +75,7 @@
 
   --dark: #fdeef4;
   --text-muted: #d9b3c4;
+  --on-accent: #4a2338;
   --on-sage: #263b21;
   --border: #6d3d58;
   --surface: #351c2a;
@@ -151,7 +153,7 @@ h4 {
 
 ::selection {
   background: var(--rose);
-  color: #fff;
+  color: var(--on-accent);
 }
 
 :focus-visible {
@@ -375,7 +377,7 @@ h4 {
 
 .btn {
   background: var(--rose);
-  color: white;
+  color: var(--on-accent);
   border: none;
   box-shadow: 0 4px 15px var(--glow);
   text-align: center;
@@ -422,7 +424,7 @@ h4 {
   border: none;
   border-radius: 50%;
   background: var(--rose);
-  color: white;
+  color: var(--on-accent);
   font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 6px 18px var(--glow);
@@ -473,7 +475,7 @@ h4 {
   top: 0;
   z-index: 3000;
   background: var(--rose);
-  color: white;
+  color: var(--on-accent);
   padding: 0.6rem 1rem;
   border-radius: 0 0 8px 0;
   font-weight: 700;

@@ -94,7 +94,7 @@ onUnmounted(() => {
 
 .skill-percent {
   background: var(--rose);
-  color: white;
+  color: var(--on-accent);
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-size: 0.9rem;

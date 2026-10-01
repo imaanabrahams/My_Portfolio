@@ -162,7 +162,7 @@ onUnmounted(() => {
 }
 
 .nav-logo h1 {
-  color: white;
+  color: var(--on-accent);
   font-size: 1.8rem;
   letter-spacing: 2px;
   font-weight: 700;
@@ -180,7 +180,7 @@ onUnmounted(() => {
 }
 
 .nav-link {
-  color: white;
+  color: var(--on-accent);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -196,7 +196,7 @@ onUnmounted(() => {
   left: 0;
   width: 0;
   height: 2px;
-  background: white;
+  background: var(--on-accent);
   transition: width 0.3s ease;
 }
 
@@ -209,8 +209,8 @@ onUnmounted(() => {
 }
 
 .nav-link.active {
-  color: white;
-  border-bottom: 3px solid white;
+  color: var(--on-accent);
+  border-bottom: 3px solid var(--on-accent);
   padding-bottom: 5px;
 }
 
@@ -280,7 +280,7 @@ onUnmounted(() => {
   width: 20px;
   height: 3px;
   border-radius: 3px;
-  background: white;
+  background: var(--on-accent);
   transition: var(--transition);
 }
 

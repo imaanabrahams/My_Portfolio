@@ -87,7 +87,7 @@ table {
 
 table thead {
   background: linear-gradient(135deg, var(--rose), var(--rose-deep));
-  color: white;
+  color: var(--on-accent);
 }
 
 table th {
@@ -122,7 +122,7 @@ table tbody tr:hover {
 
 .status.completed {
   background: #57a773;
-  color: white;
+  color: var(--on-accent);
 }
 
 .status.learning {
@@ -131,8 +131,8 @@ table tbody tr:hover {
 }
 
 .status.exploring {
-  background: #e07a5f;
-  color: white;
+  background: #e88a6f;
+  color: var(--on-accent);
 }
 
 .learning-grid {

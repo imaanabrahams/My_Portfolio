@@ -436,7 +436,7 @@ const resetForm = () => {
 
 .quick-copy.copied {
   background: var(--sage);
-  color: white;
+  color: var(--on-accent);
   border-color: var(--sage);
 }
 

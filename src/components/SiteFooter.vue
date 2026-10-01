@@ -17,7 +17,7 @@ const year = new Date().getFullYear()
 .footer {
   background: linear-gradient(135deg, var(--rose), var(--sage), var(--rose-deep), var(--rose));
   background-size: 300% 300%;
-  color: white;
+  color: var(--on-accent);
   text-align: center;
   padding: 2rem;
   padding-right: calc(2rem + env(safe-area-inset-right, 0px));
@@ -48,7 +48,7 @@ const year = new Date().getFullYear()
 }
 
 .footer-links a {
-  color: white;
+  color: var(--on-accent);
   text-decoration: none;
   opacity: 0.9;
   transition: var(--transition);

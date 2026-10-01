@@ -150,6 +150,7 @@ onBeforeUnmount(() => {
 
 .modal-close:hover {
   background: var(--rose);
+  color: var(--on-accent);
   transform: rotate(90deg);
 }
 
@@ -171,7 +172,7 @@ onBeforeUnmount(() => {
   top: 1rem;
   left: 1rem;
   background: var(--rose);
-  color: white;
+  color: var(--on-accent);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
