@@ -12,7 +12,7 @@
   --mint: #a8e6cf;
 
   --dark: #4b1e35;
-  --text-muted: #7a4a60;
+  --text-muted: #6b3a4f;
   --on-accent: #4a2338;
   --on-sage: #f4f8ee;
   --border: #efb7c1;
@@ -64,41 +64,42 @@
   }
 }
 
-/* Dark rose theme: a deep pink background with light pink text, keeping the
-   rose/sage accents so the palette still reads as the same site. */
+/* Dark rose theme: a saturated rose page (#e75480) with deep ink text. The
+   page is mid-tone, not black, so the ink is dark and the cards are the
+   lighter pinks -- keeping every text/background pair at AA or better. */
 [data-theme="dark"] {
   --pink: #ffd9e2;
   --rose: #ff8fab;
   --rose-deep: #ff6f9b;
   --sage: #a9c48f;
-  --sage-deep: #c3dcae;
+  --sage-deep: #151c07;
 
-  --dark: #ffeef5;
-  --text-muted: #e8bdd0;
+  --dark: #2b0f1c;
+  --text-muted: #3a1128;
   --on-accent: #4a2338;
-  --on-sage: #263b21;
-  --border: #8a3a5c;
-  --surface: #5a2140;
-  --surface-soft: #6b2949;
-  --bg-grad-1: #4a1b36;
-  --bg-grad-2: #38102a;
+  --on-sage: #f2f8ec;
+  --border: #8f1f47;
+  --surface: #ffb6c1;
+  --surface-soft: #ffc9d6;
+  --bg-grad-1: #e75480;
+  --bg-grad-2: #f28cb0;
 
-  --card-shadow: 0 4px 20px rgba(60, 12, 36, 0.5);
-  --card-shadow-hover: 0 14px 40px rgba(255, 111, 155, 0.4);
-  --glow: rgba(255, 138, 171, 0.45);
-  --success: #8fd6a4;
-  --error: #ff9d92;
-  --field-error: #ff9d92;
+  --card-shadow: 0 4px 20px rgba(90, 20, 45, 0.32);
+  --card-shadow-hover: 0 14px 40px rgba(90, 20, 45, 0.45);
+  --glow: rgba(255, 111, 155, 0.5);
+  --success: #17492a;
+  --error: #5c1010;
+  --field-error: #5c1010;
 
-  --blob-1: rgba(255, 150, 185, 0.26);
-  --blob-2: rgba(169, 196, 143, 0.16);
-  --blob-3: rgba(255, 120, 160, 0.22);
+  --blob-1: rgba(255, 182, 193, 0.4);
+  --blob-2: rgba(169, 196, 143, 0.28);
+  --blob-3: rgba(255, 255, 255, 0.22);
   --section-strip: linear-gradient(
     135deg,
-    rgba(122, 42, 82, 0.55),
-    rgba(56, 30, 46, 0.5)
+    rgba(255, 182, 193, 0.45),
+    rgba(242, 140, 176, 0.4)
   );
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * {
