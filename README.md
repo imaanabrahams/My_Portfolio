@@ -10,11 +10,11 @@ A responsive single-page portfolio rebuilt with **Vue 3 + Vite**, showcasing my 
 
 - **Vue 3** (`<script setup>` SFCs) + **Vite 6**
 - Vanilla JavaScript (no router needed — single-page scroll sections)
-- Scoped CSS with the original brand palette (rose / sage / pink)
+- Scoped CSS driven by CSS custom properties (rose / sage / pink)
 
 ## Features
 
-- 🌓 **Dark / light theme** — persists in `localStorage`, respects system preference
+- 🌓 **Dark / light theme** — persists in `localStorage`, respects system preference, applied pre-paint to avoid a flash of the wrong theme. Light mode is a baby-pink pastel; dark mode is a deep plum background with light pink text, both sharing the same rose/sage accents. The toggle shows the mode you're currently in
 - ✨ **Scroll-reveal animations** — IntersectionObserver-driven `v-reveal` directive with staggered cards
 - 🔍 **Project modals** — click any project card for full details, features, tech and links (ESC / overlay to close)
 - 🖼️ **Gallery lightbox** — click an image to enlarge it with prev/next navigation and keyboard support
@@ -24,7 +24,7 @@ A responsive single-page portfolio rebuilt with **Vue 3 + Vite**, showcasing my 
 - 🍔 **Mobile hamburger menu** — dismisses on link tap, outside tap, `Esc` or resize back to desktop; locks background scroll while open
 - 📲 **Touch-first interactions** — 44px minimum tap targets, `viewport-fit=cover` with safe-area insets, no hover-only affordances, `dvh/svh` viewports so mobile browser chrome can't clip content
 - 🧭 **Scroll progress bar** + floating back-to-top button
-- ♿ **Accessibility** — `focus-visible` states, `aria` labels/roles, skip link, `prefers-reduced-motion` support
+- ♿ **Accessibility** — `focus-visible` states, `aria` labels/roles, skip link, `prefers-reduced-motion` support, and WCAG AA contrast (4.5:1) on body text, muted text, surfaces and buttons in **both** themes. Accent-filled controls use an `--on-accent` token instead of white, which only reached 2.15:1 on the rose background
 
 ## Getting Started
 
@@ -42,10 +42,11 @@ src/
 ├── main.js                  # Vue bootstrap (registers v-reveal directive)
 ├── App.vue                  # Section assembly + loader, progress bar, back-to-top
 ├── style.css                # Theme tokens, animations, reveal + shared styles
+│                              # (light + dark palettes as CSS custom properties)
 ├── directives/
 │   └── reveal.js            # IntersectionObserver scroll-reveal directive
 ├── composables/
-│   ├── useTheme.js          # Dark/light theme + localStorage persistence
+│   ├── useTheme.js          # Dark/light theme + localStorage + theme-color meta
 │   └── useProject.js        # Shared project-modal state
 ├── data/
 │   ├── content.js           # Timeline, skills, gallery, learning status
@@ -57,7 +58,7 @@ src/
     ├── TimelineSection.vue  # My Journey timeline
     ├── GallerySection.vue   # Interest gallery + lightbox
     ├── SkillsSection.vue    # Animated skill bars + counters
-    ├── ProjectsSection.vue  # Completed (featured) projects
+    ├── ProjectsSection.vue  # Completed (featured) projects grid
     ├── ProjectCard.vue      # Reusable card (click to open modal)
     ├── ProjectModal.vue     # Teleport modal with project details
     ├── LearningSection.vue  # Learning journey + exercise projects
