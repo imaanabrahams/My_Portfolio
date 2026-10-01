@@ -179,6 +179,15 @@ onUnmounted(() => {
   width: 100%;
   position: relative;
   z-index: 1;
+  /* Frosted panel: the pink page is too light for saturated text to hit AA
+     on its own, so the copy sits on a near-white surface instead. */
+  padding: 2.5rem 2rem;
+  border-radius: 28px;
+  background: var(--hero-panel);
+  border: 1px solid var(--hero-panel-border);
+  box-shadow: 0 18px 50px rgba(43, 15, 28, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .hero-greeting {
@@ -195,15 +204,13 @@ onUnmounted(() => {
   white-space: normal;
 }
 
-/* The name was a rose->sage gradient, which lands at ~1.2:1 on the pink
-   page. Deep ink gradient plus a light halo keeps it legible while still
-   reading as a gradient. */
+/* Vivid crimson -> violet gradient; reads as colour while staying AA
+   on the frosted panel behind it. */
 .name {
-  background: linear-gradient(135deg, var(--hero-deep), var(--hero-accent));
+  background: linear-gradient(120deg, var(--hero-accent), var(--hero-deep));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 10px var(--hero-halo));
 }
 
 .typing {
@@ -211,7 +218,7 @@ onUnmounted(() => {
   color: var(--hero-accent);
   min-height: 56px;
   font-weight: 700;
-  text-shadow: 0 2px 12px var(--hero-halo);
+  letter-spacing: 0.5px;
 }
 
 .typed-text::selection {
@@ -219,7 +226,7 @@ onUnmounted(() => {
 }
 
 .typewriter-cursor {
-  color: var(--hero-accent);
+  color: var(--hero-deep);
   animation: blink 1s step-start infinite;
   font-weight: 400;
 }
@@ -247,15 +254,18 @@ onUnmounted(() => {
 
 .stat-number {
   font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--hero-accent);
-  text-shadow: 0 2px 12px var(--hero-halo);
+  font-weight: 800;
+  background: linear-gradient(140deg, var(--hero-accent), var(--hero-deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .stat-label {
   font-size: 0.9rem;
   color: var(--text-muted);
   margin-top: 0.2rem;
+  font-weight: 600;
 }
 
 .hero-buttons {
@@ -292,6 +302,11 @@ onUnmounted(() => {
     padding: 4.5rem 2rem 3.5rem;
     padding-right: calc(2rem + env(safe-area-inset-right, 0px));
     padding-left: calc(2rem + env(safe-area-inset-left, 0px));
+  }
+
+  .hero-content {
+    padding: 2rem 1.5rem;
+    border-radius: 22px;
   }
 
   .typing {
@@ -335,6 +350,11 @@ onUnmounted(() => {
     padding: 4rem 1.5rem 3rem;
     padding-right: calc(1.5rem + env(safe-area-inset-right, 0px));
     padding-left: calc(1.5rem + env(safe-area-inset-left, 0px));
+  }
+
+  .hero-content {
+    padding: 1.75rem 1.15rem;
+    border-radius: 18px;
   }
 
   .hero-stats {
