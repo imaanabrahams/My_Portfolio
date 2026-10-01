@@ -195,18 +195,23 @@ onUnmounted(() => {
   white-space: normal;
 }
 
+/* The name was a rose->sage gradient, which lands at ~1.2:1 on the pink
+   page. Deep ink gradient plus a light halo keeps it legible while still
+   reading as a gradient. */
 .name {
-  background: linear-gradient(135deg, var(--rose), var(--sage));
+  background: linear-gradient(135deg, var(--hero-deep), var(--hero-accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 2px 10px var(--hero-halo));
 }
 
 .typing {
   font-size: clamp(1.3rem, 4.6vw, 1.9rem);
-  color: var(--rose);
+  color: var(--hero-accent);
   min-height: 56px;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0 2px 12px var(--hero-halo);
 }
 
 .typed-text::selection {
@@ -214,7 +219,7 @@ onUnmounted(() => {
 }
 
 .typewriter-cursor {
-  color: var(--rose);
+  color: var(--hero-accent);
   animation: blink 1s step-start infinite;
   font-weight: 400;
 }
@@ -241,9 +246,10 @@ onUnmounted(() => {
 }
 
 .stat-number {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  color: var(--rose);
+  color: var(--hero-accent);
+  text-shadow: 0 2px 12px var(--hero-halo);
 }
 
 .stat-label {

@@ -15,6 +15,9 @@
   --text-muted: #6b3a4f;
   --on-accent: #4a2338;
   --on-sage: #f4f8ee;
+  --hero-accent: #8f1f47;
+  --hero-deep: #4b1e35;
+  --hero-halo: rgba(255, 255, 255, 0.45);
   --border: #efb7c1;
   --surface: #ffffff;
   --surface-soft: #ffe3e9;
@@ -78,6 +81,9 @@
   --text-muted: #3a1128;
   --on-accent: #4a2338;
   --on-sage: #f2f8ec;
+  --hero-accent: #2b0f1c;
+  --hero-deep: #1a0a12;
+  --hero-halo: rgba(255, 255, 255, 0.32);
   --border: #8f1f47;
   --surface: #ffb6c1;
   --surface-soft: #ffc9d6;
