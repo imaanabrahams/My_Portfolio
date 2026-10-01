@@ -7,12 +7,13 @@
   --rose: #ff8fab;
   --rose-deep: #ff6f9b;
   --sage: #a9c48f;
-  --sage-deep: #7a9c63;
+  --sage-deep: #43592f;
   --lavender: #cfc3ff;
   --mint: #a8e6cf;
 
   --dark: #4b1e35;
   --text-muted: #7a4a60;
+  --on-sage: #f4f8ee;
   --border: #efb7c1;
   --surface: #ffffff;
   --surface-soft: #ffe3e9;
@@ -62,37 +63,40 @@
   }
 }
 
+/* Deep plum dark theme: dark background with light pink text, keeping the
+   rose/sage accents so the palette still reads as the same site. */
 [data-theme="dark"] {
-  --pink: #d8f2d8;
-  --rose: #5fbf5f;
-  --rose-deep: #3f9d4f;
+  --pink: #ffd9e2;
+  --rose: #ff8fab;
+  --rose-deep: #ff6f9b;
   --sage: #a9c48f;
-  --sage-deep: #7a9c63;
+  --sage-deep: #c3dcae;
 
-  --dark: #16310c;
-  --text-muted: #3a6b27;
-  --border: #c8f0c8;
-  --surface: #ffffff;
-  --surface-soft: #eaf8ea;
-  --bg-grad-1: #90ee90;
-  --bg-grad-2: #d0f7d0;
+  --dark: #fdeef4;
+  --text-muted: #d9b3c4;
+  --on-sage: #263b21;
+  --border: #6d3d58;
+  --surface: #351c2a;
+  --surface-soft: #47283a;
+  --bg-grad-1: #2b1220;
+  --bg-grad-2: #180a13;
 
-  --card-shadow: 0 4px 20px rgba(80, 140, 80, 0.16);
-  --card-shadow-hover: 0 14px 40px rgba(95, 191, 95, 0.35);
-  --glow: rgba(95, 191, 95, 0.4);
-  --success: #2f7a3a;
-  --error: #c63b4a;
-  --field-error: #d64550;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --card-shadow-hover: 0 14px 40px rgba(255, 111, 155, 0.35);
+  --glow: rgba(255, 138, 171, 0.4);
+  --success: #8fd6a4;
+  --error: #ff9d92;
+  --field-error: #ff9d92;
 
-  --blob-1: rgba(144, 238, 144, 0.5);
-  --blob-2: rgba(169, 196, 143, 0.45);
-  --blob-3: rgba(95, 191, 95, 0.32);
+  --blob-1: rgba(255, 150, 185, 0.22);
+  --blob-2: rgba(169, 196, 143, 0.16);
+  --blob-3: rgba(255, 120, 160, 0.18);
   --section-strip: linear-gradient(
     135deg,
-    rgba(144, 238, 144, 0.5),
-    rgba(208, 247, 208, 0.5)
+    rgba(94, 42, 68, 0.55),
+    rgba(43, 58, 38, 0.5)
   );
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 * {
@@ -391,7 +395,7 @@ h4 {
 
 .btn-secondary:hover {
   background: var(--sage-deep);
-  color: #263b21;
+  color: var(--on-sage);
   transform: translateY(-3px);
 }
 

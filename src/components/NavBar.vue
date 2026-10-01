@@ -105,11 +105,15 @@ onUnmounted(() => {
       <div class="nav-tools">
         <button
           class="theme-toggle"
-          :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-          :title="theme === 'dark' ? 'Light mode' : 'Dark mode'"
+          :aria-label="
+            theme === 'dark'
+              ? 'Dark mode active. Switch to light mode.'
+              : 'Light mode active. Switch to dark mode.'
+          "
+          :title="theme === 'dark' ? 'Dark mode' : 'Light mode'"
           @click="toggleTheme"
         >
-          <span class="theme-icon">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
+          <span class="theme-icon">{{ theme === 'dark' ? '🌙' : '☀️' }}</span>
         </button>
         <button
           class="hamburger"

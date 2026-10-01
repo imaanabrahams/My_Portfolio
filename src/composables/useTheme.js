@@ -3,9 +3,13 @@ import { ref } from 'vue'
 const theme = ref('light')
 const STORAGE_KEY = 'ia-theme'
 
+const THEME_COLORS = { light: '#ffb6c1', dark: '#2b1220' }
+
 function apply(value) {
   document.documentElement.dataset.theme = value
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', value === 'dark' ? '#90ee90' : '#ffb6c1')
+  document
+    .querySelector('meta[name="theme-color"]')
+    ?.setAttribute('content', THEME_COLORS[value] ?? THEME_COLORS.light)
 }
 
 export function useTheme() {
