@@ -3,7 +3,7 @@ import { ref } from 'vue'
 const theme = ref('light')
 const STORAGE_KEY = 'ia-theme'
 
-const THEME_COLORS = { light: '#ffb6c1', dark: '#2b1220' }
+const THEME_COLORS = { light: '#ffb6c1', dark: '#4a1b36' }
 
 function apply(value) {
   document.documentElement.dataset.theme = value
