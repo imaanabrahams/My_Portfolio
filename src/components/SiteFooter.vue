@@ -8,7 +8,7 @@ const year = new Date().getFullYear()
     <p class="footer-links">
       <a href="https://github.com/imaanabrahams" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/imaanabrahams8" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="./ImaanAbrahams-CV.pdf" download>Download CV</a>
+      <a href="./ImaanAbrahams_CV.pdf" download>Download CV</a>
     </p>
   </footer>
 </template>

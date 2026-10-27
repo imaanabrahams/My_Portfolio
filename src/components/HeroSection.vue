@@ -109,7 +109,7 @@ onUnmounted(() => {
       <div class="hero-buttons" v-reveal="440">
         <a href="#projects" class="btn">View My Projects</a>
         <a href="#contact" class="btn-secondary">Get In Touch</a>
-        <a href="./ImaanAbrahams-CV.pdf" download class="btn-ghost">Download CV</a>
+        <a href="./ImaanAbrahams_CV.pdf" download class="btn-ghost">Download CV</a>
       </div>
     </div>
   </section>
