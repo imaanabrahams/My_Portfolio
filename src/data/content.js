@@ -1,32 +1,32 @@
 export const galleryItems = [
   {
-    src: 'https://i.ibb.co/qF0tnVR6/IMG-1851-1.jpg',
+    src: './gallery/profile.jpg',
     alt: 'Profile',
     label: 'Profile',
     link: 'https://ibb.co/cXbGvVNq',
   },
   {
-    src: 'https://i.ibb.co/1fXx2Y2Z/Core-Concepts-of-Programming-A-Beginner-s-Guide.jpg',
+    src: './gallery/programming-concepts.jpg',
     alt: 'Programming Concepts',
     label: 'Programming Concepts',
   },
   {
-    src: 'https://i.ibb.co/ZQWBVYH/3-D-Cybersecurity-illustration-Generative-ai.jpg',
+    src: './gallery/cybersecurity.jpg',
     alt: 'Cybersecurity',
     label: 'Cybersecurity',
   },
   {
-    src: 'https://i.ibb.co/m543g8X7/download.jpg',
+    src: './gallery/web-projects.jpg',
     alt: 'Web Projects',
     label: 'Web Projects',
   },
   {
-    src: 'https://i.ibb.co/0j15bp7w/download-1.jpg',
+    src: './gallery/gardening.jpg',
     alt: 'Gardening',
     label: 'Gardening',
   },
   {
-    src: 'https://i.ibb.co/FkMNzygY/Endo-Warrior-Illustration-Endometriosis.jpg',
+    src: './gallery/endometriosis.jpg',
     alt: 'Endometriosis Awareness',
     label: 'Endometriosis Awareness',
   },
