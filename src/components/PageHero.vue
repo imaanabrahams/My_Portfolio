@@ -39,7 +39,7 @@ defineProps({
 
 .page-badge {
   display: inline-block;
-  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-family: "Times New Roman", Times, serif;
   font-size: 0.62rem;
   line-height: 1.6;
   letter-spacing: 0.04em;

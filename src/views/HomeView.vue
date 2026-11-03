@@ -132,7 +132,7 @@ const quests = [
 }
 
 .quest-level {
-  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-family: "Times New Roman", Times, serif;
   font-size: 0.55rem;
   letter-spacing: 0.06em;
   color: var(--sage-deep);
