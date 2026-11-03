@@ -64,22 +64,38 @@ export const timelineItems = [
 ]
 
 export const skills = [
-  { label: 'Python', percent: 78, color: 'var(--rose)' },
-  { label: 'HTML', percent: 92, color: 'var(--sage)' },
-  { label: 'CSS', percent: 82, color: '#ffb3cf' },
-  { label: 'JavaScript', percent: 80, color: '#ff7ba6' },
-  { label: 'Vue.js', percent: 78, color: '#93bd7f' },
-  { label: 'Back-End Development', percent: 72, color: '#a9c98f' },
+  {
+    category: 'Front-End Development',
+    description: 'Used to build responsive websites and Vue 3 applications.',
+    items: ['HTML5', 'CSS3', 'JavaScript', 'Vue 3', 'Vue Router', 'Pinia'],
+  },
+  {
+    category: 'Back-End & Data',
+    description: 'Applied in Express APIs, CRUD workflows, and SQL-backed apps.',
+    items: ['Node.js', 'Express', 'REST APIs', 'JWT Authentication', 'MySQL', 'SQLite'],
+  },
+  {
+    category: 'Programming Foundations',
+    description: 'Practiced through course exercises and learning projects.',
+    items: ['Python', 'PHP', 'SQL'],
+  },
+  {
+    category: 'Cisco Certified Foundations',
+    description: 'Completed Cisco Networking Academy introductory courses.',
+    items: ['Cybersecurity', 'Networking Basics', 'Data Science'],
+  },
 ]
 
 export const learningStatus = [
-  { skill: 'HTML', status: 'completed' },
-  { skill: 'CSS', status: 'completed' },
-  { skill: 'JavaScript', status: 'ongoing' },
-  { skill: 'Vue.js', status: 'ongoing' },
-  { skill: 'Python', status: 'completed' },
-  { skill: 'MySQL / Databases', status: 'learning' },
+  { skill: 'HTML & CSS Projects', status: 'completed' },
+  { skill: 'Python Foundations', status: 'completed' },
+  { skill: 'Cisco: Introduction to Cybersecurity', status: 'completed' },
+  { skill: 'Cisco: Introduction to Data Science', status: 'completed' },
+  { skill: 'Cisco: Networking Basics', status: 'completed' },
+  { skill: 'JavaScript & Vue 3', status: 'ongoing' },
+  { skill: 'Node.js & Express', status: 'ongoing' },
+  { skill: 'REST APIs & JWT Authentication', status: 'ongoing' },
+  { skill: 'MySQL & SQLite', status: 'ongoing' },
   { skill: 'PHP', status: 'learning' },
-  { skill: 'Back-End Development', status: 'ongoing' },
-  { skill: 'Cybersecurity', status: 'exploring' },
+  { skill: 'Cybersecurity Practice', status: 'ongoing' },
 ]
