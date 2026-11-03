@@ -45,7 +45,11 @@ onUnmounted(() => {
   <div v-else>
     <NavBar />
     <main id="main" class="game-page">
-      <RouterView />
+      <RouterView v-slot="{ Component, route }">
+        <Transition name="page" mode="out-in">
+          <component :is="Component" :key="route.path" />
+        </Transition>
+      </RouterView>
     </main>
     <SiteFooter />
     <button

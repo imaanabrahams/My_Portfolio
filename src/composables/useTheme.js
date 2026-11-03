@@ -1,9 +1,9 @@
 import { ref } from 'vue'
 
 const theme = ref('light')
-const STORAGE_KEY = 'ia-theme'
+const STORAGE_KEY = 'ia-theme-v2'
 
-const THEME_COLORS = { light: '#ffb6c1', dark: '#e75480' }
+const THEME_COLORS = { light: '#fffdfd', dark: '#e75480' }
 
 function apply(value) {
   document.documentElement.dataset.theme = value
@@ -16,7 +16,7 @@ export function useTheme() {
   const initTheme = () => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY)
-      theme.value = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      theme.value = saved || 'light'
     } catch {
       theme.value = 'light'
     }

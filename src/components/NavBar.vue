@@ -132,11 +132,13 @@ onUnmounted(() => {
 .navbar {
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+  background: rgba(255, 255, 255, 0.92);
   padding: 0.85rem 0;
   padding-top: calc(0.85rem + env(safe-area-inset-top, 0px));
-  border-bottom: 3px solid var(--dark);
-  box-shadow: 0 4px 0 var(--dark);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 5px 20px rgba(91, 68, 93, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 1000;
   animation: slideIn 0.6s ease-out;
 }
@@ -210,9 +212,9 @@ onUnmounted(() => {
 
 .nav-link.active {
   color: var(--on-accent);
-  border: 2px solid var(--dark);
-  background: rgba(255, 255, 255, 0.22);
-  box-shadow: 2px 2px 0 var(--dark);
+  border: 2px solid var(--rose-deep);
+  background: var(--pink);
+  box-shadow: 0 3px 0 var(--rose);
 }
 
 .nav-tools {
@@ -226,7 +228,7 @@ onUnmounted(() => {
   height: var(--tap);
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--lavender);
   cursor: pointer;
   font-size: 1.1rem;
   display: flex;
@@ -237,8 +239,8 @@ onUnmounted(() => {
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.4);
-  transform: rotate(20deg);
+  background: var(--mint);
+  transform: translateY(-2px) rotate(8deg);
 }
 
 .theme-toggle:active .theme-icon {
@@ -320,7 +322,7 @@ onUnmounted(() => {
     right: 0;
     flex-direction: column;
     gap: 0;
-    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    background: rgba(255, 255, 255, 0.98);
     padding: 0;
     max-height: 0;
     overflow-y: auto;
@@ -328,11 +330,13 @@ onUnmounted(() => {
     overscroll-behavior: contain;
     transition: max-height 0.35s ease;
     border-radius: 0 0 16px 16px;
+    border: 1px solid var(--border);
+    border-top: 0;
   }
 
   .nav-menu.open {
     max-height: 60vh;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 14px 28px rgba(91, 68, 93, 0.12);
   }
 
   .nav-menu li {
@@ -348,7 +352,7 @@ onUnmounted(() => {
     justify-content: center;
     padding: 0 1rem;
     min-height: var(--tap);
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid var(--border);
   }
 
   .nav-link::after {
@@ -362,7 +366,7 @@ onUnmounted(() => {
   .nav-link.active {
     border: 0;
     box-shadow: none;
-    background: rgba(255, 255, 255, 0.18);
+    background: var(--pink);
     font-weight: 700;
   }
 }

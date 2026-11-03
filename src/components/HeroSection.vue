@@ -294,7 +294,7 @@ onUnmounted(() => {
 
 .btn-ghost:hover {
   border-color: var(--rose);
-  color: var(--rose);
+  color: var(--rose-ink);
   transform: translateY(-3px);
 }
 

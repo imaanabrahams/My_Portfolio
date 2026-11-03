@@ -129,7 +129,7 @@ onUnmounted(() => {
     rgba(255, 255, 255, 0.45) 50%,
     transparent 70%
   );
-  animation: barShimmer 2.2s linear infinite;
+  animation: barShimmer 3.6s linear infinite;
 }
 
 @keyframes barShimmer {

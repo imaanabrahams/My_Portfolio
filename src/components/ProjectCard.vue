@@ -203,7 +203,7 @@ const onKey = (event) => {
 }
 
 .card-tagline {
-  color: var(--rose);
+  color: var(--rose-ink);
   font-weight: 700;
   margin-bottom: 0.8rem;
   font-size: 0.95rem;
@@ -228,7 +228,7 @@ const onKey = (event) => {
 
 .tech-chip {
   background: linear-gradient(135deg, rgba(255, 139, 171, 0.12), rgba(200, 213, 185, 0.12));
-  color: var(--rose);
+  color: var(--rose-ink);
   padding: 0.4rem 0.9rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -253,7 +253,7 @@ const onKey = (event) => {
 .card-details {
   background: transparent;
   border: none;
-  color: var(--rose);
+  color: var(--rose-ink);
   font-family: inherit;
   font-weight: 700;
   font-size: 0.95rem;
@@ -356,7 +356,7 @@ const onKey = (event) => {
   }
 
   .card-details:hover {
-    color: var(--rose);
+    color: var(--rose-ink);
     transform: none;
   }
 }

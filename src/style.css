@@ -3,45 +3,47 @@
    ============================================================ */
 
 :root {
-  --pink: #ffd6e8;
-  --rose: #ff8fab;
-  --rose-deep: #ff6f9b;
-  --sage: #a9c48f;
-  --sage-deep: #43592f;
-  --lavender: #cfc3ff;
-  --mint: #a8e6cf;
+  --pink: #fff0f6;
+  --rose: #f4bfd0;
+  --rose-deep: #e9a5bd;
+  --rose-ink: #a65370;
+  --sage: #dcebd2;
+  --sage-deep: #536a50;
+  --lavender: #e9e2f8;
+  --mint: #d9f0e8;
 
-  --dark: #4b1e35;
-  --text-muted: #6b3a4f;
-  --on-accent: #4a2338;
-  --on-sage: #f4f8ee;
-  --hero-accent: #8a0030;
-  --hero-deep: #4b0070;
-  --hero-panel: rgba(255, 255, 255, 0.58);
-  --hero-panel-border: rgba(255, 255, 255, 0.85);
-  --border: #efb7c1;
+  --dark: #453b4a;
+  --text-muted: #746a78;
+  --on-accent: #503d4c;
+  --on-sage: #40523d;
+  --hero-accent: #795f89;
+  --hero-deep: #9a6e8c;
+  --hero-panel: rgba(255, 255, 255, 0.82);
+  --hero-panel-border: rgba(255, 255, 255, 0.96);
+  --border: #eadde8;
   --surface: #ffffff;
-  --surface-soft: #ffe3e9;
-  --bg-grad-1: #ffb6c1;
-  --bg-grad-2: #ffd2db;
+  --surface-soft: #fffafd;
+  --bg-grad-1: #fffdfd;
+  --bg-grad-2: #f7faff;
 
-  --card-shadow: 0 4px 20px rgba(160, 60, 90, 0.16);
-  --card-shadow-hover: 0 14px 40px rgba(255, 111, 155, 0.35);
-  --glow: rgba(255, 138, 171, 0.4);
+  --card-shadow: 0 8px 28px rgba(106, 81, 110, 0.09);
+  --card-shadow-hover: 0 18px 40px rgba(167, 124, 164, 0.18);
+  --glow: rgba(221, 168, 196, 0.3);
   --success: #5f8a53;
   --error: #b3463a;
   --field-error: #e05c4f;
 
-  --blob-1: rgba(255, 150, 185, 0.45);
-  --blob-2: rgba(169, 196, 143, 0.4);
-  --blob-3: rgba(255, 120, 160, 0.28);
+  --blob-1: rgba(244, 191, 208, 0.48);
+  --blob-2: rgba(220, 235, 210, 0.55);
+  --blob-3: rgba(233, 226, 248, 0.62);
   --section-strip: linear-gradient(
     135deg,
-    rgba(255, 182, 193, 0.5),
-    rgba(211, 232, 190, 0.5)
+    rgba(255, 240, 246, 0.72),
+    rgba(233, 226, 248, 0.42),
+    rgba(217, 240, 232, 0.55)
   );
 
-  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition: all 0.28s cubic-bezier(0.2, 0.75, 0.25, 1);
 
   /* Layout metrics */
   --nav-height: 72px;
@@ -75,6 +77,7 @@
   --pink: #ffd9e2;
   --rose: #ff8fab;
   --rose-deep: #ff6f9b;
+  --rose-ink: #74253b;
   --sage: #a9c48f;
   --sage-deep: #151c07;
 
@@ -124,12 +127,12 @@ html {
 }
 
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
   color: var(--dark);
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: background-color 0.35s ease, color 0.35s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -183,32 +186,49 @@ h4 {
    ============================================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(18px) scale(0.985);
+  filter: blur(4px);
   transition:
-    opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
-  will-change: opacity, transform;
+    opacity 0.65s cubic-bezier(0.2, 0.75, 0.25, 1),
+    transform 0.65s cubic-bezier(0.2, 0.75, 0.25, 1),
+    filter 0.65s ease;
 }
 
 .reveal[data-direction="up"] {
-  transform: translateY(28px);
+  transform: translateY(18px) scale(0.985);
 }
 .reveal[data-direction="down"] {
-  transform: translateY(-28px);
+  transform: translateY(-18px) scale(0.985);
 }
 .reveal[data-direction="left"] {
-  transform: translateX(-38px);
+  transform: translateX(-22px);
 }
 .reveal[data-direction="right"] {
-  transform: translateX(38px);
+  transform: translateX(22px);
 }
 .reveal[data-direction="zoom"] {
-  transform: scale(0.92);
+  transform: translateY(8px) scale(0.96);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: blur(0);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-5px);
 }
 
 /* ============================================================
@@ -363,7 +383,8 @@ h4 {
   border-radius: 4px;
   background: linear-gradient(90deg, var(--rose), var(--sage), var(--rose));
   background-size: 200% auto;
-  animation: shimmer 4s linear infinite;
+  animation: shimmer 9s linear infinite;
+  opacity: 0.85;
 }
 
 /* Shared game UI used by the multi-page quest map and page headers. */

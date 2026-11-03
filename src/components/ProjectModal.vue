@@ -200,7 +200,7 @@ onBeforeUnmount(() => {
 }
 
 .modal-tagline {
-  color: var(--rose);
+  color: var(--rose-ink);
   font-weight: 700;
   font-size: 0.95rem;
 }
@@ -229,7 +229,7 @@ onBeforeUnmount(() => {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--rose);
+  color: var(--rose-ink);
   font-weight: 700;
 }
 
@@ -246,7 +246,7 @@ onBeforeUnmount(() => {
 
 .modal-demo-login code {
   font-weight: 700;
-  color: var(--rose);
+  color: var(--rose-ink);
 }
 
 .modal-tech {
@@ -258,7 +258,7 @@ onBeforeUnmount(() => {
 
 .tech-chip {
   background: linear-gradient(135deg, rgba(255, 139, 171, 0.12), rgba(200, 213, 185, 0.12));
-  color: var(--rose);
+  color: var(--rose-ink);
   padding: 0.4rem 0.9rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -273,7 +273,7 @@ onBeforeUnmount(() => {
 }
 
 .modal-link {
-  color: var(--rose);
+  color: var(--rose-ink);
   text-decoration: none;
   font-weight: 700;
   transition: var(--transition);
@@ -305,7 +305,7 @@ onBeforeUnmount(() => {
 
 .modal-close-bottom:hover {
   border-color: var(--rose);
-  color: var(--rose);
+  color: var(--rose-ink);
 }
 
 @media (max-width: 768px) {

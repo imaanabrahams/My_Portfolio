@@ -72,7 +72,7 @@ import { timelineItems } from '../data/content.js'
 }
 
 .timeline-item h3 {
-  color: var(--rose);
+  color: var(--rose-ink);
   margin-bottom: 1rem;
   font-size: clamp(1.2rem, 4.6vw, 1.5rem);
   transition: var(--transition);

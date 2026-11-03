@@ -152,7 +152,7 @@ const statusLabels = {
 }
 
 .cert-issuer {
-  color: var(--rose);
+  color: var(--rose-ink);
   font-weight: 600;
   font-size: 0.95rem;
   margin-bottom: 0.25rem;

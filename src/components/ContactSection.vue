@@ -294,7 +294,7 @@ const resetForm = () => {
 }
 
 .form-error a {
-  color: var(--rose);
+  color: var(--rose-ink);
   font-weight: 700;
 }
 
@@ -336,7 +336,7 @@ const resetForm = () => {
 }
 
 .form-hint a {
-  color: var(--rose);
+  color: var(--rose-ink);
   font-weight: 600;
 }
 
@@ -349,7 +349,7 @@ const resetForm = () => {
 }
 
 .contact-info h3 {
-  color: var(--rose);
+  color: var(--rose-ink);
   margin-bottom: 0.8rem;
   font-size: 1.3rem;
 }
@@ -403,7 +403,7 @@ const resetForm = () => {
 }
 
 .contact-item a {
-  color: var(--rose);
+  color: var(--rose-ink);
   text-decoration: none;
   font-weight: 600;
   word-break: break-word;
@@ -431,7 +431,7 @@ const resetForm = () => {
 
 .quick-copy:hover {
   border-color: var(--rose);
-  color: var(--rose);
+  color: var(--rose-ink);
 }
 
 .quick-copy.copied {

@@ -131,7 +131,7 @@ onUnmounted(() => {
   background: var(--surface);
   padding: 0;
   font-family: inherit;
-  animation: cardGlow 5s ease-in-out infinite;
+  animation: cardGlow 12s ease-in-out infinite;
   animation-delay: calc(var(--i, 0) * 0.4s);
 }
 
@@ -148,7 +148,7 @@ onUnmounted(() => {
   display: block;
   border-radius: 20px;
   transition: var(--transition);
-  animation: kenBurns 16s ease-in-out infinite alternate;
+  animation: kenBurns 28s ease-in-out infinite alternate;
   will-change: transform;
 }
 

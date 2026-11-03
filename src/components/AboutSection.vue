@@ -73,7 +73,7 @@
 }
 
 .about-card h3 {
-  color: var(--rose);
+  color: var(--rose-ink);
   margin-bottom: 1rem;
   font-size: clamp(1.2rem, 4.4vw, 1.4rem);
 }
@@ -128,7 +128,7 @@
 }
 
 .interests-list li:hover {
-  color: var(--rose);
+  color: var(--rose-ink);
   padding-left: 10px;
   animation: interestWiggle 0.35s ease;
 }

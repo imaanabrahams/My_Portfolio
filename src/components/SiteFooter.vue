@@ -15,9 +15,10 @@ const year = new Date().getFullYear()
 
 <style scoped>
 .footer {
-  background: linear-gradient(135deg, var(--rose), var(--sage), var(--rose-deep), var(--rose));
+  background: linear-gradient(120deg, #ffffff, var(--pink), var(--lavender), var(--sage));
   background-size: 300% 300%;
   color: var(--on-accent);
+  border-top: 1px solid var(--border);
   text-align: center;
   padding: 2rem;
   padding-right: calc(2rem + env(safe-area-inset-right, 0px));
@@ -26,7 +27,7 @@ const year = new Date().getFullYear()
   font-weight: 600;
   box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
   margin-top: auto;
-  animation: footerDrift 12s ease infinite;
+  animation: footerDrift 22s ease-in-out infinite;
 }
 
 @keyframes footerDrift {

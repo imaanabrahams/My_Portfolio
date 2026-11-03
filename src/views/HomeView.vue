@@ -154,7 +154,7 @@ const quests = [
 .quest-cta {
   margin-top: auto;
   font-weight: 700;
-  color: var(--rose-deep);
+  color: var(--rose-ink);
 }
 
 @media (max-width: 768px) {
