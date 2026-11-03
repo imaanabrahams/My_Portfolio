@@ -33,7 +33,7 @@ defineProps({
   text-align: center;
   background: var(--surface);
   border: 2px dashed var(--dark);
-  border-radius: 3px;
+  border-radius: 20px;
   box-shadow: 6px 6px 0 var(--dark);
 }
 

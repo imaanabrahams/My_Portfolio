@@ -183,7 +183,7 @@ onUnmounted(() => {
   /* Frosted panel: the pink page is too light for saturated text to hit AA
      on its own, so the copy sits on a near-white surface instead. */
   padding: 2.5rem 2rem;
-  border-radius: 4px;
+  border-radius: 22px;
   background: var(--hero-panel);
   border: 2px dashed var(--rose-deep);
   box-shadow: 6px 6px 0 rgba(121, 95, 137, 0.18);
@@ -307,7 +307,7 @@ onUnmounted(() => {
 
   .hero-content {
     padding: 2rem 1.5rem;
-    border-radius: 22px;
+    border-radius: 18px;
   }
 
   .typing {
@@ -355,7 +355,7 @@ onUnmounted(() => {
 
   .hero-content {
     padding: 1.75rem 1.15rem;
-    border-radius: 18px;
+    border-radius: 16px;
   }
 
   .hero-stats {

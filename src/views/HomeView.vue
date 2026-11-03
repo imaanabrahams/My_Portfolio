@@ -113,7 +113,7 @@ const quests = [
   background: var(--surface);
   border: 2px dashed var(--dark);
   box-shadow: 5px 5px 0 var(--dark);
-  border-radius: 3px;
+  border-radius: 16px;
   text-decoration: none;
   color: var(--dark);
   transition: var(--transition);

@@ -178,7 +178,7 @@ const statusLabels = {
   align-items: center;
   min-height: var(--tap);
   padding: 0.55rem 1.1rem;
-  border-radius: 3px;
+  border-radius: 10px;
   background: var(--rose);
   border: 2px dashed var(--dark);
   box-shadow: 3px 3px 0 var(--dark);
@@ -210,7 +210,7 @@ const statusLabels = {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
   border: 2px dashed var(--dark);
-  border-radius: 3px;
+  border-radius: 14px;
   box-shadow: 5px 5px 0 var(--dark);
   background: var(--surface);
 }

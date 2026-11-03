@@ -5,11 +5,6 @@ const year = new Date().getFullYear()
 <template>
   <footer class="footer">
     <p>&copy; {{ year }} Imaan Abrahams | Aspiring Web Developer &amp; Cybersecurity Enthusiast</p>
-    <p class="footer-links">
-      <a href="https://github.com/imaanabrahams" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/imaanabrahams8" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="./Imaan_Abrahams_CV.pdf" download>Download CV</a>
-    </p>
   </footer>
 </template>
 
@@ -40,56 +35,11 @@ const year = new Date().getFullYear()
   }
 }
 
-.footer-links {
-  margin-top: 0.75rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  color: var(--on-accent);
-  text-decoration: none;
-  opacity: 0.9;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap);
-  touch-action: manipulation;
-}
-
-.footer-links a:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-  animation: linkWobble 0.4s ease;
-}
-
-@keyframes linkWobble {
-  0%,
-  100% {
-    transform: translateY(-2px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-2px) rotate(4deg);
-  }
-}
-
 @media (max-width: 480px) {
   .footer {
     font-size: 0.9rem;
     padding: 1.5rem 1rem;
     padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-  }
-
-  .footer-links {
-    gap: 0.5rem 1.25rem;
-  }
-}
-
-@media (hover: none) {
-  .footer-links a:hover {
-    transform: none;
   }
 }
 </style>

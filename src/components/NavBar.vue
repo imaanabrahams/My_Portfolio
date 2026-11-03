@@ -213,6 +213,7 @@ onUnmounted(() => {
 .nav-link.active {
   color: var(--on-accent);
   border: 2px dashed var(--rose-deep);
+  border-radius: 10px;
   background: var(--pink);
   box-shadow: 0 3px 0 var(--rose);
 }
@@ -365,6 +366,7 @@ onUnmounted(() => {
 
   .nav-link.active {
     border: 0;
+    border-radius: 0;
     box-shadow: none;
     background: var(--pink);
     font-weight: 700;
