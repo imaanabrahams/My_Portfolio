@@ -208,7 +208,12 @@ onUnmounted(() => {
 /* Soft rose, lavender and sage gradients keep the hero colorful without
    overpowering the white pastel layout. */
 .name {
-  background: linear-gradient(100deg, #b97696 0%, #987cad 52%, #729684 100%);
+  background: linear-gradient(
+    100deg,
+    var(--hero-accent) 0%,
+    var(--hero-deep) 52%,
+    var(--hero-sage) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -223,7 +228,12 @@ onUnmounted(() => {
 }
 
 .typed-text {
-  background: linear-gradient(100deg, #b97696 0%, #987cad 52%, #729684 100%);
+  background: linear-gradient(
+    100deg,
+    var(--hero-accent) 0%,
+    var(--hero-deep) 52%,
+    var(--hero-sage) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
