@@ -65,13 +65,18 @@ export const timelineItems = [
 
 export const skills = [
   {
-    category: 'Front-End Development',
-    description: 'Used to build responsive websites and Vue 3 applications.',
-    items: ['HTML5', 'CSS3', 'JavaScript', 'Vue 3', 'Vue Router', 'Pinia'],
+    category: 'Core Skills from GitHub',
+    description: 'My GitHub profile highlights these tools for responsive web experiences.',
+    items: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
+  },
+  {
+    category: 'Frameworks in Project Work',
+    description: 'Used in my portfolio and Vue learning projects.',
+    items: ['Vue 3', 'Vue Router', 'Pinia'],
   },
   {
     category: 'Back-End & Data',
-    description: 'Applied in Express APIs, CRUD workflows, and SQL-backed apps.',
+    description: 'Used in Express APIs, CRUD workflows, and SQL-backed apps.',
     items: ['Node.js', 'Express', 'REST APIs', 'JWT Authentication', 'MySQL', 'SQLite'],
   },
   {
@@ -87,12 +92,13 @@ export const skills = [
 ]
 
 export const learningStatus = [
-  { skill: 'HTML & CSS Projects', status: 'completed' },
+  { skill: 'Full-Stack Development Trainee', status: 'ongoing' },
+  { skill: 'HTML, CSS, JavaScript & Bootstrap', status: 'ongoing' },
   { skill: 'Python Foundations', status: 'completed' },
   { skill: 'Cisco: Introduction to Cybersecurity', status: 'completed' },
   { skill: 'Cisco: Introduction to Data Science', status: 'completed' },
   { skill: 'Cisco: Networking Basics', status: 'completed' },
-  { skill: 'JavaScript & Vue 3', status: 'ongoing' },
+  { skill: 'Vue 3, Vue Router & Pinia', status: 'ongoing' },
   { skill: 'Node.js & Express', status: 'ongoing' },
   { skill: 'REST APIs & JWT Authentication', status: 'ongoing' },
   { skill: 'MySQL & SQLite', status: 'ongoing' },
