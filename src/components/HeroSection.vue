@@ -110,7 +110,7 @@ onUnmounted(() => {
       <div class="hero-buttons" v-reveal="440">
         <RouterLink to="/projects" class="btn">View My Projects</RouterLink>
         <RouterLink to="/contact" class="btn-secondary">Get In Touch</RouterLink>
-        <a href="./Imaan_Abrahams_CV.pdf" download class="btn-ghost">Download CV</a>
+        <a href="./ImaanAbrahams_CV.pdf" download class="btn-ghost">Download CV</a>
       </div>
     </div>
   </section>
