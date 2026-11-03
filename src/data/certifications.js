@@ -29,4 +29,14 @@ export const certifications = [
     pdf: './certifications/cisco-networking-basics.pdf',
     image: './certifications/cisco-networking-basics.png',
   },
+  {
+    id: 'scrum-fundamentals-certified',
+    title: 'Scrum Fundamentals Certified',
+    issuer: 'SCRUMstudy',
+    provider: 'VMEdu, Inc.',
+    date: '3 November 2026',
+    certId: '1205025',
+    pdf: './certifications/scrum-fundamentals-certified.pdf',
+    image: './certifications/scrum-fundamentals-certified.png',
+  },
 ]

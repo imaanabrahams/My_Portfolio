@@ -15,7 +15,7 @@ const statusLabels = {
     <div class="certifications">
       <div class="cert-heading" v-reveal>
         <span class="game-label">ACHIEVEMENTS UNLOCKED</span>
-        <h2 class="section-title">Cisco Certifications</h2>
+        <h2 class="section-title">Certifications</h2>
         <div class="section-title-underline"></div>
       </div>
 
