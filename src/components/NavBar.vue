@@ -1,7 +1,6 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { useTheme } from '../composables/useTheme.js'
 
 const links = [
   { path: '/', label: 'Home' },
@@ -18,7 +17,6 @@ const MOBILE_QUERY = '(max-width: 768px)'
 const route = useRoute()
 const scrolled = ref(false)
 const menuOpen = ref(false)
-const { theme, toggleTheme } = useTheme()
 
 const isActive = (path) =>
   path === '/' ? route.path === '/' : route.path.startsWith(path)
@@ -101,18 +99,6 @@ onUnmounted(() => {
 
       <div class="nav-tools">
         <button
-          class="theme-toggle"
-          :aria-label="
-            theme === 'dark'
-              ? 'Dark mode active. Switch to light mode.'
-              : 'Light mode active. Switch to dark mode.'
-          "
-          :title="theme === 'dark' ? 'Dark mode' : 'Light mode'"
-          @click="toggleTheme"
-        >
-          <span class="theme-icon">{{ theme === 'dark' ? '🌙' : '☀️' }}</span>
-        </button>
-        <button
           class="hamburger"
           :class="{ open: menuOpen }"
           :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
@@ -132,15 +118,14 @@ onUnmounted(() => {
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.92);
+  background: linear-gradient(120deg, #ffffff, var(--pink), var(--lavender), var(--sage));
+  background-size: 300% 300%;
   padding: 0.85rem 0;
   padding-top: calc(0.85rem + env(safe-area-inset-top, 0px));
   border-bottom: 2px dashed var(--rose-deep);
   box-shadow: 0 5px 20px rgba(91, 68, 93, 0.07);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  animation: headerDrift 22s ease-in-out infinite;
   z-index: 1000;
-  animation: slideIn 0.6s ease-out;
 }
 
 .nav-container {
@@ -224,46 +209,6 @@ onUnmounted(() => {
   gap: 0.5rem;
 }
 
-.theme-toggle {
-  width: var(--tap);
-  height: var(--tap);
-  border: none;
-  border-radius: 50%;
-  background: var(--lavender);
-  cursor: pointer;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  touch-action: manipulation;
-}
-
-.theme-toggle:hover {
-  background: var(--mint);
-  transform: translateY(-2px) rotate(8deg);
-}
-
-.theme-toggle:active .theme-icon {
-  animation: iconPop 0.4s ease;
-}
-
-@keyframes iconPop {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.6) rotate(15deg);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.theme-icon {
-  display: inline-block;
-}
-
 .hamburger {
   display: none;
   flex-direction: column;
@@ -300,6 +245,16 @@ onUnmounted(() => {
   transform: translateY(-8px) rotate(-45deg);
 }
 
+@keyframes headerDrift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 @media (max-width: 900px) {
   .nav-menu {
     gap: 1.25rem;
@@ -323,7 +278,8 @@ onUnmounted(() => {
     right: 0;
     flex-direction: column;
     gap: 0;
-    background: rgba(255, 255, 255, 0.98);
+    background: linear-gradient(120deg, #ffffff, var(--pink), var(--lavender), var(--sage));
+    background-size: 300% 300%;
     padding: 0;
     max-height: 0;
     overflow-y: auto;
