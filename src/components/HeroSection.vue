@@ -183,10 +183,10 @@ onUnmounted(() => {
   /* Frosted panel: the pink page is too light for saturated text to hit AA
      on its own, so the copy sits on a near-white surface instead. */
   padding: 2.5rem 2rem;
-  border-radius: 28px;
+  border-radius: 4px;
   background: var(--hero-panel);
-  border: 1px solid var(--hero-panel-border);
-  box-shadow: 0 18px 50px rgba(43, 15, 28, 0.18);
+  border: 2px dashed var(--rose-deep);
+  box-shadow: 6px 6px 0 rgba(121, 95, 137, 0.18);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }

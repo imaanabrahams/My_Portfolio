@@ -178,9 +178,9 @@ const statusLabels = {
   align-items: center;
   min-height: var(--tap);
   padding: 0.55rem 1.1rem;
-  border-radius: 6px;
+  border-radius: 3px;
   background: var(--rose);
-  border: 2px solid var(--dark);
+  border: 2px dashed var(--dark);
   box-shadow: 3px 3px 0 var(--dark);
   color: var(--on-accent);
   font-weight: 700;
@@ -209,8 +209,8 @@ const statusLabels = {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
-  border: 2px solid var(--dark);
-  border-radius: 10px;
+  border: 2px dashed var(--dark);
+  border-radius: 3px;
   box-shadow: 5px 5px 0 var(--dark);
   background: var(--surface);
 }

@@ -18,7 +18,7 @@ const year = new Date().getFullYear()
   background: linear-gradient(120deg, #ffffff, var(--pink), var(--lavender), var(--sage));
   background-size: 300% 300%;
   color: var(--on-accent);
-  border-top: 1px solid var(--border);
+  border-top: 2px dashed var(--rose-deep);
   text-align: center;
   padding: 2rem;
   padding-right: calc(2rem + env(safe-area-inset-right, 0px));

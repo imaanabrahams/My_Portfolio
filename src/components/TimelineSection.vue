@@ -41,8 +41,13 @@ import { timelineItems } from '../data/content.js'
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--rose), var(--sage));
+  width: 5px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--rose-deep) 0 7px,
+    var(--sage) 7px 14px,
+    transparent 14px 18px
+  );
   transform: translateX(-50%);
 }
 
@@ -89,11 +94,11 @@ import { timelineItems } from '../data/content.js'
 
 .timeline-dot {
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
   background: var(--rose);
-  border: 3px solid var(--surface);
-  border-radius: 50%;
+  border: 2px solid var(--dark);
+  border-radius: 0;
   left: 50%;
   top: 22px;
   transform: translateX(-50%);

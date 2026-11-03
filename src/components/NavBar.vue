@@ -135,7 +135,7 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.92);
   padding: 0.85rem 0;
   padding-top: calc(0.85rem + env(safe-area-inset-top, 0px));
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px dashed var(--rose-deep);
   box-shadow: 0 5px 20px rgba(91, 68, 93, 0.07);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -212,7 +212,7 @@ onUnmounted(() => {
 
 .nav-link.active {
   color: var(--on-accent);
-  border: 2px solid var(--rose-deep);
+  border: 2px dashed var(--rose-deep);
   background: var(--pink);
   box-shadow: 0 3px 0 var(--rose);
 }

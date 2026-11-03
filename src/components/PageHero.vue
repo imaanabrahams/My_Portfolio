@@ -32,7 +32,8 @@ defineProps({
   padding: 3rem 2rem 2rem;
   text-align: center;
   background: var(--surface);
-  border: 2px solid var(--dark);
+  border: 2px dashed var(--dark);
+  border-radius: 3px;
   box-shadow: 6px 6px 0 var(--dark);
 }
 
@@ -62,9 +63,14 @@ defineProps({
   width: 90px;
   height: 8px;
   margin: 1rem auto;
-  background: linear-gradient(90deg, var(--rose), var(--sage));
-  border: 2px solid var(--dark);
-  box-shadow: 3px 3px 0 var(--dark);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rose-deep) 0 8px,
+    var(--lavender) 8px 16px,
+    var(--sage) 16px 24px,
+    transparent 24px 28px
+  );
+  border: 0;
 }
 
 .page-subtitle {

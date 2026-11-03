@@ -122,8 +122,8 @@ onUnmounted(() => {
 .gallery-item {
   position: relative;
   overflow: hidden;
-  border: none;
-  border-radius: 20px;
+  border: 2px dashed var(--dark);
+  border-radius: 3px;
   box-shadow: var(--card-shadow);
   transition: var(--transition);
   height: 300px;
@@ -146,7 +146,7 @@ onUnmounted(() => {
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 20px;
+  border-radius: 0;
   transition: var(--transition);
   animation: kenBurns 28s ease-in-out infinite alternate;
   will-change: transform;
@@ -171,7 +171,7 @@ onUnmounted(() => {
   gap: 0.5rem;
   opacity: 0;
   transition: var(--transition);
-  border-radius: 20px;
+  border-radius: 0;
 }
 
 .gallery-item:hover .gallery-overlay,

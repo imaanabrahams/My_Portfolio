@@ -377,14 +377,17 @@ h4 {
 }
 
 .section-title-underline {
-  width: 70px;
-  height: 4px;
+  width: 88px;
+  height: 8px;
   margin: -1.5rem auto 3rem;
-  border-radius: 4px;
-  background: linear-gradient(90deg, var(--rose), var(--sage), var(--rose));
-  background-size: 200% auto;
-  animation: shimmer 9s linear infinite;
-  opacity: 0.85;
+  border-radius: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rose-deep) 0 8px,
+    var(--lavender) 8px 16px,
+    var(--sage) 16px 24px,
+    transparent 24px 28px
+  );
 }
 
 /* Shared game UI used by the multi-page quest map and page headers. */
@@ -409,10 +412,9 @@ h4 {
 }
 
 .game-page .section-title-underline {
-  height: 6px;
-  border: 2px solid var(--dark);
+  height: 8px;
+  border: 0;
   border-radius: 0;
-  box-shadow: 3px 3px 0 var(--dark);
 }
 
 .game-page > div > .section,
@@ -430,8 +432,8 @@ h4 {
 .game-page .about-card,
 .game-page .contact-form,
 .game-page .contact-info {
-  border: 2px solid var(--dark);
-  border-radius: 9px;
+  border: 2px dashed var(--dark);
+  border-radius: 3px;
   box-shadow: 5px 5px 0 var(--dark);
 }
 
@@ -472,40 +474,41 @@ h4 {
   display: inline-block;
   padding: 12px 30px;
   min-height: var(--tap);
-  border-radius: 50px;
+  border-radius: 4px;
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
   transition: var(--transition);
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 2px dashed var(--dark);
   touch-action: manipulation;
 }
 
 .btn {
   background: var(--rose);
   color: var(--on-accent);
-  border: none;
-  box-shadow: 0 4px 15px var(--glow);
+  box-shadow: 3px 3px 0 var(--dark);
   text-align: center;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px var(--glow);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--dark);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--sage-deep);
-  border: 2px solid var(--sage-deep);
+  border-color: var(--sage-deep);
+  box-shadow: 3px 3px 0 var(--sage-deep);
   text-align: center;
 }
 
 .btn-secondary:hover {
   background: var(--sage-deep);
   color: var(--on-sage);
-  transform: translateY(-3px);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--sage-deep);
 }
 
 /* ============================================================

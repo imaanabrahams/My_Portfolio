@@ -111,9 +111,9 @@ const quests = [
   flex-direction: column;
   padding: 1.75rem 1.5rem;
   background: var(--surface);
-  border: 2px solid var(--dark);
+  border: 2px dashed var(--dark);
   box-shadow: 5px 5px 0 var(--dark);
-  border-radius: 10px;
+  border-radius: 3px;
   text-decoration: none;
   color: var(--dark);
   transition: var(--transition);
