@@ -1,41 +1,38 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 import { useTheme } from '../composables/useTheme.js'
 
 const links = [
-  { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' },
+  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
+  { path: '/skills', label: 'Skills' },
+  { path: '/projects', label: 'Projects' },
+  { path: '/certifications', label: 'Certifications' },
+  { path: '/gallery', label: 'Gallery' },
+  { path: '/contact', label: 'Contact' },
 ]
 
 const MOBILE_QUERY = '(max-width: 768px)'
 
-const active = ref('hero')
+const route = useRoute()
 const scrolled = ref(false)
 const menuOpen = ref(false)
 const { theme, toggleTheme } = useTheme()
 
+const isActive = (path) =>
+  path === '/' ? route.path === '/' : route.path.startsWith(path)
+
 const onScroll = () => {
   scrolled.value = window.scrollY > 40
-  let current = 'hero'
-  for (const { id } of links) {
-    const el = document.getElementById(id)
-    if (el && window.scrollY >= el.offsetTop - 160) {
-      current = id
-    }
-  }
-  active.value = current
 }
 
-const scrollTo = (event, id) => {
-  event.preventDefault()
-  menuOpen.value = false
-  const el = document.getElementById(id)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
+watch(
+  () => route.fullPath,
+  () => {
+    menuOpen.value = false
   }
-}
+)
 
 const onKey = (event) => {
   if (event.key === 'Escape' && menuOpen.value) menuOpen.value = false
@@ -84,21 +81,21 @@ onUnmounted(() => {
   <header class="navbar" :class="{ 'is-scrolled': scrolled }" id="navbar">
     <nav class="nav-container" aria-label="Main navigation">
       <div class="nav-logo">
-        <a href="#hero" @click="scrollTo($event, 'hero')" aria-label="Back to top">
+        <RouterLink to="/" aria-label="Back to home" @click="menuOpen = false">
           <h1>IA ؛༊</h1>
-        </a>
+        </RouterLink>
       </div>
 
       <ul class="nav-menu" :class="{ open: menuOpen }">
-        <li v-for="{ id, label } in links" :key="id">
-          <a
-            :href="`#${id}`"
+        <li v-for="link in links" :key="link.path">
+          <RouterLink
+            :to="link.path"
             class="nav-link"
-            :class="{ active: active === id }"
-            @click="scrollTo($event, id)"
+            :class="{ active: isActive(link.path) }"
+            @click="menuOpen = false"
           >
-            {{ label }}
-          </a>
+            {{ link.label }}
+          </RouterLink>
         </li>
       </ul>
 

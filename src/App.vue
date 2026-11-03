@@ -1,16 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { RouterView } from 'vue-router'
 import { useTheme } from './composables/useTheme.js'
 import SiteLoader from './components/SiteLoader.vue'
 import NavBar from './components/NavBar.vue'
-import HeroSection from './components/HeroSection.vue'
-import TimelineSection from './components/TimelineSection.vue'
-import GallerySection from './components/GallerySection.vue'
-import SkillsSection from './components/SkillsSection.vue'
-import ProjectsSection from './components/ProjectsSection.vue'
-import LearningSection from './components/LearningSection.vue'
-import AboutSection from './components/AboutSection.vue'
-import ContactSection from './components/ContactSection.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import ProjectModal from './components/ProjectModal.vue'
 
@@ -45,21 +38,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <a href="#hero" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to content</a>
   <div class="scroll-progress" :style="{ width: `${progress}%` }"></div>
 
   <SiteLoader v-if="loading" />
   <div v-else>
     <NavBar />
-    <main id="main">
-      <HeroSection />
-      <TimelineSection />
-      <GallerySection />
-      <SkillsSection />
-      <ProjectsSection />
-      <LearningSection />
-      <AboutSection />
-      <ContactSection />
+    <main id="main" class="game-page">
+      <RouterView />
     </main>
     <SiteFooter />
     <button

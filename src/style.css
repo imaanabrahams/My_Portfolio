@@ -366,6 +366,31 @@ h4 {
   animation: shimmer 4s linear infinite;
 }
 
+/* Shared game UI used by the multi-page quest map and page headers. */
+.game-page {
+  flex: 1;
+  min-width: 0;
+}
+
+.game-label {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  color: var(--sage-deep);
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.game-page .section-title-underline {
+  height: 6px;
+  border: 2px solid var(--dark);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 var(--dark);
+}
+
 /* ============================================================
    BUTTONS
    ============================================================ */
@@ -492,6 +517,17 @@ h4 {
 
 .skip-link:focus {
   left: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ============================================================

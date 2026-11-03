@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const phrases = [
   'Full-Stack Web Developer',
@@ -80,9 +81,9 @@ onUnmounted(() => {
 
     <div class="hero-content">
       <p v-reveal="60" class="hero-greeting">Hello World 👋 I'm</p>
-      <h2 v-reveal="120" class="fade-in">
+      <h1 v-reveal="120" class="fade-in">
         <span class="name">Imaan Abrahams</span>
-      </h2>
+      </h1>
       <h3 v-reveal="200" class="typing">
         <span class="typed-text">{{ typed }}</span>
         <span class="typewriter-cursor" aria-hidden="true">|</span>
@@ -107,8 +108,8 @@ onUnmounted(() => {
       </div>
 
       <div class="hero-buttons" v-reveal="440">
-        <a href="#projects" class="btn">View My Projects</a>
-        <a href="#contact" class="btn-secondary">Get In Touch</a>
+        <RouterLink to="/projects" class="btn">View My Projects</RouterLink>
+        <RouterLink to="/contact" class="btn-secondary">Get In Touch</RouterLink>
         <a href="./Imaan_Abrahams_CV.pdf" download class="btn-ghost">Download CV</a>
       </div>
     </div>
@@ -197,7 +198,7 @@ onUnmounted(() => {
   letter-spacing: 1px;
 }
 
-.hero-content h2 {
+.hero-content h1 {
   font-size: clamp(2.4rem, 8.5vw, 4.2rem);
   margin-bottom: 1rem;
   letter-spacing: -1px;
