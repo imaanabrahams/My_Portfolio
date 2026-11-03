@@ -79,6 +79,7 @@ import { timelineItems } from '../data/content.js'
 .timeline-item h3 {
   color: var(--rose-ink);
   margin-bottom: 1rem;
+  padding-right: 3.5rem;
   font-size: clamp(1.2rem, 4.6vw, 1.5rem);
   transition: var(--transition);
 }
@@ -134,12 +135,20 @@ import { timelineItems } from '../data/content.js'
 
 .timeline-index {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: 2rem;
+  top: 0.85rem;
+  right: 0.85rem;
+  min-width: 2.5rem;
+  padding: 0.2rem 0.4rem;
+  border: 1px dashed var(--hero-deep);
+  border-radius: 8px;
+  background: var(--lavender);
+  box-shadow: 2px 2px 0 var(--hero-deep);
+  color: var(--dark);
+  font-size: 1rem;
   font-weight: 700;
-  color: rgba(255, 139, 171, 0.15);
   line-height: 1;
+  text-align: center;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -186,9 +195,9 @@ import { timelineItems } from '../data/content.js'
   }
 
   .timeline-index {
-    font-size: 1.5rem;
-    top: 1rem;
-    right: 1rem;
+    top: 0.65rem;
+    right: 0.65rem;
+    font-size: 0.9rem;
   }
 }
 </style>
