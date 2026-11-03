@@ -276,7 +276,9 @@ table tbody tr:hover {
 
 @media (max-width: 768px) {
   .cert-grid {
-    gap: 1.25rem;
+    max-width: 560px;
+    margin: 0 auto;
+    gap: 1rem;
   }
 
   .learning-status {
@@ -298,6 +300,20 @@ table tbody tr:hover {
   .status {
     padding: 0.4rem 0.7rem;
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-body {
+    padding: 0.9rem;
+  }
+
+  .certifications {
+    margin-bottom: 2.25rem;
+  }
+
+  .learning-status {
+    max-width: 560px;
   }
 }
 </style>

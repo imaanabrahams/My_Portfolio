@@ -44,14 +44,15 @@ import { featuredProjects } from '../data/projects.js'
 
 @media (max-width: 768px) {
   .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .project-grid {
-    gap: 1rem;
+    gap: 0.85rem;
   }
 }
 </style>

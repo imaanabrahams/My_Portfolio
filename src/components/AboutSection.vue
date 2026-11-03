@@ -158,8 +158,13 @@
 }
 
 @media (max-width: 560px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
   .about-card {
-    padding: 1.25rem;
+    padding: 1rem;
   }
 
   .about-card p {

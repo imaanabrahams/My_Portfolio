@@ -167,6 +167,29 @@ const quests = [
 @media (max-width: 560px) {
   .quest-grid {
     grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 0.85rem;
+  }
+
+  .quest-heading {
+    margin-bottom: 1.75rem;
+  }
+
+  .quest-card {
+    padding: 1.1rem 1.15rem;
+  }
+
+  .quest-icon {
+    font-size: 1.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .quest-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .quest-card p {
+    margin-bottom: 0.75rem;
   }
 }
 </style>

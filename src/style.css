@@ -620,8 +620,8 @@ h4 {
 @media (max-width: 768px) {
   :root {
     --nav-height: 64px;
-    --gutter: 1.75rem;
-    --section-pad: 4.5rem;
+    --gutter: 1.1rem;
+    --section-pad: 3.5rem;
   }
 
   .section-title {
@@ -636,8 +636,8 @@ h4 {
 
 @media (max-width: 480px) {
   :root {
-    --gutter: 1.3rem;
-    --section-pad: 3.75rem;
+    --gutter: 0.9rem;
+    --section-pad: 2.75rem;
   }
 
   .section-title {
@@ -652,6 +652,17 @@ h4 {
   .btn,
   .btn-secondary {
     padding: 12px 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-page .project-grid .project-card,
+  .game-page .cert-card,
+  .game-page .timeline-item,
+  .game-page .about-card,
+  .game-page .contact-form,
+  .game-page .contact-info {
+    box-shadow: 3px 3px 0 var(--dark);
   }
 }
 

@@ -326,19 +326,33 @@ const onKey = (event) => {
    hierarchy scaled down. */
 @media (max-width: 560px) {
   .card-body {
-    padding: 1rem 1rem 1.25rem;
+    padding: 0.8rem 0.85rem 1rem;
   }
 
   .card-actions {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
   }
 
   .card-actions .btn,
-  .card-actions .btn-secondary,
+  .card-actions .btn-secondary {
+    flex: 1 1 7rem;
+    width: auto;
+    padding: 8px 10px;
+    font-size: 0.95rem;
+  }
+
   .card-details {
-    flex: 0 1 auto;
-    width: 100%;
+    flex: 1 1 auto;
+    width: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .card-details {
+    flex-basis: 100%;
   }
 }
 
