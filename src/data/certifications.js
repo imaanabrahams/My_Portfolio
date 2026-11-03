@@ -1,0 +1,32 @@
+export const certifications = [
+  {
+    id: 'cisco-cybersecurity',
+    title: 'Introduction to Cybersecurity',
+    issuer: 'Cisco Networking Academy',
+    provider: 'Life Choices Academy',
+    date: '28 August 2026',
+    certId: '507d125c-7989-4083-8dfd-dc23c953b7e4',
+    pdf: './certifications/cisco-introduction-to-cybersecurity.pdf',
+    image: './certifications/cisco-introduction-to-cybersecurity.png',
+  },
+  {
+    id: 'cisco-data-science',
+    title: 'Introduction to Data Science',
+    issuer: 'Cisco Networking Academy',
+    provider: 'Life Choices Academy',
+    date: '28 August 2026',
+    certId: 'd3539417-4f13-4b4a-a009-18adbb1b8915',
+    pdf: './certifications/cisco-introduction-to-data-science.pdf',
+    image: './certifications/cisco-introduction-to-data-science.png',
+  },
+  {
+    id: 'cisco-networking-basics',
+    title: 'Networking Basics',
+    issuer: 'Cisco Networking Academy',
+    provider: 'Life Choices Academy',
+    date: '2 November 2026',
+    certId: 'f511492c-6b9b-4c04-a499-5078397abadc',
+    pdf: './certifications/cisco-networking-basics.pdf',
+    image: './certifications/cisco-networking-basics.png',
+  },
+]

@@ -39,13 +39,34 @@ onMounted(() => {
 }
 
 .heart {
+  position: relative;
   width: 100px;
-  height: 100px;
-  background: var(--rose);
-  transform: rotate(45deg);
-  animation: pulse 1.2s infinite;
+  height: 90px;
   margin-bottom: 20px;
-  border-radius: 20px;
+  animation: pulse 1.2s infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: var(--rose);
+  border-radius: 50px 50px 0 0;
+}
+
+.heart::before {
+  left: 50px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
 }
 
 .loader h1 {
@@ -59,7 +80,18 @@ onMounted(() => {
 @media (max-width: 480px) {
   .heart {
     width: 80px;
-    height: 80px;
+    height: 72px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 40px;
+    height: 64px;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .heart::before {
+    left: 40px;
   }
 }
 </style>

@@ -2,6 +2,7 @@
 import ProjectCard from './ProjectCard.vue'
 import { learningProjects } from '../data/projects.js'
 import { learningStatus } from '../data/content.js'
+import { certifications } from '../data/certifications.js'
 
 const statusLabels = {
   completed: '✓ Completed',
@@ -12,9 +13,45 @@ const statusLabels = {
 </script>
 
 <template>
-  <section class="learning-section section">
-    <h2 class="section-title">Learning Projects &amp; Exercises</h2>
+  <section id="learning" class="learning-section section">
+    <h2 class="section-title">Projects &amp; Certifications</h2>
     <div class="section-title-underline"></div>
+
+    <div class="certifications">
+      <h3>Certifications</h3>
+      <div class="cert-grid">
+        <article
+          v-for="(cert, i) in certifications"
+          :key="cert.id"
+          class="cert-card"
+          v-reveal="(i % 3) * 100"
+        >
+          <a
+            :href="cert.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cert-preview"
+            :aria-label="`View ${cert.title} certificate`"
+          >
+            <img :src="cert.image" :alt="`${cert.title} certificate`" loading="lazy" />
+          </a>
+          <div class="cert-body">
+            <h4>{{ cert.title }}</h4>
+            <p class="cert-issuer">{{ cert.issuer }} &middot; {{ cert.provider }}</p>
+            <p class="cert-date">Completed {{ cert.date }}</p>
+            <p class="cert-id">Cert ID: {{ cert.certId }}</p>
+            <a
+              :href="cert.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cert-link"
+            >
+              View Certificate
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
 
     <div class="learning-status">
       <h3>Learning Journey</h3>
@@ -55,6 +92,112 @@ const statusLabels = {
 <style scoped>
 .learning-section {
   background: var(--section-strip);
+}
+
+.certifications {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+
+.certifications > h3 {
+  color: var(--rose);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 2rem;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.cert-preview {
+  display: block;
+  aspect-ratio: 93 / 63;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cert-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.cert-card:hover .cert-preview img {
+  transform: scale(1.03);
+}
+
+.cert-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem;
+  text-align: left;
+}
+
+.cert-body h4 {
+  color: var(--dark);
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.cert-issuer {
+  color: var(--rose);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.cert-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.cert-id {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  word-break: break-all;
+  margin-bottom: 1rem;
+}
+
+.cert-link {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.cert-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
 }
 
 .learning-status {
@@ -155,6 +298,10 @@ table tbody tr:hover {
 @media (max-width: 768px) {
   .learning-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .cert-grid {
     gap: 1.25rem;
   }
 
