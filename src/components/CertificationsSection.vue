@@ -276,7 +276,8 @@ table tbody tr:hover {
 
 @media (max-width: 768px) {
   .cert-grid {
-    max-width: 560px;
+    width: 90%;
+    max-width: 440px;
     margin: 0 auto;
     gap: 1rem;
   }
@@ -304,8 +305,12 @@ table tbody tr:hover {
 }
 
 @media (max-width: 480px) {
+  .cert-preview {
+    aspect-ratio: 16 / 8;
+  }
+
   .cert-body {
-    padding: 0.9rem;
+    padding: 0.75rem;
   }
 
   .certifications {

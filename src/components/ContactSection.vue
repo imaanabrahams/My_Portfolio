@@ -481,11 +481,13 @@ const resetForm = () => {
   .contact-container {
     grid-template-columns: 1fr;
     gap: 2rem;
+    width: 90%;
+    max-width: 440px;
   }
 
   .contact-form,
   .contact-info {
-    padding: 1.25rem;
+    padding: 0.9rem;
   }
 
   .contact-item {

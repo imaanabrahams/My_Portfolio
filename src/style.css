@@ -662,13 +662,13 @@ h4 {
   .game-page .about-card,
   .game-page .contact-form,
   .game-page .contact-info {
-    box-shadow: 3px 3px 0 var(--dark);
+    box-shadow: 2px 2px 0 var(--dark);
   }
 }
 
 @media (max-width: 360px) {
   :root {
-    --gutter: 1rem;
+    --gutter: 0.75rem;
   }
 
   .section-title {

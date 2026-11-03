@@ -87,7 +87,7 @@ defineProps({
   }
 
   .page-badge {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
   }
 }
 </style>

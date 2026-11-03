@@ -167,8 +167,9 @@ const quests = [
 @media (max-width: 560px) {
   .quest-grid {
     grid-template-columns: 1fr;
-    max-width: 500px;
-    gap: 0.85rem;
+    width: 90%;
+    max-width: 400px;
+    gap: 0.65rem;
   }
 
   .quest-heading {
@@ -176,20 +177,50 @@ const quests = [
   }
 
   .quest-card {
-    padding: 1.1rem 1.15rem;
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    grid-template-areas:
+      'icon level'
+      'icon title'
+      'text text'
+      'cta cta';
+    gap: 0.1rem 0.65rem;
+    padding: 0.8rem 0.9rem;
   }
 
   .quest-icon {
-    font-size: 1.65rem;
-    margin-bottom: 0.5rem;
+    grid-area: icon;
+    align-self: center;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .quest-level {
+    grid-area: level;
+    margin: 0;
+    font-size: 0.7rem;
+  }
+
+  .quest-icon {
+    line-height: 1;
   }
 
   .quest-card h3 {
-    font-size: 1.2rem;
+    grid-area: title;
+    font-size: 1.1rem;
+    margin: 0;
   }
 
   .quest-card p {
-    margin-bottom: 0.75rem;
+    grid-area: text;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin: 0.35rem 0;
+  }
+
+  .quest-cta {
+    grid-area: cta;
+    font-size: 0.9rem;
   }
 }
 </style>

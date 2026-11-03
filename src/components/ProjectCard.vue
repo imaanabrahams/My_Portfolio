@@ -325,8 +325,31 @@ const onKey = (event) => {
    full-width instead of squeezing side-by-side — matches the desktop card
    hierarchy scaled down. */
 @media (max-width: 560px) {
+  .card-media,
+  .card-icon {
+    aspect-ratio: 16 / 8;
+  }
+
   .card-body {
-    padding: 0.8rem 0.85rem 1rem;
+    padding: 0.7rem 0.75rem 0.8rem;
+  }
+
+  .card-body h3 {
+    font-size: 1.15rem;
+  }
+
+  .card-tagline {
+    margin-bottom: 0.45rem;
+  }
+
+  .card-description {
+    -webkit-line-clamp: 3;
+    margin-bottom: 0.65rem;
+    line-height: 1.5;
+  }
+
+  .card-tech {
+    margin-bottom: 0.75rem;
   }
 
   .card-actions {
@@ -351,6 +374,10 @@ const onKey = (event) => {
 }
 
 @media (max-width: 360px) {
+  .card-body {
+    padding: 0.6rem;
+  }
+
   .card-details {
     flex-basis: 100%;
   }
