@@ -205,10 +205,10 @@ onUnmounted(() => {
   white-space: normal;
 }
 
-/* Vivid crimson -> violet gradient; reads as colour while staying AA
-   on the frosted panel behind it. */
+/* Soft rose, lavender and sage gradients keep the hero colorful without
+   overpowering the white pastel layout. */
 .name {
-  background: linear-gradient(120deg, var(--hero-accent), var(--hero-deep));
+  background: linear-gradient(100deg, #b97696 0%, #987cad 52%, #729684 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -220,6 +220,13 @@ onUnmounted(() => {
   min-height: 56px;
   font-weight: 700;
   letter-spacing: 0.5px;
+}
+
+.typed-text {
+  background: linear-gradient(100deg, #b97696 0%, #987cad 52%, #729684 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .typed-text::selection {
