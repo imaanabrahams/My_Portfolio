@@ -1,6 +1,6 @@
 # Imaan Abrahams — Portfolio (Vue.js)
 
-A responsive single-page portfolio rebuilt with **Vue 3 + Vite**, showcasing my journey, skills and completed projects.
+A responsive, game-inspired portfolio built with **Vue 3 + Vite**. Home, About, Skills, Projects, Certifications, Gallery and Contact each have their own route. Projects and Certifications are separate pages, with a quest map linking between them.
 
 🔗 **Live site:** [https://imaanabrahams.github.io/My_Portfolio/](https://imaanabrahams.github.io/My_Portfolio/)
 
@@ -9,7 +9,7 @@ A responsive single-page portfolio rebuilt with **Vue 3 + Vite**, showcasing my 
 ## Tech Stack
 
 - **Vue 3** (`<script setup>` SFCs) + **Vite 6**
-- Vanilla JavaScript (no router needed — single-page scroll sections)
+- Vue Router with hash-based navigation for GitHub Pages
 - Scoped CSS driven by CSS custom properties (rose / sage / pink)
 
 ## Features
@@ -23,7 +23,8 @@ A responsive single-page portfolio rebuilt with **Vue 3 + Vite**, showcasing my 
 - 📱 **Mobile-first responsive layout** — fluid type scale via `clamp()`, overflow-safe grids, and breakpoints at 1024 / 768 / 480 / 360px
 - 🍔 **Mobile hamburger menu** — dismisses on link tap, outside tap, `Esc` or resize back to desktop; locks background scroll while open
 - 📲 **Touch-first interactions** — 44px minimum tap targets, `viewport-fit=cover` with safe-area insets, no hover-only affordances, `dvh/svh` viewports so mobile browser chrome can't clip content
-- 🧭 **Scroll progress bar** + floating back-to-top button
+- 🎮 **Quest map navigation** — each portfolio section is a separate level, with pixel-style cards and badges in the existing rose / sage palette
+- 🧭 Floating back-to-top button
 - ♿ **Accessibility** — `focus-visible` states, `aria` labels/roles, skip link, `prefers-reduced-motion` support, and WCAG AA contrast (4.5:1) on body text, muted text, surfaces and buttons in **both** themes. Accent-filled controls use an `--on-accent` token instead of white, which only reached 2.15:1 on the rose background
 
 ## Getting Started
@@ -40,7 +41,9 @@ npm run preview   # preview the production build
 ```
 src/
 ├── main.js                  # Vue bootstrap (registers v-reveal directive)
-├── App.vue                  # Section assembly + loader, progress bar, back-to-top
+├── App.vue                  # Shared shell, loader, back-to-top, and route outlet
+├── router/                  # Separate hash-based page routes
+├── views/                   # Home, About, Skills, Projects, Certifications, Gallery, Contact
 ├── style.css                # Theme tokens, animations, reveal + shared styles
 │                              # (light + dark palettes as CSS custom properties)
 ├── directives/

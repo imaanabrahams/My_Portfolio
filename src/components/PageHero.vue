@@ -26,10 +26,14 @@ defineProps({
 
 <style scoped>
 .page-hero {
+  position: relative;
   max-width: 900px;
-  margin: 0 auto;
-  padding: 3.5rem 2rem 1.5rem;
+  margin: 2rem auto 1rem;
+  padding: 3rem 2rem 2rem;
   text-align: center;
+  background: var(--surface);
+  border: 2px solid var(--dark);
+  box-shadow: 6px 6px 0 var(--dark);
 }
 
 .page-badge {
@@ -45,6 +49,7 @@ defineProps({
   border: 2px solid var(--dark);
   box-shadow: 3px 3px 0 var(--dark);
   margin-bottom: 1.5rem;
+  transform: rotate(-1deg);
 }
 
 .page-title {
@@ -55,10 +60,11 @@ defineProps({
 
 .page-underline {
   width: 90px;
-  height: 6px;
+  height: 8px;
   margin: 1rem auto;
   background: linear-gradient(90deg, var(--rose), var(--sage));
   border: 2px solid var(--dark);
+  box-shadow: 3px 3px 0 var(--dark);
 }
 
 .page-subtitle {
@@ -70,7 +76,8 @@ defineProps({
 
 @media (max-width: 480px) {
   .page-hero {
-    padding: 2.25rem 1rem 1rem;
+    margin: 1rem 1rem 0;
+    padding: 2rem 1rem 1.5rem;
   }
 
   .page-badge {

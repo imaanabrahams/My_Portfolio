@@ -135,7 +135,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, var(--rose), var(--rose-deep));
   padding: 0.85rem 0;
   padding-top: calc(0.85rem + env(safe-area-inset-top, 0px));
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  border-bottom: 3px solid var(--dark);
+  box-shadow: 0 4px 0 var(--dark);
   z-index: 1000;
   animation: slideIn 0.6s ease-out;
 }
@@ -173,7 +174,7 @@ onUnmounted(() => {
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 0.55rem;
 }
 
 .nav-link {
@@ -181,6 +182,8 @@ onUnmounted(() => {
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
+  padding: 0.45rem 0.55rem;
+  border: 2px solid transparent;
   transition: var(--transition);
   position: relative;
   cursor: pointer;
@@ -207,8 +210,9 @@ onUnmounted(() => {
 
 .nav-link.active {
   color: var(--on-accent);
-  border-bottom: 3px solid var(--on-accent);
-  padding-bottom: 5px;
+  border: 2px solid var(--dark);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 2px 2px 0 var(--dark);
 }
 
 .nav-tools {
@@ -356,7 +360,8 @@ onUnmounted(() => {
   }
 
   .nav-link.active {
-    border-bottom: none;
+    border: 0;
+    box-shadow: none;
     background: rgba(255, 255, 255, 0.18);
     font-weight: 700;
   }
