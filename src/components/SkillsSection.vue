@@ -14,7 +14,13 @@ import { skills } from '../data/content.js'
         <h3>{{ group.category }}</h3>
         <p>{{ group.description }}</p>
         <ul class="skill-list">
-          <li v-for="item in group.items" :key="item">{{ item }}</li>
+          <li
+            v-for="(item, itemIndex) in group.items"
+            :key="item"
+            :style="{ '--i': itemIndex }"
+          >
+            {{ item }}
+          </li>
         </ul>
       </article>
     </div>
@@ -70,6 +76,28 @@ import { skills } from '../data/content.js'
   background: var(--pink);
   color: var(--dark);
   font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-group.reveal.is-visible .skill-list li {
+  animation: skill-chip-in 0.4s ease both;
+  animation-delay: calc(var(--i) * 55ms);
+}
+
+.skill-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px var(--glow);
+}
+
+@keyframes skill-chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (max-width: 600px) {
