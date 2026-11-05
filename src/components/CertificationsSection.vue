@@ -49,7 +49,8 @@ const statusLabels = {
 
     <div class="learning-status">
       <span class="game-label">SKILL TREE</span>
-      <h3>Learning Journey</h3>
+      <h2 class="section-title">Learning Journey</h2>
+      <div class="section-title-underline"></div>
       <div class="learning-table">
         <table>
           <thead>
@@ -186,12 +187,6 @@ const statusLabels = {
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
-}
-
-.learning-status > h3 {
-  color: var(--dark);
-  font-size: 1.4rem;
-  margin: 0.75rem 0 1.5rem;
 }
 
 .learning-table {
