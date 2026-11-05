@@ -25,7 +25,7 @@ const onKey = (event) => {
     @click="openProject(project)"
     @keydown="onKey"
   >
-    <span class="cat-peek" aria-hidden="true">🐱</span>
+    <span class="animal-peek" aria-hidden="true">{{ project.hoverAnimal }}</span>
 
     <div v-if="project.screenshot" class="card-media">
       <img
@@ -95,7 +95,7 @@ const onKey = (event) => {
   cursor: pointer;
 }
 
-.cat-peek {
+.animal-peek {
   position: absolute;
   z-index: -1;
   top: -1.65rem;
@@ -107,8 +107,8 @@ const onKey = (event) => {
   pointer-events: none;
 }
 
-.project-card:hover .cat-peek,
-.project-card:focus-visible .cat-peek {
+.project-card:hover .animal-peek,
+.project-card:focus-visible .animal-peek {
   transform: translateY(0);
 }
 
@@ -412,7 +412,7 @@ const onKey = (event) => {
     transform: none;
   }
 
-  .cat-peek {
+  .animal-peek {
     display: none;
   }
 
@@ -428,7 +428,7 @@ const onKey = (event) => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cat-peek {
+  .animal-peek {
     transition: none;
   }
 }

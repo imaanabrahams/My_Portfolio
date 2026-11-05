@@ -4,6 +4,7 @@ export const featuredProjects = [
     title: 'RePrint',
     tagline: 'Full-Stack 3D Printing E-Commerce Studio',
     icon: '🖨️',
+    hoverAnimal: '🐱',
     featured: true,
     year: 2026,
     description:
@@ -30,6 +31,7 @@ export const featuredProjects = [
     title: 'Modern Tech Solutions — HR System',
     tagline: 'Full-Stack HR Application with Express + SQLite',
     icon: '🏢',
+    hoverAnimal: '🐶',
     featured: true,
     year: 2026,
     description:
@@ -55,6 +57,7 @@ export const featuredProjects = [
     title: 'TutorConnect',
     tagline: 'Collaborative Tutor-Student Platform',
     icon: '🎓',
+    hoverAnimal: '🐰',
     featured: true,
     year: 2026,
     description:
@@ -82,6 +85,7 @@ export const learningProjects = [
     title: 'Vue.js Exercises',
     tagline: 'Components, Props, Slots and Events',
     icon: '🟢',
+    hoverAnimal: '🦊',
     description:
       'A hands-on set of Vue 3 exercises covering components, props and slots, template data, methods, events and reusable component patterns completed as part of the Vue.js curriculum.',
     technologies: ['Vue 3', 'JavaScript', 'HTML', 'CSS'],
@@ -92,6 +96,7 @@ export const learningProjects = [
     title: 'Node.js & Back-End Exercises',
     tagline: 'Server-Side JavaScript Foundations',
     icon: '⚙️',
+    hoverAnimal: '🐻',
     description:
       'Server-side exercises working toward back-end development with Node.js — modules, Express routing and API foundations built through structured weekly practice.',
     technologies: ['Node.js', 'Express', 'JavaScript'],
@@ -102,6 +107,7 @@ export const learningProjects = [
     title: 'JavaScript Exercises',
     tagline: 'Functions, Promises and Error Handling',
     icon: '💻',
+    hoverAnimal: '🐼',
     description:
       'A collection of JavaScript practice covering functions, objects, promises, async/await and error handling — the problem-solving foundation of my web development journey.',
     technologies: ['JavaScript'],
@@ -112,6 +118,7 @@ export const learningProjects = [
     title: 'Python — Foundation Module',
     tagline: 'Core Programming and Mini Builds',
     icon: '🐍',
+    hoverAnimal: '🐸',
     description:
       'Python programs from my software engineering foundation module — from core concepts exercises to self-contained builds like a product showcase, image gallery helper and animations.',
     technologies: ['Python'],
@@ -122,6 +129,7 @@ export const learningProjects = [
     title: 'PHP & MySQL Projects',
     tagline: 'PHP Fundamentals and Database Schemas',
     icon: '🐘',
+    hoverAnimal: '🐧',
     description:
       'PHP fundamentals and real database schemas (pick_n_steal, shopleft, moderntech) — bridging the gap between front-end pages and server-side data using PHP and MySQL.',
     technologies: ['PHP', 'MySQL', 'SQL'],
@@ -132,6 +140,7 @@ export const learningProjects = [
     title: 'MySQL Database Exercises',
     tagline: 'Schema Design and SQL Practice',
     icon: '🗄️',
+    hoverAnimal: '🦉',
     description:
       'Database design and SQL practice — creating relational schemas, running queries and learning how data is stored and retrieved for modern web applications.',
     technologies: ['MySQL', 'SQL'],
@@ -142,6 +151,7 @@ export const learningProjects = [
     title: 'HTML & CSS Builds',
     tagline: 'Responsive Layouts and Creative Styling',
     icon: '🎨',
+    hoverAnimal: '🦋',
     description:
       'Foundational front-end projects in pure HTML and CSS — responsive layouts, flexbox and grid design and creative styling experiments that started my developer journey.',
     technologies: ['HTML5', 'CSS3'],
@@ -156,6 +166,7 @@ export const learningProjects = [
     title: 'Cybersecurity Focus',
     tagline: 'Research, Digital Safety and Security Concepts',
     icon: '🔐',
+    hoverAnimal: '🐢',
     description:
       'An ongoing research track exploring security concepts and digital safety — how systems are protected against threats, JWT authentication, secure API design and best practices for a safer digital environment.',
     technologies: ['Cybersecurity', 'Security Concepts', 'Best Practices'],
