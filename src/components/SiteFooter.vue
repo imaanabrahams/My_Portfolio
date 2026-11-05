@@ -4,7 +4,7 @@ const year = new Date().getFullYear()
 
 <template>
   <footer class="footer">
-    <p>&copy; {{ year }} Imaan Abrahams | Aspiring Web Developer &amp; Cybersecurity Enthusiast</p>
+    <p>&copy; {{ year }} Imaan Abrahams | Full-Stack Web Developer</p>
   </footer>
 </template>
 
