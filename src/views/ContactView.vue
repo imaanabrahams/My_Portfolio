@@ -6,7 +6,6 @@ import ContactSection from '../components/ContactSection.vue'
 <template>
   <div>
     <PageHero
-      badge="Level 6 · Co-op Mode"
       title="Contact"
       subtitle="Have a project, role or quest in mind? Send a message and let's team up."
     />

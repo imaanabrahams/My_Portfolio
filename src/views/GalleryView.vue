@@ -6,7 +6,6 @@ import GallerySection from '../components/GallerySection.vue'
 <template>
   <div>
     <PageHero
-      badge="Level 5 · Side Quests"
       title="Gallery"
       subtitle="A snapshot of the interests and hobbies that keep me curious outside the code editor."
     />

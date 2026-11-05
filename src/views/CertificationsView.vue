@@ -6,7 +6,6 @@ import CertificationsSection from '../components/CertificationsSection.vue'
 <template>
   <div>
     <PageHero
-      badge="Level 4 · Achievements"
       title="Certifications"
       subtitle="Unlocked credentials and the learning path behind them."
     />
