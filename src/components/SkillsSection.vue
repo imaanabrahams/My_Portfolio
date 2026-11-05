@@ -4,10 +4,6 @@ import { skills } from '../data/content.js'
 
 <template>
   <section class="skills-section section">
-    <span class="game-label skills-eyebrow">CURRENT TOOLKIT</span>
-    <h2 class="section-title">Skills &amp; Technologies</h2>
-    <div class="section-title-underline"></div>
-
     <div class="skills-container">
       <article
         v-for="(group, i) in skills"
@@ -32,12 +28,6 @@ import { skills } from '../data/content.js'
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
-}
-
-.skills-eyebrow {
-  display: block;
-  margin: 0 auto 0.5rem;
-  text-align: center;
 }
 
 .skill-group {

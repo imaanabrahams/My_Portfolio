@@ -92,9 +92,6 @@ const resetForm = () => {
 
 <template>
   <section id="contact" class="contact-section section">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="section-title-underline"></div>
-
     <div class="contact-container" v-reveal>
       <form class="contact-form" @submit.prevent="submit" novalidate>
         <div class="form-group">

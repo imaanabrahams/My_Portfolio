@@ -5,9 +5,6 @@ import { featuredProjects } from '../data/projects.js'
 
 <template>
   <section id="projects" class="projects-section section">
-    <h2 class="section-title">Completed Projects</h2>
-    <div class="section-title-underline"></div>
-
     <div class="project-grid">
       <div
         v-for="(project, i) in featuredProjects"

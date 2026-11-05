@@ -1,8 +1,5 @@
 <template>
   <section id="about" class="about-section section">
-    <h2 class="section-title">About Me</h2>
-    <div class="section-title-underline"></div>
-
     <div class="about-content">
       <div class="about-card" v-reveal>
         <h3>Who Am I?</h3>

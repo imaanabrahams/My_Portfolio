@@ -13,12 +13,6 @@ const statusLabels = {
 <template>
   <section id="certifications" class="certifications-section section">
     <div class="certifications">
-      <div class="cert-heading" v-reveal>
-        <span class="game-label">ACHIEVEMENTS UNLOCKED</span>
-        <h2 class="section-title">Certifications</h2>
-        <div class="section-title-underline"></div>
-      </div>
-
       <div class="cert-grid">
         <article
           v-for="(cert, i) in certifications"
@@ -88,11 +82,6 @@ const statusLabels = {
 .certifications {
   max-width: 1200px;
   margin: 0 auto 4rem;
-}
-
-.cert-heading {
-  text-align: center;
-  margin-bottom: 2.5rem;
 }
 
 .cert-grid {

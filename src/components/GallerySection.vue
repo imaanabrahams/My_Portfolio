@@ -54,9 +54,6 @@ onUnmounted(() => {
 
 <template>
   <section class="gallery-section section">
-    <h2 class="section-title">Interest Gallery</h2>
-    <div class="section-title-underline"></div>
-
     <div class="gallery-grid">
       <button
         v-for="(item, i) in galleryItems"
