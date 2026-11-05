@@ -21,13 +21,13 @@ defineProps({
 }
 
 .page-animal {
-  position: absolute;
-  z-index: 1;
-  top: 0.5rem;
-  right: max(calc((100vw - 900px) / 2 + 1.5rem), 1.5rem);
-  font-size: 2rem;
+  position: fixed;
+  z-index: 20;
+  right: calc(1.25rem + env(safe-area-inset-right, 0px));
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  font-size: 2.5rem;
   line-height: 1;
-  transform: translateY(-120%);
+  transform: translateY(150%);
   transition: transform 0.35s cubic-bezier(0.2, 0.75, 0.25, 1);
   pointer-events: none;
 }
