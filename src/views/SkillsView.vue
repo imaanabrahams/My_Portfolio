@@ -6,6 +6,7 @@ import SkillsSection from '../components/SkillsSection.vue'
 <template>
   <div>
     <PageHero
+      animal="🦁"
       title="Skills"
       subtitle="The tools, languages and technologies I use to turn ideas into working products."
     />

@@ -6,6 +6,7 @@ import CertificationsSection from '../components/CertificationsSection.vue'
 <template>
   <div>
     <PageHero
+      animal="🦉"
       title="Certifications"
       subtitle="Unlocked credentials and the learning path behind them."
     />

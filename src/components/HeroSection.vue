@@ -80,6 +80,7 @@ onUnmounted(() => {
     </div>
 
     <div class="hero-content">
+      <span class="hero-animal" aria-hidden="true">🐼</span>
       <p v-reveal="60" class="hero-greeting">Hello World 👋 I'm</p>
       <h1 v-reveal="120" class="fade-in">
         <span class="name">Imaan Abrahams</span>
@@ -179,6 +180,7 @@ onUnmounted(() => {
   max-width: 820px;
   width: 100%;
   position: relative;
+  isolation: isolate;
   z-index: 1;
   /* Frosted panel: the pink page is too light for saturated text to hit AA
      on its own, so the copy sits on a near-white surface instead. */
@@ -189,6 +191,23 @@ onUnmounted(() => {
   box-shadow: 6px 6px 0 rgba(121, 95, 137, 0.18);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+}
+
+.hero-animal {
+  position: absolute;
+  z-index: -1;
+  top: -1.65rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  line-height: 1;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.2, 0.75, 0.25, 1);
+  pointer-events: none;
+}
+
+.hero-content:hover .hero-animal,
+.hero-content:focus-within .hero-animal {
+  transform: translateY(0);
 }
 
 .hero-greeting {
@@ -333,6 +352,18 @@ onUnmounted(() => {
   border-color: var(--rose);
   color: var(--rose-ink);
   transform: translateY(-3px);
+}
+
+@media (hover: none) {
+  .hero-animal {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-animal {
+    transition: none;
+  }
 }
 
 @media (max-width: 768px) {

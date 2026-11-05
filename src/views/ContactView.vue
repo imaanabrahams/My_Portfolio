@@ -6,6 +6,7 @@ import ContactSection from '../components/ContactSection.vue'
 <template>
   <div>
     <PageHero
+      animal="🐬"
       title="Contact"
       subtitle="Have a project, role or quest in mind? Send a message and let's team up."
     />

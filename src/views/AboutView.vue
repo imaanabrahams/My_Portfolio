@@ -7,6 +7,7 @@ import TimelineSection from '../components/TimelineSection.vue'
 <template>
   <div>
     <PageHero
+      animal="🦊"
       title="About Me"
       subtitle="The player behind the portfolio: where I started, what I love building, and how I keep levelling up."
     />
