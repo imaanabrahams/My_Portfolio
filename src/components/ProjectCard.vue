@@ -25,6 +25,8 @@ const onKey = (event) => {
     @click="openProject(project)"
     @keydown="onKey"
   >
+    <span class="cat-peek" aria-hidden="true">🐱</span>
+
     <div v-if="project.screenshot" class="card-media">
       <img
         :src="project.screenshot"
@@ -81,14 +83,33 @@ const onKey = (event) => {
 
 <style scoped>
 .project-card {
+  position: relative;
+  isolation: isolate;
   background: var(--surface);
   border-radius: 20px;
   box-shadow: var(--card-shadow);
   transition: var(--transition);
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+}
+
+.cat-peek {
+  position: absolute;
+  z-index: -1;
+  top: -1.65rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  line-height: 1;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.2, 0.75, 0.25, 1);
+  pointer-events: none;
+}
+
+.project-card:hover .cat-peek,
+.project-card:focus-visible .cat-peek {
+  transform: translateY(0);
 }
 
 .project-card:hover,
@@ -391,6 +412,10 @@ const onKey = (event) => {
     transform: none;
   }
 
+  .cat-peek {
+    display: none;
+  }
+
   .card-open {
     opacity: 1;
     transform: translateY(0);
@@ -399,6 +424,12 @@ const onKey = (event) => {
   .card-details:hover {
     color: var(--rose-ink);
     transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-peek {
+    transition: none;
   }
 }
 
