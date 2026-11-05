@@ -1,15 +1,15 @@
 <script setup>
 import PageHero from '../components/PageHero.vue'
 import SkillsSection from '../components/SkillsSection.vue'
+import PageAnimal from '../components/PageAnimal.vue'
 </script>
 
 <template>
-  <div>
+  <PageAnimal animal="🦁">
     <PageHero
-      animal="🦁"
       title="Skills"
       subtitle="The tools, languages and technologies I use to turn ideas into working products."
     />
     <SkillsSection />
-  </div>
+  </PageAnimal>
 </template>

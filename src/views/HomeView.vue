@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import HeroSection from '../components/HeroSection.vue'
+import PageAnimal from '../components/PageAnimal.vue'
 
 const quests = [
   {
@@ -49,36 +50,38 @@ const quests = [
 </script>
 
 <template>
-  <div class="home-view">
-    <HeroSection />
+  <PageAnimal animal="🐼">
+    <div class="home-view">
+      <HeroSection />
 
-    <section class="quest-map section">
-      <div class="quest-heading" v-reveal>
-        <span class="game-label">SELECT YOUR NEXT LEVEL</span>
-        <h2 class="section-title">Quest Map</h2>
-        <div class="section-title-underline"></div>
-        <p class="quest-intro">
-          Pick a path to explore. Every page is its own level.
-        </p>
-      </div>
+      <section class="quest-map section">
+        <div class="quest-heading" v-reveal>
+          <span class="game-label">SELECT YOUR NEXT LEVEL</span>
+          <h2 class="section-title">Quest Map</h2>
+          <div class="section-title-underline"></div>
+          <p class="quest-intro">
+            Pick a path to explore. Every page is its own level.
+          </p>
+        </div>
 
-      <div class="quest-grid">
-        <RouterLink
-          v-for="(quest, i) in quests"
-          :key="quest.to"
-          :to="quest.to"
-          class="quest-card"
-          v-reveal="(i % 3) * 90"
-        >
-          <span class="quest-icon" aria-hidden="true">{{ quest.icon }}</span>
-          <span class="quest-level">{{ quest.level }}</span>
-          <h3>{{ quest.title }}</h3>
-          <p>{{ quest.text }}</p>
-          <span class="quest-cta">Enter level &rarr;</span>
-        </RouterLink>
-      </div>
-    </section>
-  </div>
+        <div class="quest-grid">
+          <RouterLink
+            v-for="(quest, i) in quests"
+            :key="quest.to"
+            :to="quest.to"
+            class="quest-card"
+            v-reveal="(i % 3) * 90"
+          >
+            <span class="quest-icon" aria-hidden="true">{{ quest.icon }}</span>
+            <span class="quest-level">{{ quest.level }}</span>
+            <h3>{{ quest.title }}</h3>
+            <p>{{ quest.text }}</p>
+            <span class="quest-cta">Enter level &rarr;</span>
+          </RouterLink>
+        </div>
+      </section>
+    </div>
+  </PageAnimal>
 </template>
 
 <style scoped>
