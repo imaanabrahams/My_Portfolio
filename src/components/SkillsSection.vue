@@ -36,6 +36,12 @@ import { skills } from '../data/content.js'
   border: 2px dashed var(--dark);
   border-radius: 14px;
   box-shadow: 4px 4px 0 var(--dark);
+  transition: var(--transition);
+}
+
+.skill-group:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--dark);
 }
 
 .skill-group h3 {
