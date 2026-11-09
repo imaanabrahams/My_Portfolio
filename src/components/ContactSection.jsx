@@ -3,6 +3,7 @@ import Reveal from './Reveal.jsx'
 import '../styles/ContactSection.css'
 
 const EMAIL = 'imaanabrahams15@gmail.com'
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/moeeoyow'
 
 const emailOk = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
 const messageOk = (value) => value.trim().length >= 10
@@ -71,11 +72,12 @@ export default function ContactSection() {
 
     setStatus('sending')
     try {
-      const response = await fetch('https://formspree.io/f/mbdeyken', {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           _subject: `Portfolio enquiry from ${form.name}`,
+          _replyto: form.email,
           name: form.name,
           email: form.email,
           message: form.message,
