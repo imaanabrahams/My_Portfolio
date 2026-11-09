@@ -80,6 +80,14 @@
   color: var(--text-muted);
   font-size: 0.75rem;
   word-break: break-all;
+  margin-bottom: 0.5rem;
+}
+
+.cert-verification-link {
+  align-self: flex-start;
+  color: var(--rose-ink);
+  font-size: 0.85rem;
+  font-weight: 600;
   margin-bottom: 1rem;
 }
 

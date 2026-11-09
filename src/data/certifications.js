@@ -30,6 +30,17 @@ export const certifications = [
     image: './certifications/cisco-networking-basics.png',
   },
   {
+    id: 'coursera-build-your-first-react-website',
+    title: 'Build Your First React Website',
+    issuer: 'Coursera Project Network',
+    provider: 'Coursera',
+    date: '9 November 2026',
+    certId: 'PST4HQNFXDAA',
+    verifyUrl: 'https://coursera.org/verify/PST4HQNFXDAA',
+    pdf: './certifications/coursera-build-your-first-react-website.pdf',
+    image: './certifications/coursera-build-your-first-react-website.png',
+  },
+  {
     id: 'scrum-fundamentals-certified',
     title: 'Scrum Fundamentals Certified',
     issuer: 'SCRUMstudy',

@@ -31,6 +31,16 @@ export default function CertificationsSection() {
                 <p className="cert-issuer">{cert.issuer} &middot; {cert.provider}</p>
                 <p className="cert-date">Completed {cert.date}</p>
                 <p className="cert-id">Cert ID: {cert.certId}</p>
+                {cert.verifyUrl && (
+                  <a
+                    href={cert.verifyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cert-verification-link"
+                  >
+                    Verify Credential
+                  </a>
+                )}
                 <a
                   href={cert.pdf}
                   target="_blank"
