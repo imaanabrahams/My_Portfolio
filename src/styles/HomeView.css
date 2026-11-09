@@ -1,0 +1,141 @@
+.quest-map {
+  background: var(--section-strip);
+}
+
+.quest-heading {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.quest-intro {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.quest-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 2rem;
+}
+
+.quest-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem;
+  background: var(--surface);
+  border: 2px dashed var(--dark);
+  box-shadow: 5px 5px 0 var(--dark);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--dark);
+  transition: var(--transition);
+}
+
+.quest-card:hover,
+.quest-card:focus-visible {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--dark);
+}
+
+.quest-icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.quest-level {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  color: var(--sage-deep);
+  margin-bottom: 0.75rem;
+}
+
+.quest-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.quest-card p {
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.quest-cta {
+  margin-top: auto;
+  font-weight: 700;
+  color: var(--rose-ink);
+}
+
+@media (max-width: 768px) {
+  .quest-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .quest-grid {
+    grid-template-columns: 1fr;
+    width: 90%;
+    max-width: 400px;
+    gap: 0.65rem;
+  }
+
+  .quest-heading {
+    margin-bottom: 1.75rem;
+  }
+
+  .quest-card {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    grid-template-areas:
+      'icon level'
+      'icon title'
+      'text text'
+      'cta cta';
+    gap: 0.1rem 0.65rem;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .quest-icon {
+    grid-area: icon;
+    align-self: center;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .quest-level {
+    grid-area: level;
+    margin: 0;
+    font-size: 0.7rem;
+  }
+
+  .quest-icon {
+    line-height: 1;
+  }
+
+  .quest-card h3 {
+    grid-area: title;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .quest-card p {
+    grid-area: text;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin: 0.35rem 0;
+  }
+
+  .quest-cta {
+    grid-area: cta;
+    font-size: 0.9rem;
+  }
+}

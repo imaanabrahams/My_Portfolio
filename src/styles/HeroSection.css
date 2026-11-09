@@ -1,0 +1,301 @@
+.hero {
+  min-height: var(--vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5rem 2rem 4rem;
+  padding-right: calc(2rem + env(safe-area-inset-right, 0px));
+  padding-left: calc(2rem + env(safe-area-inset-left, 0px));
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, var(--blob-1), transparent 45%),
+    radial-gradient(circle at 80% 30%, var(--blob-2), transparent 45%),
+    radial-gradient(circle at 60% 85%, var(--blob-3), transparent 45%),
+    linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
+}
+
+.hero-blobs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.6;
+  animation: drift 18s ease-in-out infinite;
+}
+
+.blob-1 {
+  width: 340px;
+  height: 340px;
+  top: -60px;
+  left: -80px;
+  background: var(--blob-1);
+}
+
+.blob-2 {
+  width: 280px;
+  height: 280px;
+  bottom: -40px;
+  right: -60px;
+  animation-delay: -6s;
+  background: var(--blob-2);
+}
+
+.blob-3 {
+  width: 220px;
+  height: 220px;
+  top: 60%;
+  left: 55%;
+  animation-delay: -12s;
+  background: var(--blob-3);
+}
+
+.hero-content {
+  max-width: 820px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  /* Frosted panel: the pink page is too light for saturated text to hit AA
+     on its own, so the copy sits on a near-white surface instead. */
+  padding: 2.5rem 2rem;
+  border-radius: 22px;
+  background: var(--hero-panel);
+  border: 2px dashed var(--rose-deep);
+  box-shadow: 6px 6px 0 rgba(121, 95, 137, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.hero-greeting {
+  font-size: clamp(1.15rem, 3.8vw, 1.3rem);
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  letter-spacing: 1px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.4rem, 8.5vw, 4.2rem);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  white-space: normal;
+}
+
+/* Soft rose, lavender and sage gradients keep the hero colorful without
+   overpowering the white pastel layout. */
+.name,
+.typed-text {
+  display: inline-block;
+  color: var(--hero-accent);
+}
+
+.name {
+  background: linear-gradient(
+    100deg,
+    var(--hero-accent) 0%,
+    var(--hero-deep) 52%,
+    var(--hero-sage) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.typing {
+  font-size: clamp(1.3rem, 4.6vw, 1.9rem);
+  color: var(--hero-accent);
+  min-height: 56px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.typed-text {
+  background: linear-gradient(
+    100deg,
+    var(--hero-accent) 0%,
+    var(--hero-deep) 52%,
+    var(--hero-sage) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@supports (-webkit-background-clip: text) {
+  .name,
+  .typed-text {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@supports (background-clip: text) and (not (-webkit-background-clip: text)) {
+  .name,
+  .typed-text {
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.typed-text::selection {
+  -webkit-text-fill-color: currentColor;
+}
+
+.typewriter-cursor {
+  color: var(--hero-deep);
+  animation: blink 1s step-start infinite;
+  font-weight: 400;
+}
+
+.hero-sub {
+  font-size: clamp(1.05rem, 3.4vw, 1.15rem);
+  color: var(--text-muted);
+  margin: 1.5rem auto 2.5rem;
+  max-width: 560px;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 800;
+  background: linear-gradient(140deg, var(--hero-accent), var(--hero-deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  font-weight: 600;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-ghost {
+  display: inline-block;
+  padding: 12px 30px;
+  min-height: var(--tap);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 2px solid var(--border);
+  color: var(--dark);
+  background: transparent;
+  touch-action: manipulation;
+}
+
+.btn-ghost:hover {
+  border-color: var(--rose);
+  color: var(--rose-ink);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 4.5rem 2rem 3.5rem;
+    padding-right: calc(2rem + env(safe-area-inset-right, 0px));
+    padding-left: calc(2rem + env(safe-area-inset-left, 0px));
+  }
+
+  .hero-content {
+    padding: 2rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .typing {
+    min-height: 2.6em;
+  }
+
+  .hero-sub {
+    margin: 1.25rem auto 2rem;
+  }
+
+  .hero-stats {
+    gap: 1.5rem 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Blur radius drives fill-rate on mobile GPUs — dial it back to keep
+     scrolling smooth on lower-end phones. */
+  .blob {
+    filter: blur(46px);
+    opacity: 0.5;
+  }
+
+  .blob-1 {
+    width: 240px;
+    height: 240px;
+  }
+
+  .blob-2 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .blob-3 {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 1.5rem 3rem;
+    padding-right: calc(1.5rem + env(safe-area-inset-right, 0px));
+    padding-left: calc(1.5rem + env(safe-area-inset-left, 0px));
+  }
+
+  .hero-content {
+    padding: 1.75rem 1.15rem;
+    border-radius: 16px;
+  }
+
+  .hero-stats {
+    gap: 1.75rem 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    max-width: 8rem;
+  }
+
+  .hero-buttons {
+    gap: 1rem;
+  }
+}
+
+@media (hover: none) {
+  .btn-ghost:hover {
+    transform: none;
+  }
+}

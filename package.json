@@ -3,18 +3,19 @@
   "private": true,
   "version": "2.0.0",
   "type": "module",
-  "description": "Imaan Abrahams - Vue.js portfolio. Aspiring full-stack web developer and cybersecurity enthusiast.",
+  "description": "Imaan Abrahams - React portfolio. Aspiring full-stack web developer and cybersecurity enthusiast.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.13",
-    "vue-router": "^4.6.4"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "vite": "^6.0.7"
   },
   "allowScripts": {

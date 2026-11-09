@@ -1,0 +1,35 @@
+.projects-section {
+  background: var(--section-strip);
+}
+
+.project-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: 2rem;
+}
+
+.project-grid > div {
+  display: flex;
+}
+
+.project-grid .project-card {
+  width: 100%;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    width: 90%;
+    max-width: 440px;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    gap: 0.85rem;
+  }
+}

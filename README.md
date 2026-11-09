@@ -1,6 +1,6 @@
-# Imaan Abrahams — Portfolio (Vue.js)
+# Imaan Abrahams — Portfolio (React)
 
-A responsive, game-inspired portfolio built with **Vue 3 + Vite**. Home, About, Skills, Projects, Certifications, Gallery and Contact each have their own route. Projects and Certifications are separate pages, with a quest map linking between them.
+A responsive, game-inspired portfolio built with **React + Vite**. Home, About, Skills, Projects, Certifications, Gallery and Contact each have their own route. Projects and Certifications are separate pages, with a quest map linking between them.
 
 🔗 **Live site:** [https://imaanabrahams.github.io/My_Portfolio/](https://imaanabrahams.github.io/My_Portfolio/)
 
@@ -8,14 +8,14 @@ A responsive, game-inspired portfolio built with **Vue 3 + Vite**. Home, About, 
 
 ## Tech Stack
 
-- **Vue 3** (`<script setup>` SFCs) + **Vite 6**
-- Vue Router with hash-based navigation for GitHub Pages
-- Scoped CSS driven by CSS custom properties (rose / sage / pink)
+- **React 18** + **Vite 6**
+- **React Router** (`HashRouter`) with hash-based navigation for GitHub Pages
+- Component-level CSS driven by global CSS custom properties (rose / sage / pink)
 
 ## Features
 
-- 🌓 **Dark / light theme** — persists in `localStorage`, respects system preference, applied pre-paint to avoid a flash of the wrong theme. Light mode is a baby-pink pastel; dark mode is a deep plum background with light pink text, both sharing the same rose/sage accents. The toggle shows the mode you're currently in
-- ✨ **Scroll-reveal animations** — IntersectionObserver-driven `v-reveal` directive with staggered cards
+- 🌓 **Dark theme** — applied pre-paint to avoid a flash of the wrong theme, with a rose/sage accent palette
+- ✨ **Scroll-reveal animations** — IntersectionObserver-driven `useReveal` hook / `<Reveal>` component with staggered cards
 - 🔍 **Project modals** — click any project card for full details, features, tech and links (ESC / overlay to close)
 - 🖼️ **Gallery lightbox** — click an image to enlarge it with prev/next navigation and keyboard support
 - 💌 **Contact form** — live per-field validation, sending state, success panel, and a pre-filled email fallback if online delivery fails
@@ -25,7 +25,7 @@ A responsive, game-inspired portfolio built with **Vue 3 + Vite**. Home, About, 
 - 📲 **Touch-first interactions** — 44px minimum tap targets, `viewport-fit=cover` with safe-area insets, no hover-only affordances, `dvh/svh` viewports so mobile browser chrome can't clip content
 - 🎮 **Quest map navigation** — each portfolio section is a separate level, with pixel-style cards and badges in the existing rose / sage palette
 - 🧭 Floating back-to-top button
-- ♿ **Accessibility** — `focus-visible` states, `aria` labels/roles, skip link, `prefers-reduced-motion` support, and WCAG AA contrast (4.5:1) on body text, muted text, surfaces and buttons in **both** themes. Accent-filled controls use an `--on-accent` token instead of white, which only reached 2.15:1 on the rose background
+- ♿ **Accessibility** — `focus-visible` states, `aria` labels/roles, skip link, `prefers-reduced-motion` support, and WCAG AA contrast (4.5:1) on body text, muted text, surfaces and buttons
 
 ## Getting Started
 
@@ -40,34 +40,37 @@ npm run preview   # preview the production build
 
 ```
 src/
-├── main.js                  # Vue bootstrap (registers v-reveal directive)
-├── App.vue                  # Shared shell, loader, back-to-top, and route outlet
-├── router/                  # Separate hash-based page routes
+├── main.jsx                 # React bootstrap (HashRouter + ProjectProvider)
+├── App.jsx                  # Shared shell, loader, back-to-top, and route outlet
+├── router/
+│   └── AppRoutes.jsx        # Hash-based page routes + document title handling
 ├── views/                   # Home, About, Skills, Projects, Certifications, Gallery, Contact
 ├── style.css                # Theme tokens, animations, reveal + shared styles
-│                              # (light + dark palettes as CSS custom properties)
-├── directives/
-│   └── reveal.js            # IntersectionObserver scroll-reveal directive
-├── composables/
-│   ├── useTheme.js          # Dark/light theme + localStorage + theme-color meta
-│   └── useProject.js        # Shared project-modal state
+├── context/
+│   └── ProjectContext.jsx   # Shared project-modal state
+├── hooks/
+│   ├── useReveal.js         # IntersectionObserver scroll-reveal hook
+│   └── useTheme.js          # Theme init + theme-color meta
+├── styles/                  # Component stylesheets
 ├── data/
 │   ├── content.js           # Timeline, skills, gallery, learning status
 │   └── projects.js          # Featured + learning project data
 └── components/
-    ├── SiteLoader.vue       # Welcome / loading animation
-    ├── NavBar.vue           # Sticky nav, theme toggle, mobile hamburger
-    ├── HeroSection.vue      # Typewriter hero, animated blobs, stats
-    ├── TimelineSection.vue  # My Journey timeline
-    ├── GallerySection.vue   # Interest gallery + lightbox
-    ├── SkillsSection.vue    # Animated skill bars + counters
-    ├── ProjectsSection.vue  # Completed (featured) projects grid
-    ├── ProjectCard.vue      # Reusable card (click to open modal)
-    ├── ProjectModal.vue     # Teleport modal with project details
-    ├── LearningSection.vue  # Learning journey + exercise projects
-    ├── AboutSection.vue     # Who I am / interests
-    ├── ContactSection.vue   # Formspree form + contact links
-    └── SiteFooter.vue
+    ├── Reveal.jsx           # Wrapper that applies the scroll-reveal hook
+    ├── SiteLoader.jsx       # Welcome / loading animation
+    ├── NavBar.jsx           # Sticky nav, mobile hamburger
+    ├── HeroSection.jsx      # Typewriter hero, animated blobs, stats
+    ├── TimelineSection.jsx  # My Journey timeline
+    ├── GallerySection.jsx   # Interest gallery + lightbox
+    ├── SkillsSection.jsx    # Skill groups
+    ├── ProjectsSection.jsx  # Completed (featured) projects grid
+    ├── ProjectCard.jsx      # Reusable card (click to open modal)
+    ├── ProjectModal.jsx     # Portal modal with project details
+    ├── LearningSection.jsx  # Learning journey + exercise projects
+    ├── AboutSection.jsx     # Who I am / interests
+    ├── ContactSection.jsx   # Formspree form + contact links
+    ├── PageHero.jsx         # Shared page heading
+    └── SiteFooter.jsx
 ```
 
 `public/` holds the CV download, favicon, and project screenshots.
