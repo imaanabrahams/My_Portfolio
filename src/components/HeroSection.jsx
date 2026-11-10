@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
 import '../styles/HeroSection.css'
 
+const CV_URL = 'https://docs.google.com/document/d/1HC3SW84Tw-13qk110TKF36Pa_cspSIgCRWPjJqxAXmo/export?format=pdf'
+
 const phrases = [
   'Full-Stack Web Developer',
   'Vue.js Enthusiast',
@@ -115,7 +117,7 @@ export default function HeroSection() {
         <Reveal className="hero-buttons" delay={440}>
           <Link to="/projects" className="btn">View My Projects</Link>
           <Link to="/contact" className="btn-secondary">Get In Touch</Link>
-          <a href="./ImaanAbrahams_CV.pdf" download className="btn-ghost">Download CV</a>
+          <a href={CV_URL} className="btn-ghost">Download CV</a>
         </Reveal>
       </div>
     </section>
