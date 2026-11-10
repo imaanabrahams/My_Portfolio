@@ -50,4 +50,15 @@ export const certifications = [
     pdf: './certifications/scrum-fundamentals-certified.pdf',
     image: './certifications/scrum-fundamentals-certified.png',
   },
+  {
+    id: 'coursera-learn-firebase',
+    title: 'Learn Firebase',
+    issuer: 'Scrimba',
+    provider: 'Coursera',
+    date: '10 November 2026',
+    certId: '8Y0WWDYGDFNM',
+    verifyUrl: 'https://coursera.org/verify/8Y0WWDYGDFNM',
+    pdf: './certifications/coursera-learn-firebase.pdf',
+    image: './certifications/coursera-learn-firebase.png',
+  },
 ]
