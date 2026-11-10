@@ -73,7 +73,7 @@ src/
     └── SiteFooter.jsx
 ```
 
-`public/` holds the CV download, favicon, and project screenshots.
+`public/` holds the CV, certificates, gallery and project images, and favicons. `npm run build` writes the production site to the ignored `dist/` folder. Generated bundles and duplicate copies of public assets are kept off `main`; GitHub Pages is published from the `gh-pages` branch.
 
 ## Projects Featured
 
