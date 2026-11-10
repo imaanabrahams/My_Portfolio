@@ -10,12 +10,16 @@ const statusLabels = {
   ongoing: '🔄 Ongoing',
 }
 
+const sortedCertifications = [...certifications].sort(
+  (a, b) => new Date(a.date) - new Date(b.date),
+)
+
 export default function CertificationsSection() {
   return (
     <section id="certifications" className="certifications-section section">
       <div className="certifications">
         <div className="cert-grid">
-          {certifications.map((cert, i) => (
+          {sortedCertifications.map((cert, i) => (
             <Reveal as="article" key={cert.id} className="cert-card" delay={(i % 3) * 100}>
               <a
                 href={cert.pdf}
