@@ -152,11 +152,15 @@
 @media (max-width: 810px) {
   .teaser-banner {
     grid-template-columns: 1fr;
+    width: calc(100% - clamp(16px, 6vw, 32px));
+    max-width: 560px;
+    margin-inline: auto;
   }
 
   .teaser-photo {
     aspect-ratio: 4 / 3.4;
     max-width: 420px;
+    width: 100%;
   }
 
   .teaser-more {
@@ -169,5 +173,8 @@
 
   .about-interests {
     position: static;
+    width: calc(100% - clamp(16px, 6vw, 32px));
+    max-width: 560px;
+    margin-inline: auto;
   }
 }

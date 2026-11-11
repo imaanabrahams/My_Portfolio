@@ -20,7 +20,12 @@ export default function AboutSection() {
         <div className="container">
           <Reveal className="teaser-banner">
             <div className="teaser-photo">
-              <img src="./gallery/profile.jpg" alt="Imaan Abrahams" loading="lazy" />
+              <img
+                src="./gallery/profile.jpg"
+                alt="Imaan Abrahams"
+                loading="eager"
+                fetchPriority="high"
+              />
             </div>
             <div className="teaser-copy">
               <span className="section-kicker">Hello, I&rsquo;m Imaan</span>

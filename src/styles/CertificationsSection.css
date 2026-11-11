@@ -107,6 +107,12 @@
   .cert-grid {
     grid-template-columns: 1fr;
   }
+
+  .cert-card {
+    width: calc(100% - clamp(16px, 6vw, 32px));
+    max-width: 560px;
+    margin-inline: auto;
+  }
 }
 
 @media (hover: none) {

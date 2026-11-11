@@ -173,6 +173,13 @@
     grid-template-columns: 1fr;
   }
 
+  .skill-group,
+  .learning-status {
+    width: calc(100% - clamp(16px, 6vw, 32px));
+    max-width: 560px;
+    margin-inline: auto;
+  }
+
   .status-list {
     grid-template-columns: 1fr;
   }
