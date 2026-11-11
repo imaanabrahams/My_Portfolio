@@ -110,7 +110,7 @@
 
 .about-interests {
   position: sticky;
-  top: calc(var(--nav-height) + 40px);
+  top: calc(var(--nav-offset) + 40px);
   padding: clamp(1.4rem, 2.6vw, 2rem);
   background: var(--card);
   border: var(--border-card);

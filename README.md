@@ -49,7 +49,7 @@ src/
 │   └── useReveal.js         # IntersectionObserver scroll-reveal hook
 ├── styles/                  # Component stylesheets
 ├── data/
-│   ├── content.js           # Timeline, skills, gallery, learning status
+│   ├── content.js           # Skills, gallery, learning status
 │   ├── projects.js          # Featured + learning project data
 │   └── certifications.js    # Certification data
 └── components/
@@ -58,7 +58,6 @@ src/
     ├── NavBar.jsx           # Fixed nav, mobile hamburger
     ├── HeroSection.jsx      # Boxed profile intro (draggable card)
     ├── AboutSection.jsx     # Teaser banner + about detail / interests
-    ├── TimelineSection.jsx  # My Journey timeline
     ├── SkillsSection.jsx    # Skill cards + learning status
     ├── ProjectsSection.jsx  # Sticky heading + stacked project cards
     ├── ProjectCard.jsx      # Stacked card + compact mini card

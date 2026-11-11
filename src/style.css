@@ -33,9 +33,11 @@
   --gutter: 20px;
   --section-pad: clamp(4.5rem, 10vw, 11rem);
 
+  --safe-t: env(safe-area-inset-top, 0px);
   --safe-b: env(safe-area-inset-bottom, 0px);
   --safe-l: env(safe-area-inset-left, 0px);
   --safe-r: env(safe-area-inset-right, 0px);
+  --nav-offset: calc(var(--nav-height) + var(--safe-t));
 
   --vh: 100vh;
   color-scheme: light;
@@ -61,7 +63,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--nav-height) + 24px);
+  scroll-padding-top: calc(var(--nav-offset) + 24px);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -417,7 +419,8 @@ main {
 
 @media (max-width: 480px) {
   :root {
-    --gutter: 14px;
+    --gutter: clamp(12px, 4vw, 16px);
+    --section-pad: clamp(3.5rem, 14vw, 5rem);
   }
 
   .btn,

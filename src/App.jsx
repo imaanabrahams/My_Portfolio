@@ -3,7 +3,6 @@ import SiteLoader from './components/SiteLoader.jsx'
 import NavBar from './components/NavBar.jsx'
 import HeroSection from './components/HeroSection.jsx'
 import AboutSection from './components/AboutSection.jsx'
-import TimelineSection from './components/TimelineSection.jsx'
 import SkillsSection from './components/SkillsSection.jsx'
 import ProjectsSection from './components/ProjectsSection.jsx'
 import LearningSection from './components/LearningSection.jsx'
@@ -34,7 +33,6 @@ export default function App() {
             <main id="main">
               <HeroSection />
               <AboutSection />
-              <TimelineSection />
               <SkillsSection />
               <ProjectsSection />
               <LearningSection />

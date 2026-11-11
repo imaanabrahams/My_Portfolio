@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: calc(var(--nav-height) + 32px) 20px 56px;
+  padding: calc(var(--nav-offset) + 32px) calc(20px + var(--safe-r)) 56px
+    calc(20px + var(--safe-l));
   background: var(--cream);
 }
 
@@ -321,11 +322,11 @@
 /* ---------- responsive ---------- */
 @media (max-width: 810px) {
   .hero {
-    padding-top: calc(var(--nav-height) + 20px);
+    padding-top: calc(var(--nav-offset) + 20px);
   }
 
   .pc-svg {
-    width: clamp(280px, 82vw, 440px);
+    width: min(clamp(260px, 82vw, 440px), calc(100vw - 40px - var(--safe-l) - var(--safe-r)));
   }
 }
 

@@ -6,7 +6,7 @@
 
 .work-heading {
   position: sticky;
-  top: calc(var(--nav-height) + 44px);
+  top: calc(var(--nav-offset) + 44px);
   flex: 0 0 320px;
 }
 
@@ -30,7 +30,7 @@
 /* ---------- sticky stacked cards ---------- */
 .stack-card {
   position: sticky;
-  top: calc(var(--nav-height) + 30px + var(--stack-index) * 22px);
+  top: calc(var(--nav-offset) + 30px + var(--stack-index) * 22px);
   z-index: calc(var(--stack-index) + 1);
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);

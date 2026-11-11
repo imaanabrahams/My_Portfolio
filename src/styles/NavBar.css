@@ -4,6 +4,7 @@
   left: 0;
   right: 0;
   z-index: 100;
+  padding-top: var(--safe-t);
   background: var(--cream);
   border-bottom: 1px solid var(--line-soft);
   animation: navIn 0.8s var(--ease-out) 0.1s both;
@@ -12,11 +13,9 @@
 @keyframes navIn {
   from {
     opacity: 0;
-    transform: translateY(-12px);
   }
   to {
     opacity: 1;
-    transform: none;
   }
 }
 
@@ -155,8 +154,9 @@
 .mobile-menu {
   position: fixed;
   inset: 0;
-  top: var(--nav-height);
-  padding: 3rem 2rem calc(3rem + var(--safe-b));
+  top: var(--nav-offset);
+  padding: 3rem calc(1.25rem + var(--safe-r)) calc(3rem + var(--safe-b))
+    calc(1.25rem + var(--safe-l));
   background: var(--cream);
   display: flex;
   flex-direction: column;
@@ -231,7 +231,17 @@
 
 @media (max-width: 810px) {
   .nav-bar {
-    padding-inline: 18px;
+    padding-inline: calc(18px + var(--safe-l)) calc(18px + var(--safe-r));
+  }
+
+  .nav-logo {
+    left: calc(18px + var(--safe-l));
+    transform: translateY(-50%);
+    font-size: 1rem;
+  }
+
+  .nav-tools {
+    margin-left: auto;
   }
 
   .nav-links {
@@ -240,6 +250,8 @@
 
   .hamburger {
     display: flex;
+    width: 44px;
+    height: 44px;
   }
 
   .nav-contact {
