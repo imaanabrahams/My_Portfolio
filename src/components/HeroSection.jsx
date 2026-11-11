@@ -100,9 +100,7 @@ function PinkComputer() {
           <rect className="pc-scanlines" x="108" y="38" width="304" height="214" rx="14" />
         </g>
 
-        <text className="pc-brand" x="260" y="263">
-          IMAAN
-        </text>
+        {/* power light */}
         <circle className="pc-led" cx="404" cy="258" r="3.5" />
 
         {/* stand */}

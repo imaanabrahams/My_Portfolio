@@ -198,16 +198,6 @@
 }
 
 /* ---------- bezel details ---------- */
-.pc-brand {
-  font-family: var(--font-display);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.5em;
-  text-anchor: middle;
-  fill: var(--cream);
-  opacity: 0.85;
-}
-
 .pc-led {
   fill: var(--cream);
   animation: ledPulse 2.2s ease-in-out infinite;
