@@ -11,6 +11,7 @@ import GallerySection from './components/GallerySection.jsx'
 import ContactSection from './components/ContactSection.jsx'
 import ContactReveal from './components/ContactReveal.jsx'
 import ProjectModal from './components/ProjectModal.jsx'
+import BackToTop from './components/BackToTop.jsx'
 
 export default function App() {
   const [loading, setLoading] = useState(true)
@@ -44,6 +45,7 @@ export default function App() {
 
           <ContactReveal />
           <ProjectModal />
+          <BackToTop />
         </>
       )}
     </>
