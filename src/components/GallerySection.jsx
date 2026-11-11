@@ -14,7 +14,7 @@ function GalleryItem({ item, index, onOpen }) {
       aria-label={`Open ${item.label} image`}
       onClick={() => onOpen(index)}
     >
-      <img src={item.src} alt={item.alt} loading="lazy" className="gallery-img" />
+      <img src={item.src} alt={item.alt} loading="eager" className="gallery-img" />
       <div className="gallery-overlay">
         <span className="gallery-label">{item.label}</span>
         <span className="gallery-arrow" aria-hidden="true">

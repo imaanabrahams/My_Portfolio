@@ -29,7 +29,7 @@ export default function CertificationsSection() {
                 className="cert-preview"
                 aria-label={`View ${cert.title} certificate`}
               >
-                <img src={cert.image} alt={`${cert.title} certificate`} loading="lazy" />
+                <img src={cert.image} alt={`${cert.title} certificate`} loading="eager" />
                 <span className="cert-preview-open">View certificate ↗</span>
               </a>
               <div className="cert-body">

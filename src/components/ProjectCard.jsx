@@ -62,7 +62,7 @@ export default function ProjectCard({ project, variant = 'stack', index = 0 }) {
         <img
           src={project.screenshot}
           alt={`${project.title} screenshot`}
-          loading="lazy"
+          loading="eager"
         />
         {project.featured && <span className="stack-badge">Featured</span>}
       </div>
