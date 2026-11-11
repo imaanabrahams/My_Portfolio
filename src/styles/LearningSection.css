@@ -1,38 +1,21 @@
-.learning-section {
-  background: var(--section-strip);
-}
-
-.learning-heading {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
 .learning-grid {
-  max-width: 1200px;
-  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 
-.learning-grid > div {
-  display: flex;
+.learning-grid > * {
+  height: 100%;
 }
 
-.learning-grid .project-card {
-  width: 100%;
-  flex: 1;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .learning-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .learning-grid {
-    gap: 1rem;
+    grid-template-columns: 1fr;
   }
 }

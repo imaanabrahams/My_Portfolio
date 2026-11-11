@@ -1,125 +1,150 @@
-import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
-import Reveal from './Reveal.jsx'
 import '../styles/HeroSection.css'
 
-const phrases = [
-  'Full-Stack Web Developer',
-  'Vue.js Enthusiast',
-  'Cybersecurity Explorer',
-  'UI/UX Designer',
-  'Problem Solver',
+const KEY_ROWS = [
+  Array.from({ length: 12 }, (_, i) => i),
+  Array.from({ length: 12 }, (_, i) => i + 12),
 ]
 
-export default function HeroSection() {
-  const [typed, setTyped] = useState('')
-  const stateRef = useRef({
-    phraseIndex: 0,
-    charIndex: 0,
-    state: 'typing',
-    acc: 0,
-    lastFrame: 0,
-  })
-  const rafRef = useRef(null)
-
-  useEffect(() => {
-    const s = stateRef.current
-    const TYPE_SPEED = 40
-    const DELETE_SPEED = 26
-    const HOLD_TIME = 1400
-
-    s.lastFrame = performance.now()
-
-    const loop = (timestamp) => {
-      rafRef.current = requestAnimationFrame(loop)
-      const dt = Math.min(timestamp - s.lastFrame, 100)
-      s.lastFrame = timestamp
-      s.acc += dt
-
-      const current = phrases[s.phraseIndex]
-
-      if (s.state === 'typing') {
-        const steps = Math.floor(s.acc / TYPE_SPEED)
-        if (steps > 0) {
-          s.acc %= TYPE_SPEED
-          s.charIndex = Math.min(s.charIndex + steps, current.length)
-          setTyped(current.slice(0, s.charIndex))
-          if (s.charIndex === current.length) {
-            s.state = 'holding'
-            s.acc = 0
-          }
-        }
-      } else if (s.state === 'holding') {
-        if (s.acc >= HOLD_TIME) {
-          s.state = 'deleting'
-          s.acc = 0
-        }
-      } else {
-        const steps = Math.floor(s.acc / DELETE_SPEED)
-        if (steps > 0) {
-          s.acc %= DELETE_SPEED
-          s.charIndex = Math.max(s.charIndex - steps, 0)
-          setTyped(current.slice(0, s.charIndex))
-          if (s.charIndex === 0) {
-            s.state = 'typing'
-            s.acc = 0
-            s.phraseIndex = (s.phraseIndex + 1) % phrases.length
-          }
-        }
-      }
-    }
-
-    rafRef.current = requestAnimationFrame(loop)
-
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
-    }
-  }, [])
-
+function PinkComputer() {
   return (
-    <section className="hero" id="hero">
-      <div className="hero-blobs" aria-hidden="true">
-        <span className="blob blob-1"></span>
-        <span className="blob blob-2"></span>
-        <span className="blob blob-3"></span>
-      </div>
+    <div className="hero-stage">
+      <h1 className="sr-only">
+        Imaan Abrahams — Aspiring Full-Stack Web Developer and Cybersecurity
+        Enthusiast
+      </h1>
 
-      <div className="hero-content">
-        <Reveal as="p" delay={60} className="hero-greeting">Hello World 👋 I'm</Reveal>
-        <Reveal as="h1" delay={120} className="fade-in">
-          <span className="name">Imaan Abrahams</span>
-        </Reveal>
-        <Reveal as="h3" delay={200} className="typing">
-          <span className="typed-text">{typed}</span>
-          <span className="typewriter-cursor" aria-hidden="true">|</span>
-        </Reveal>
-        <Reveal as="p" delay={280} className="hero-sub">
-          Building modern, secure and thoughtful web experiences — one project at a time.
-        </Reveal>
+      <span className="pc-spark pc-spark--a">✦</span>
+      <span className="pc-spark pc-spark--b">✧</span>
+      <span className="pc-spark pc-spark--c">✦</span>
+      <span className="pc-spark pc-spark--d">·</span>
 
-        <Reveal className="hero-stats" delay={360}>
-          <div className="stat">
-            <span className="stat-number">3+</span>
-            <span className="stat-label">Full-Stack Projects</span>
-          </div>
-          <div className="stat">
-            <span className="stat-number">8+</span>
-            <span className="stat-label">Learning Tracks</span>
-          </div>
-          <div className="stat">
-            <span className="stat-number">10+</span>
-            <span className="stat-label">Tech Tools</span>
-          </div>
-        </Reveal>
+      <svg
+        className="pc-svg"
+        viewBox="0 0 520 420"
+        role="presentation"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern
+            id="pc-scan"
+            width="4"
+            height="4"
+            patternUnits="userSpaceOnUse"
+          >
+            <rect width="4" height="1.5" fill="#0a0a0a" opacity="0.22" />
+          </pattern>
+        </defs>
 
-        <Reveal className="hero-buttons" delay={440}>
-          <Link to="/projects" className="btn">View My Projects</Link>
-          <Link to="/contact" className="btn-secondary">Get In Touch</Link>
-          <a href="./Imaan_Abrahams_CV.pdf" download="Imaan_Abrahams_CV.pdf" className="btn-ghost">
-            Download CV
-          </a>
-        </Reveal>
-      </div>
+        <ellipse className="pc-shadow" cx="260" cy="410" rx="180" ry="9" />
+
+        {/* monitor */}
+        <rect
+          className="pc-case"
+          x="88"
+          y="18"
+          width="344"
+          height="254"
+          rx="24"
+        />
+
+        <g className="pc-screen-group">
+          <rect
+            className="pc-screen"
+            x="108"
+            y="38"
+            width="304"
+            height="214"
+            rx="14"
+          />
+
+          {/* terminal lines */}
+          <rect className="pc-line pc-line--1" x="128" y="68" width="118" height="8" rx="4" />
+          <rect className="pc-line pc-line--2" x="128" y="86" width="86" height="8" rx="4" />
+          <rect className="pc-line pc-line--3" x="128" y="104" width="146" height="8" rx="4" />
+          <rect className="pc-cursor" x="128" y="122" width="10" height="13" rx="2" />
+
+          <text
+            className="pc-screen-text"
+            x="128"
+            y="172"
+            fill="currentColor"
+            opacity="0.55"
+          >
+            imaan.dev
+          </text>
+
+          {/* flower on screen */}
+          <g className="pc-flower">
+            <circle className="pc-flower-petal" cx="345" cy="98" r="11" />
+            <circle className="pc-flower-petal" cx="362" cy="108" r="11" />
+            <circle className="pc-flower-petal" cx="362" cy="128" r="11" />
+            <circle className="pc-flower-petal" cx="345" cy="138" r="11" />
+            <circle className="pc-flower-petal" cx="328" cy="128" r="11" />
+            <circle className="pc-flower-petal" cx="328" cy="108" r="11" />
+            <circle className="pc-flower-heart" cx="345" cy="118" r="7" />
+            <path
+              className="pc-flower-stem"
+              d="M345 145 C345 158 345 166 345 176"
+              fill="none"
+            />
+            <ellipse
+              className="pc-flower-leaf"
+              cx="336"
+              cy="162"
+              rx="9"
+              ry="4"
+              transform="rotate(-28 336 162)"
+            />
+          </g>
+
+          <rect className="pc-scanlines" x="108" y="38" width="304" height="214" rx="14" />
+        </g>
+
+        <text className="pc-brand" x="260" y="263">
+          IMAAN
+        </text>
+        <circle className="pc-led" cx="404" cy="258" r="3.5" />
+
+        {/* stand */}
+        <rect className="pc-neck" x="238" y="272" width="44" height="30" />
+        <rect className="pc-base" x="178" y="302" width="164" height="16" rx="8" />
+
+        {/* keyboard */}
+        <rect className="pc-keyboard" x="60" y="340" width="400" height="58" rx="14" />
+
+        {KEY_ROWS.map((row, rowIndex) =>
+          row.map((keyNumber, i) => (
+            <rect
+              key={keyNumber}
+              className="pc-key"
+              x={84 + i * 30}
+              y={352 + rowIndex * 17}
+              width="24"
+              height="11"
+              rx="3"
+              style={{ '--kd': `${keyNumber * 60}ms` }}
+            />
+          ))
+        )}
+
+        <rect
+          className="pc-key pc-key--space"
+          x="170"
+          y="386"
+          width="180"
+          height="9"
+          rx="4"
+          style={{ '--kd': '780ms' }}
+        />
+      </svg>
+    </div>
+  )
+}
+
+export default function HeroSection() {
+  return (
+    <section className="hero" id="home">
+      <PinkComputer />
     </section>
   )
 }

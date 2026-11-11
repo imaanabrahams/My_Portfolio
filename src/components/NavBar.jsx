@@ -1,65 +1,48 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import '../styles/NavBar.css'
 
 const links = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
-  { path: '/skills', label: 'Skills' },
-  { path: '/projects', label: 'Projects' },
-  { path: '/certifications', label: 'Certifications' },
-  { path: '/gallery', label: 'Gallery' },
-  { path: '/contact', label: 'Contact' },
+  { href: '#about', label: 'About' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#work', label: 'Work' },
+  { href: '#certifications', label: 'Certifications' },
 ]
 
-const MOBILE_QUERY = '(max-width: 768px)'
+const socials = [
+  { href: 'https://www.linkedin.com/in/imaanabrahams8', label: 'LinkedIn' },
+  { href: 'https://github.com/imaanabrahams', label: 'GitHub' },
+  { href: 'mailto:imaanabrahams15@gmail.com', label: 'Email' },
+]
 
 export default function NavBar() {
-  const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const previousOverflow = useRef('')
 
-  const isActive = (path) =>
-    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path)
-
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 24)
     document.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => document.removeEventListener('scroll', onScroll)
   }, [])
 
   useEffect(() => {
-    setMenuOpen(false)
-  }, [location.pathname])
-
-  useEffect(() => {
     const onKey = (event) => {
       if (event.key === 'Escape' && menuOpen) setMenuOpen(false)
     }
-    const onPointerDown = (event) => {
-      if (!menuOpen) return
-      if (!event.target.closest('.nav-container')) setMenuOpen(false)
-    }
     const onResize = () => {
-      if (menuOpen && !window.matchMedia(MOBILE_QUERY).matches) {
+      if (menuOpen && !window.matchMedia('(max-width: 810px)').matches) {
         setMenuOpen(false)
       }
     }
     document.addEventListener('keydown', onKey)
-    document.addEventListener('pointerdown', onPointerDown)
     window.addEventListener('resize', onResize)
     return () => {
       document.removeEventListener('keydown', onKey)
-      document.removeEventListener('pointerdown', onPointerDown)
       window.removeEventListener('resize', onResize)
     }
   }, [menuOpen])
 
-  // Freeze the page behind the dropdown so a stray touch cannot scroll it away.
   useEffect(() => {
     if (menuOpen) {
       previousOverflow.current = document.body.style.overflow
@@ -76,29 +59,22 @@ export default function NavBar() {
   }, [])
 
   return (
-    <header className={`navbar${scrolled ? ' is-scrolled' : ''}`} id="navbar">
-      <nav className="nav-container" aria-label="Main navigation">
-        <div className="nav-logo">
-          <Link to="/" aria-label="Back to home" onClick={() => setMenuOpen(false)}>
-            <h1>IA ؛༊</h1>
-          </Link>
-        </div>
-
-        <ul className={`nav-menu${menuOpen ? ' open' : ''}`}>
+    <header className={`navbar${scrolled ? ' is-scrolled' : ''}`}>
+      <nav className="nav-bar" aria-label="Main navigation">
+        <ul className="nav-links">
           {links.map((link) => (
-            <li key={link.path}>
-              <Link
-                to={link.path}
-                className={`nav-link${isActive(link.path) ? ' active' : ''}`}
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
+            <li key={link.href}>
+              <a href={link.href} className="nav-link">{link.label}</a>
             </li>
           ))}
         </ul>
 
+        <a href="#home" className="nav-logo" aria-label="Imaan Abrahams — back to top">
+          IA ؛༊
+        </a>
+
         <div className="nav-tools">
+          <a href="#contact" className="nav-contact">Contact</a>
           <button
             className={`hamburger${menuOpen ? ' open' : ''}`}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -111,6 +87,32 @@ export default function NavBar() {
           </button>
         </div>
       </nav>
+
+      <div className={`mobile-menu${menuOpen ? ' open' : ''}`} aria-hidden={!menuOpen}>
+        <ul className="mobile-links">
+          {links.map((link, i) => (
+            <li key={link.href} style={{ transitionDelay: `${menuOpen ? 90 + i * 55 : 0}ms` }}>
+              <a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
+            </li>
+          ))}
+          <li style={{ transitionDelay: `${menuOpen ? 90 + links.length * 55 : 0}ms` }}>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          </li>
+        </ul>
+        <ul className="mobile-socials">
+          {socials.map((social, i) => (
+            <li key={social.href} style={{ transitionDelay: `${menuOpen ? 380 + i * 55 : 0}ms` }}>
+              <a
+                href={social.href}
+                target={social.href.startsWith('http') ? '_blank' : undefined}
+                rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                {social.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   )
 }

@@ -1,17 +1,25 @@
 import ProjectCard from './ProjectCard.jsx'
-import Reveal from './Reveal.jsx'
 import { featuredProjects } from '../data/projects.js'
 import '../styles/ProjectsSection.css'
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="projects-section section">
-      <div className="project-grid">
-        {featuredProjects.map((project, i) => (
-          <Reveal key={project.id} delay={i * 150}>
-            <ProjectCard project={project} />
-          </Reveal>
-        ))}
+    <section id="work" className="work-section section section--soft">
+      <div className="work-layout container container--wide">
+        <header className="work-heading">
+          <span className="section-kicker">Selected work</span>
+          <h2 className="section-title">Projects</h2>
+          <p className="work-note">
+            Three full-stack builds. Open any card to explore the story, the stack
+            and the live demo.
+          </p>
+        </header>
+
+        <div className="work-cards">
+          {featuredProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} variant="stack" index={index} />
+          ))}
+        </div>
       </div>
     </section>
   )

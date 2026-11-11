@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import Reveal from './Reveal.jsx'
+import ArrowIcon from './ArrowIcon.jsx'
 import { galleryItems } from '../data/content.js'
 import '../styles/GallerySection.css'
 
@@ -9,15 +10,16 @@ function GalleryItem({ item, index, onOpen }) {
     <Reveal
       as="button"
       className="gallery-item"
-      delay={index * 120}
-      style={{ '--i': index }}
+      delay={(index % 3) * 100}
       aria-label={`Open ${item.label} image`}
       onClick={() => onOpen(index)}
     >
       <img src={item.src} alt={item.alt} loading="lazy" className="gallery-img" />
       <div className="gallery-overlay">
-        <span className="gallery-zoom">🔍</span>
-        <h3>{item.label}</h3>
+        <span className="gallery-label">{item.label}</span>
+        <span className="gallery-arrow" aria-hidden="true">
+          <ArrowIcon size={20} />
+        </span>
       </div>
     </Reveal>
   )
@@ -66,11 +68,21 @@ export default function GallerySection() {
   }, [lightbox])
 
   return (
-    <section className="gallery-section section">
-      <div className="gallery-grid">
-        {galleryItems.map((galleryItem, i) => (
-          <GalleryItem key={galleryItem.alt} item={galleryItem} index={i} onOpen={open} />
-        ))}
+    <section id="gallery" className="gallery-section section">
+      <div className="container container--wide">
+        <Reveal className="section-head">
+          <span className="section-kicker">Side quests</span>
+          <h2 className="section-title">Gallery</h2>
+          <p className="section-lead">
+            The interests and hobbies that keep me curious outside of code.
+          </p>
+        </Reveal>
+
+        <div className="gallery-grid">
+          {galleryItems.map((galleryItem, i) => (
+            <GalleryItem key={galleryItem.alt} item={galleryItem} index={i} onOpen={open} />
+          ))}
+        </div>
       </div>
 
       {lightbox &&

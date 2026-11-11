@@ -5,19 +5,24 @@ import '../styles/LearningSection.css'
 
 export default function LearningSection() {
   return (
-    <section className="learning-section section">
-      <Reveal className="learning-heading">
-        <span className="game-label">SIDE QUESTS</span>
-        <h2 className="section-title">Learning Projects</h2>
-        <div className="section-title-underline"></div>
-      </Reveal>
+    <section id="learning" className="learning-section section">
+      <div className="container container--wide">
+        <Reveal className="section-head">
+          <span className="section-kicker">Practice makes progress</span>
+          <h2 className="section-title">Learning projects</h2>
+          <p className="section-lead">
+            Exercises, experiments and coursework that keep the skills sharp —
+            from Vue components to Node APIs and SQL schemas.
+          </p>
+        </Reveal>
 
-      <div className="learning-grid">
-        {learningProjects.map((project, i) => (
-          <Reveal key={project.id} delay={(i % 6) * 80}>
-            <ProjectCard project={project} />
-          </Reveal>
-        ))}
+        <div className="learning-grid">
+          {learningProjects.map((project, i) => (
+            <Reveal key={project.id} delay={(i % 4) * 80}>
+              <ProjectCard project={project} variant="compact" />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )

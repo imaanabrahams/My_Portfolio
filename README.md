@@ -1,6 +1,6 @@
 # Imaan Abrahams — Portfolio (React)
 
-A responsive, game-inspired portfolio built with **React + Vite**. Home, About, Skills, Projects, Certifications, Gallery and Contact each have their own route. Projects and Certifications are separate pages, with a quest map linking between them.
+A responsive, single-page portfolio built with **React + Vite**, styled after a modern Framer portfolio: cream surfaces, pink accents, oversized display type, scroll-linked imagery and sticky stacked cards.
 
 🔗 **Live site:** [https://imaanabrahams.github.io/My_Portfolio/](https://imaanabrahams.github.io/My_Portfolio/)
 
@@ -9,23 +9,23 @@ A responsive, game-inspired portfolio built with **React + Vite**. Home, About, 
 ## Tech Stack
 
 - **React 18** + **Vite 6**
-- **React Router** (`HashRouter`) with hash-based navigation for GitHub Pages
-- Component-level CSS driven by global CSS custom properties (rose / sage / pink)
+- Single page with anchor navigation (no router) — ideal for GitHub Pages
+- Component-level CSS driven by global CSS custom properties
+- Fonts: Sora / Poppins / Inter (Google Fonts)
 
 ## Features
 
-- 🌓 **Dark theme** — applied pre-paint to avoid a flash of the wrong theme, with a rose/sage accent palette
+- 🎨 **Design system** — cream `#fffcf5` surfaces, hot pink `#ff2f92` accents, deep pink `#d60072` for text/buttons, 2px near-black borders and 32px card radii
+- 🪪 **Boxed hero intro** — a draggable profile card with a gentle float, over a soft scroll-fade hero
+- 🃏 **Sticky stacked project cards** — featured projects pin and stack as you scroll, each opening a detail modal
+- 🩷 **Fixed reveal footer** — the page masks over a pink "Thank you" footer that fades in at the end of the page
 - ✨ **Scroll-reveal animations** — IntersectionObserver-driven `useReveal` hook / `<Reveal>` component with staggered cards
-- 🔍 **Project modals** — click any project card for full details, features, tech and links (ESC / overlay to close)
 - 🖼️ **Gallery lightbox** — click an image to enlarge it with prev/next navigation and keyboard support
-- 💌 **Contact form** — live per-field validation, sending state, success panel, and a pre-filled email fallback if online delivery fails
-- 📊 **Animated skill counters** — percentages count up as bars fill on scroll
-- 📱 **Mobile-first responsive layout** — fluid type scale via `clamp()`, overflow-safe grids, and breakpoints at 1024 / 768 / 480 / 360px
-- 🍔 **Mobile hamburger menu** — dismisses on link tap, outside tap, `Esc` or resize back to desktop; locks background scroll while open
-- 📲 **Touch-first interactions** — 44px minimum tap targets, `viewport-fit=cover` with safe-area insets, no hover-only affordances, `dvh/svh` viewports so mobile browser chrome can't clip content
-- 🎮 **Quest map navigation** — each portfolio section is a separate level, with pixel-style cards and badges in the existing rose / sage palette
-- 🧭 Floating back-to-top button
-- ♿ **Accessibility** — `focus-visible` states, `aria` labels/roles, skip link, `prefers-reduced-motion` support, and WCAG AA contrast (4.5:1) on body text, muted text, surfaces and buttons
+- 📬 **Ways to contact** — email with one-click copy, LinkedIn, GitHub and a résumé download
+- 📱 **Mobile-first responsive layout** — fluid type scale via `clamp()` and breakpoints at 1200 / 1024 / 810 / 560px
+- 🍔 **Mobile hamburger menu** — full-screen menu that dismisses on link tap, `Esc` or resize back to desktop; locks background scroll while open
+- 📲 **Touch-first interactions** — 44px minimum tap targets, `viewport-fit=cover` with safe-area insets, `dvh/svh` viewports so mobile browser chrome can't clip content
+- ♿ **Accessibility** — `focus-visible` states, `aria` labels/roles, skip link, `prefers-reduced-motion` support, and WCAG AA contrast on body text, muted text, surfaces and buttons
 
 ## Getting Started
 
@@ -40,37 +40,35 @@ npm run preview   # preview the production build
 
 ```
 src/
-├── main.jsx                 # React bootstrap (HashRouter + ProjectProvider)
-├── App.jsx                  # Shared shell, loader, back-to-top, and route outlet
-├── router/
-│   └── AppRoutes.jsx        # Hash-based page routes + document title handling
-├── views/                   # Home, About, Skills, Projects, Certifications, Gallery, Contact
-├── style.css                # Theme tokens, animations, reveal + shared styles
+├── main.jsx                 # React bootstrap (ProjectProvider + App)
+├── App.jsx                  # Loader gate, one-page composition, footer reveal
+├── style.css                # Design tokens, shared utilities, reveal + modal backdrop
 ├── context/
 │   └── ProjectContext.jsx   # Shared project-modal state
 ├── hooks/
-│   ├── useReveal.js         # IntersectionObserver scroll-reveal hook
-│   └── useTheme.js          # Theme init + theme-color meta
+│   └── useReveal.js         # IntersectionObserver scroll-reveal hook
 ├── styles/                  # Component stylesheets
 ├── data/
 │   ├── content.js           # Timeline, skills, gallery, learning status
-│   └── projects.js          # Featured + learning project data
+│   ├── projects.js          # Featured + learning project data
+│   └── certifications.js    # Certification data
 └── components/
     ├── Reveal.jsx           # Wrapper that applies the scroll-reveal hook
-    ├── SiteLoader.jsx       # Welcome / loading animation
-    ├── NavBar.jsx           # Sticky nav, mobile hamburger
-    ├── HeroSection.jsx      # Typewriter hero, animated blobs, stats
+    ├── SiteLoader.jsx       # Loading screen
+    ├── NavBar.jsx           # Fixed nav, mobile hamburger
+    ├── HeroSection.jsx      # Boxed profile intro (draggable card)
+    ├── AboutSection.jsx     # Teaser banner + about detail / interests
     ├── TimelineSection.jsx  # My Journey timeline
-    ├── GallerySection.jsx   # Interest gallery + lightbox
-    ├── SkillsSection.jsx    # Skill groups
-    ├── ProjectsSection.jsx  # Completed (featured) projects grid
-    ├── ProjectCard.jsx      # Reusable card (click to open modal)
+    ├── SkillsSection.jsx    # Skill cards + learning status
+    ├── ProjectsSection.jsx  # Sticky heading + stacked project cards
+    ├── ProjectCard.jsx      # Stacked card + compact mini card
     ├── ProjectModal.jsx     # Portal modal with project details
     ├── LearningSection.jsx  # Learning journey + exercise projects
-    ├── AboutSection.jsx     # Who I am / interests
-    ├── ContactSection.jsx   # Formspree form + contact links
-    ├── PageHero.jsx         # Shared page heading
-    └── SiteFooter.jsx
+    ├── CertificationsSection.jsx
+    ├── GallerySection.jsx   # Interest gallery + lightbox
+    ├── ContactSection.jsx   # Ways to contact + résumé download
+    ├── ContactReveal.jsx    # Fixed pink "Thank you" footer revealed at page end
+    └── ArrowIcon.jsx
 ```
 
 `public/` holds the CV, certificates, gallery and project images, and favicons. `npm run build` writes the production site to the ignored `dist/` folder. Generated bundles and duplicate copies of public assets are kept off `main`; GitHub Pages is published from the `gh-pages` branch.
@@ -87,7 +85,6 @@ Plus learning/exercise projects across Vue.js, Node.js, JavaScript, Python, PHP,
 
 ## Notes
 
-- The contact form posts to Formspree with client-side validation.
 - The separate Vercel deployment of RePrint (`reprint-kappa.vercel.app`) needs its `VITE_API_URL` build variable updated to the live API domain `https://reprint-api-production-e854.up.railway.app` to load real data.
 
 ## License
