@@ -74,7 +74,6 @@ export default function NavBar() {
         </a>
 
         <div className="nav-tools">
-          <a href="#contact" className="nav-contact">Contact</a>
           <button
             className={`hamburger${menuOpen ? ' open' : ''}`}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
