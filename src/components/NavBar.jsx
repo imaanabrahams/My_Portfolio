@@ -8,6 +8,9 @@ const links = [
   { href: '#certifications', label: 'Certifications' },
 ]
 
+const leftLinks = links.slice(0, 2)
+const rightLinks = links.slice(2)
+
 const socials = [
   { href: 'https://www.linkedin.com/in/imaanabrahams8', label: 'LinkedIn' },
   { href: 'https://github.com/imaanabrahams', label: 'GitHub' },
@@ -61,8 +64,8 @@ export default function NavBar() {
   return (
     <header className={`navbar${scrolled ? ' is-scrolled' : ''}`}>
       <nav className="nav-bar" aria-label="Main navigation">
-        <ul className="nav-links">
-          {links.map((link) => (
+        <ul className="nav-links nav-links--left">
+          {leftLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="nav-link">{link.label}</a>
             </li>
@@ -72,6 +75,14 @@ export default function NavBar() {
         <a href="#home" className="nav-logo" aria-label="Imaan Abrahams — back to top">
           IA ؛༊
         </a>
+
+        <ul className="nav-links nav-links--right">
+          {rightLinks.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} className="nav-link">{link.label}</a>
+            </li>
+          ))}
+        </ul>
 
         <div className="nav-tools">
           <button

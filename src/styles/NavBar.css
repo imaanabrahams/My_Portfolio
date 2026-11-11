@@ -36,6 +36,11 @@
   align-items: center;
   gap: clamp(1rem, 3vw, 2.6rem);
   list-style: none;
+  flex: 1;
+}
+
+.nav-links--right {
+  justify-content: flex-end;
 }
 
 .nav-link {

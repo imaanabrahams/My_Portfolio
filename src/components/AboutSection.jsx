@@ -66,8 +66,7 @@ export default function AboutSection() {
               </p>
               <p>
                 I have a strong interest in cybersecurity and enjoy learning how
-                systems are protected against cyber threats. I am also fascinated
-                by the world of 3D printing and maker culture, and I enjoy
+                systems are protected against cyber threats. I enjoy
                 exploring new technologies and tools that allow me to bring my
                 ideas to life.
               </p>

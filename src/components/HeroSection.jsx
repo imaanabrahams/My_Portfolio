@@ -17,6 +17,10 @@ function PinkComputer() {
       <span className="pc-spark pc-spark--b">✧</span>
       <span className="pc-spark pc-spark--c">✦</span>
       <span className="pc-spark pc-spark--d">·</span>
+      <span className="pc-spark pc-spark--e">✧</span>
+      <span className="pc-spark pc-spark--f">✦</span>
+      <span className="pc-spark pc-spark--g">·</span>
+      <span className="pc-spark pc-spark--h">✧</span>
 
       <svg
         className="pc-svg"

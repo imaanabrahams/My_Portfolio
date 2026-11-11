@@ -303,6 +303,34 @@
   animation-delay: 3s;
 }
 
+.pc-spark--e {
+  top: 20%;
+  left: 14%;
+  font-size: 0.85rem;
+  animation-delay: 0.4s;
+}
+
+.pc-spark--f {
+  top: 14%;
+  right: 18%;
+  font-size: 1rem;
+  animation-delay: 1.2s;
+}
+
+.pc-spark--g {
+  bottom: 26%;
+  left: 6%;
+  font-size: 1.4rem;
+  animation-delay: 2s;
+}
+
+.pc-spark--h {
+  bottom: 22%;
+  right: 12%;
+  font-size: 0.95rem;
+  animation-delay: 2.8s;
+}
+
 @keyframes pcSparkle {
   0%,
   100% {
