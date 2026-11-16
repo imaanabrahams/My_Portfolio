@@ -30,6 +30,16 @@ export const certifications = [
     image: './certifications/cisco-networking-basics.png',
   },
   {
+    id: 'cisco-networking-devices-initial-configuration',
+    title: 'Networking Devices and Initial Configuration',
+    issuer: 'Cisco Networking Academy',
+    provider: 'Life Choices Academy',
+    date: '16 November 2026',
+    certId: 'f535446e-10e9-49eb-a14d-c7194374473a',
+    pdf: './certifications/cisco-networking-devices-initial-configuration.pdf',
+    image: './certifications/cisco-networking-devices-initial-configuration.png',
+  },
+  {
     id: 'coursera-build-your-first-react-website',
     title: 'Build Your First React Website',
     issuer: 'Coursera Project Network',
