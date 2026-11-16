@@ -5,9 +5,30 @@
   right: 0;
   z-index: 100;
   padding-top: var(--safe-t);
-  background: var(--cream);
-  border-bottom: 1px solid var(--line-soft);
+  background: rgba(255, 252, 245, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 30px rgba(34, 20, 28, 0.045);
+  -webkit-backdrop-filter: blur(22px) saturate(1.65);
+  backdrop-filter: blur(22px) saturate(1.65);
   animation: navIn 0.8s var(--ease-out) 0.1s both;
+  transition: background-color 0.45s ease, box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent);
+  pointer-events: none;
+}
+
+.navbar.is-scrolled {
+  background: rgba(255, 252, 245, 0.58);
+  border-color: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 10px 34px rgba(34, 20, 28, 0.09),
+    inset 0 1px rgba(255, 255, 255, 0.72);
 }
 
 @keyframes navIn {
@@ -140,7 +161,9 @@
   top: var(--nav-offset);
   padding: 3rem calc(1.25rem + var(--safe-r)) calc(3rem + var(--safe-b))
     calc(1.25rem + var(--safe-l));
-  background: var(--cream);
+  background: rgba(255, 252, 245, 0.82);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  backdrop-filter: blur(28px) saturate(1.5);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -150,6 +173,11 @@
   transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out),
     visibility 0s linear 0.4s;
   overflow-y: auto;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar { background: rgba(255, 252, 245, 0.97); }
+  .mobile-menu { background: rgba(255, 252, 245, 0.98); }
 }
 
 .mobile-menu.open {

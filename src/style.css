@@ -255,6 +255,12 @@ main {
   transform: translateY(-2px);
 }
 
+.btn:active,
+.btn-secondary:active,
+.back-to-top:active {
+  transform: translateY(1px) scale(0.98);
+}
+
 .btn:disabled {
   opacity: 0.6;
   cursor: wait;
@@ -322,30 +328,33 @@ main {
    ============================================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  transform: translateY(22px);
+  filter: blur(5px);
+  transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out),
+    filter 0.75s var(--ease-out);
   will-change: opacity, transform;
 }
 
 .reveal[data-direction="down"] {
-  transform: translateY(-26px);
+  transform: translateY(-22px);
 }
 
 .reveal[data-direction="left"] {
-  transform: translateX(-32px);
+  transform: translateX(-26px);
 }
 
 .reveal[data-direction="right"] {
-  transform: translateX(32px);
+  transform: translateX(26px);
 }
 
 .reveal[data-direction="zoom"] {
-  transform: scale(0.94);
+  transform: scale(0.96);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: blur(0);
 }
 
 /* ============================================================
@@ -458,5 +467,6 @@ main {
   .reveal {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
   }
 }

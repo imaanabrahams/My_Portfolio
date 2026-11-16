@@ -36,7 +36,7 @@
   display: block;
   width: clamp(300px, 46vw, 560px);
   height: auto;
-  animation: pcFloat 7s ease-in-out 1.2s infinite;
+  animation: pcFloat 8s cubic-bezier(0.45, 0, 0.55, 1) 1.2s infinite;
 }
 
 /* ---------- casing ---------- */
@@ -260,7 +260,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-9px);
+    transform: translateY(-12px);
   }
 }
 

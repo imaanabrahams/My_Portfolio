@@ -11,11 +11,14 @@
   padding: 0.65rem 1rem;
   border: 2px solid var(--pink-deep);
   border-radius: var(--radius-pill);
-  background: var(--pink-deep);
+  background: rgba(214, 0, 114, 0.78);
   color: var(--cream);
   font-size: 0.85rem;
   font-weight: 600;
-  box-shadow: 0 6px 20px rgba(10, 10, 10, 0.16);
+  box-shadow: 0 8px 24px rgba(75, 0, 40, 0.2),
+    inset 0 1px rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -32,6 +35,10 @@
   visibility: visible;
   pointer-events: auto;
   transform: none;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .back-to-top { background: var(--pink-deep); }
 }
 
 .back-to-top:hover {

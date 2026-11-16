@@ -8,12 +8,14 @@
   background: var(--card);
   border: var(--border-card);
   border-radius: 26px;
-  transition: transform 0.35s var(--ease-out), border-color 0.35s ease;
+  transition: transform 0.45s var(--ease-out), border-color 0.35s ease,
+    box-shadow 0.45s ease;
 }
 
 .mini-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--pink);
+  box-shadow: 0 16px 34px rgba(36, 15, 27, 0.08);
 }
 
 .mini-top {
