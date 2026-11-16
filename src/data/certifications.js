@@ -59,4 +59,14 @@ export const certifications = [
     pdf: './certifications/coursera-learn-firebase.pdf',
     image: './certifications/coursera-learn-firebase.png',
   },
+  {
+    id: 'coursera-advanced-react-testing-firebase-projects',
+    title: 'Advanced React – Testing & Firebase Projects',
+    issuer: 'Packt',
+    provider: 'Coursera',
+    date: '16 November 2026',
+    certId: 'AH9IKUM7O145',
+    pdf: './certifications/coursera-advanced-react-testing-firebase-projects.pdf',
+    image: './certifications/coursera-advanced-react-testing-firebase-projects.png',
+  },
 ]
