@@ -9,16 +9,24 @@
   gap: 0.45rem;
   min-height: 48px;
   padding: 0.65rem 1rem;
-  border: 2px solid var(--pink-deep);
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: var(--radius-pill);
-  background: rgba(214, 0, 114, 0.78);
-  color: var(--cream);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.78),
+    rgba(255, 255, 255, 0.42) 48%,
+    rgba(255, 47, 146, 0.24)
+  );
+  color: var(--ink);
   font-size: 0.85rem;
   font-weight: 600;
-  box-shadow: 0 8px 24px rgba(75, 0, 40, 0.2),
-    inset 0 1px rgba(255, 255, 255, 0.4);
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  backdrop-filter: blur(14px) saturate(1.4);
+  box-shadow: 0 10px 30px rgba(48, 16, 34, 0.2),
+    inset 0 1.5px rgba(255, 255, 255, 0.96),
+    inset 0 -1px rgba(214, 0, 114, 0.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  backdrop-filter: blur(24px) saturate(1.8);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -27,7 +35,27 @@
     opacity 0.25s ease,
     visibility 0.25s ease,
     transform 0.25s var(--ease-out),
-    background-color 0.25s ease;
+    box-shadow 0.3s ease;
+}
+
+.back-to-top::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.76),
+    rgba(255, 255, 255, 0.08) 46%,
+    rgba(255, 47, 146, 0.12)
+  );
+  pointer-events: none;
+}
+
+.back-to-top > * {
+  position: relative;
+  z-index: 1;
 }
 
 .back-to-top.is-visible {
@@ -38,17 +66,23 @@
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .back-to-top { background: var(--pink-deep); }
+  .back-to-top {
+    background: rgba(255, 252, 245, 0.98);
+    border-color: rgba(214, 0, 114, 0.35);
+  }
 }
 
 .back-to-top:hover {
-  background: var(--pink);
-  border-color: var(--pink);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(48, 16, 34, 0.25),
+    inset 0 1.5px rgba(255, 255, 255, 1),
+    inset 0 -1px rgba(214, 0, 114, 0.24);
 }
 
 .back-to-top svg {
   width: 18px;
   height: 18px;
+  color: var(--pink-deep);
 }
 
 @media (max-width: 480px) {
@@ -60,7 +94,6 @@
 
 @media (hover: none) {
   .back-to-top:hover {
-    background: var(--pink-deep);
-    border-color: var(--pink-deep);
+    transform: none;
   }
 }
