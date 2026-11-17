@@ -72,7 +72,7 @@ export const learningStatus = [
   { skill: 'Node.js & Express', status: 'ongoing' },
   { skill: 'REST APIs & JWT Authentication', status: 'ongoing' },
   { skill: 'MySQL & SQLite', status: 'ongoing' },
-  { skill: 'PHP', status: 'learning' },
+  { skill: 'PHP', status: 'ongoing' },
   { skill: 'Cybersecurity Practice', status: 'ongoing' },
   { skill: 'Python Foundations', status: 'completed' },
   { skill: 'Cisco: Introduction to Cybersecurity', status: 'completed' },
