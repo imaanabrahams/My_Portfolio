@@ -10,6 +10,19 @@
   background: var(--cream);
 }
 
+.hero::after {
+  content: 'CODE  ·  CREATE  ·  GROW';
+  position: absolute;
+  left: max(calc(var(--gutter) + var(--safe-l)), calc((100vw - 1200px) / 2));
+  bottom: clamp(1.6rem, 5vw, 3.5rem);
+  color: var(--pink-deep);
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  opacity: 0.72;
+}
+
 .hero-stage {
   position: relative;
   display: grid;
@@ -355,6 +368,15 @@
 
   .pc-svg {
     width: min(clamp(260px, 82vw, 440px), calc(100vw - 40px - var(--safe-l) - var(--safe-r)));
+  }
+}
+
+@media (max-width: 560px) {
+  .hero::after {
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    white-space: nowrap;
   }
 }
 
