@@ -55,22 +55,32 @@ export const skills = [
   },
   {
     category: 'Cisco Certified Foundations',
-    description: 'Completed Cisco Networking Academy introductory courses.',
-    items: ['Cybersecurity', 'Networking Basics', 'Data Science'],
+    description: 'Completed Cisco Networking Academy courses in security, networking and data science.',
+    items: ['Cybersecurity', 'Networking Basics', 'Networking Devices & Initial Configuration', 'Data Science'],
+  },
+  {
+    category: 'Additional Coursework',
+    description: 'Completed guided courses in React, Firebase and Scrum fundamentals.',
+    items: ['React', 'Firebase', 'Software Testing', 'Scrum'],
   },
 ]
 
 export const learningStatus = [
   { skill: 'Full-Stack Development Trainee', status: 'ongoing' },
   { skill: 'HTML, CSS, JavaScript & Bootstrap', status: 'ongoing' },
-  { skill: 'Python Foundations', status: 'completed' },
-  { skill: 'Cisco: Introduction to Cybersecurity', status: 'completed' },
-  { skill: 'Cisco: Introduction to Data Science', status: 'completed' },
-  { skill: 'Cisco: Networking Basics', status: 'completed' },
   { skill: 'Vue 3, Vue Router & Pinia', status: 'ongoing' },
   { skill: 'Node.js & Express', status: 'ongoing' },
   { skill: 'REST APIs & JWT Authentication', status: 'ongoing' },
   { skill: 'MySQL & SQLite', status: 'ongoing' },
   { skill: 'PHP', status: 'learning' },
   { skill: 'Cybersecurity Practice', status: 'ongoing' },
+  { skill: 'Python Foundations', status: 'completed' },
+  { skill: 'Cisco: Introduction to Cybersecurity', status: 'completed' },
+  { skill: 'Cisco: Introduction to Data Science', status: 'completed' },
+  { skill: 'Cisco: Networking Basics', status: 'completed' },
+  { skill: 'Cisco: Networking Devices & Initial Configuration', status: 'completed' },
+  { skill: 'Coursera: Build Your First React Website', status: 'completed' },
+  { skill: 'Coursera: Learn Firebase', status: 'completed' },
+  { skill: 'Coursera: Advanced React — Testing & Firebase Projects', status: 'completed' },
+  { skill: 'Scrum Fundamentals Certified', status: 'completed' },
 ]
