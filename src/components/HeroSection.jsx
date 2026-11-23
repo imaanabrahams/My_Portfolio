@@ -5,8 +5,7 @@ export default function HeroSection() {
     <section className="hero" id="home">
       <div className="hero-stage">
         <h1 className="sr-only">
-          Imaan Abrahams — Aspiring Full-Stack Web Developer and Cybersecurity
-          Enthusiast
+          Imaan Abrahams — Full-Stack Website Developer
         </h1>
 
         <div className="hero-media">
@@ -21,8 +20,7 @@ export default function HeroSection() {
           <div className="hero-copy">
             <span className="section-kicker">Hello, I&rsquo;m Imaan</span>
             <p className="hero-line">
-              An aspiring full-stack web developer who loves turning ideas into
-              thoughtful, interactive experiences.
+              Full-Stack Web Developer
             </p>
             <p className="hero-sub">
               Based in South Africa · Open to junior developer roles and
