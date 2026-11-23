@@ -1,37 +1,3 @@
-export const galleryItems = [
-  {
-    src: './gallery/profile.jpg',
-    alt: 'Profile',
-    label: 'Profile',
-    link: 'https://ibb.co/cXbGvVNq',
-  },
-  {
-    src: './gallery/programming-concepts.jpg',
-    alt: 'Programming Concepts',
-    label: 'Programming Concepts',
-  },
-  {
-    src: './gallery/cybersecurity.jpg',
-    alt: 'Cybersecurity',
-    label: 'Cybersecurity',
-  },
-  {
-    src: './gallery/web-projects.jpg',
-    alt: 'Web Projects',
-    label: 'Web Projects',
-  },
-  {
-    src: './gallery/gardening.jpg',
-    alt: 'Gardening',
-    label: 'Gardening',
-  },
-  {
-    src: './gallery/endometriosis.jpg',
-    alt: 'Endometriosis Awareness',
-    label: 'Endometriosis Awareness',
-  },
-]
-
 export const skills = [
   {
     category: 'Core Skills from GitHub',

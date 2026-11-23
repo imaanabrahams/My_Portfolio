@@ -7,31 +7,38 @@
 
 :root {
   --cream: #fffcf5;
-  --card: #fefcf5;
-  --ink: #0a0a0a;
-  --muted: #5b5b5e;
-  --line: #131415;
-  --line-soft: rgba(19, 20, 21, 0.14);
+  --white: #ffffff;
+  --card: #ffffff;
 
-  --pink: #ff2f92;
-  --pink-deep: #d60072;
-  --pink-soft: rgba(255, 47, 146, 0.1);
+  --ink: #292329;
+  --muted: #777078;
+
+  --line: rgba(41, 35, 41, 0.14);
+  --line-soft: rgba(41, 35, 41, 0.08);
+
+  /* Primary hot pink + softer companion pink */
+  --pink: #ff4d9d;
+  --pink-deep: #f50078;
+  --pink-soft: rgba(245, 0, 120, 0.09);
 
   --font-display: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-body: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-tagline: "Poppins", "Sora", "Segoe UI", system-ui, sans-serif;
   --font-ui: "Inter", "Sora", "Segoe UI", system-ui, sans-serif;
 
-  --radius-card: 32px;
+  --radius-card: 28px;
   --radius-pill: 100px;
-  --border-card: 2px solid var(--line);
+  --border-card: 1px solid var(--line-soft);
+
+  --shadow-soft: 0 10px 32px rgba(41, 35, 41, 0.07);
+  --shadow-lift: 0 18px 46px rgba(41, 35, 41, 0.12);
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft: cubic-bezier(0.2, 0.75, 0.25, 1);
 
   --nav-height: 60px;
   --gutter: 20px;
-  --section-pad: clamp(4.5rem, 10vw, 11rem);
+  --section-pad: clamp(4.5rem, 8vw, 8rem);
 
   --safe-t: env(safe-area-inset-top, 0px);
   --safe-b: env(safe-area-inset-bottom, 0px);
@@ -170,7 +177,7 @@ main {
 }
 
 .section--soft {
-  background: var(--card);
+  background: var(--white);
 }
 
 .container {
@@ -245,14 +252,17 @@ main {
 
 .btn {
   background: var(--pink-deep);
-  color: var(--cream);
+  color: var(--white);
   border-color: var(--pink-deep);
+  box-shadow: 0 8px 22px rgba(245, 0, 120, 0.22);
 }
 
 .btn:hover {
   background: var(--pink);
   border-color: var(--pink);
+  color: var(--white);
   transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(245, 0, 120, 0.26);
 }
 
 .btn:active,
@@ -314,13 +324,13 @@ main {
 .tech-chip {
   display: inline-block;
   padding: 0.35rem 0.85rem;
-  border: 1.5px solid var(--line);
+  border: 1px solid transparent;
   border-radius: var(--radius-pill);
-  background: var(--cream);
+  background: var(--pink-soft);
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.4;
-  color: var(--ink);
+  color: var(--pink-deep);
 }
 
 /* ============================================================
@@ -389,7 +399,7 @@ main {
 }
 
 /* ============================================================
-   MODAL BACKDROP (shared by project modal + gallery lightbox)
+   MODAL BACKDROP (project modal)
    ============================================================ */
 .modal-backdrop {
   position: fixed;

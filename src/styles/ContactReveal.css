@@ -2,13 +2,38 @@
   position: fixed;
   inset: 0;
   z-index: 0;
-  background: var(--pink);
   display: flex;
   justify-content: center;
   padding: calc(var(--nav-offset) + 16px) 20px calc(24px + var(--safe-b));
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.footer-gif {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 252, 245, 0.32),
+    rgba(255, 252, 245, 0.58)
+  );
+  pointer-events: none;
 }
 
 .footer-inner {
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 1000px;
   display: flex;
@@ -21,18 +46,19 @@
 
 .footer-thanks {
   font-family: var(--font-display);
-  font-size: clamp(4.5rem, 22vw, 19rem);
+  font-size: clamp(4.5rem, 18vw, 15rem);
   font-weight: 600;
-  line-height: 0.8;
+  line-height: 0.85;
   letter-spacing: -0.05em;
-  color: var(--cream);
+  color: var(--pink-deep);
+  text-shadow: 0 8px 40px rgba(255, 252, 245, 0.9);
 }
 
 .footer-copy {
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: var(--line);
+  color: var(--ink);
 }
 
 @media (max-height: 760px) {

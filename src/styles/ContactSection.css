@@ -14,7 +14,7 @@
   background: linear-gradient(
     to bottom,
     var(--card) 0%,
-    rgba(254, 252, 245, 0) 26%
+    rgba(255, 252, 245, 0) 26%
   );
   pointer-events: none;
 }

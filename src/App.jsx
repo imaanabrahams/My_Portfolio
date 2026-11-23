@@ -7,7 +7,6 @@ import SkillsSection from './components/SkillsSection.jsx'
 import ProjectsSection from './components/ProjectsSection.jsx'
 import LearningSection from './components/LearningSection.jsx'
 import CertificationsSection from './components/CertificationsSection.jsx'
-import GallerySection from './components/GallerySection.jsx'
 import ContactSection from './components/ContactSection.jsx'
 import ContactReveal from './components/ContactReveal.jsx'
 import ProjectModal from './components/ProjectModal.jsx'
@@ -38,7 +37,6 @@ export default function App() {
               <ProjectsSection />
               <LearningSection />
               <CertificationsSection />
-              <GallerySection />
               <ContactSection />
             </main>
           </div>
