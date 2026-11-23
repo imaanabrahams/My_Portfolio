@@ -53,19 +53,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255, 252, 245, 0.94) 0%,
-      rgba(255, 252, 245, 0.72) 42%,
-      rgba(255, 252, 245, 0.12) 100%
-    ),
-    linear-gradient(
-      0deg,
-      rgba(255, 252, 245, 0.55) 0%,
-      rgba(255, 252, 245, 0) 52%
-    ),
-    rgba(255, 252, 245, 0.12);
+  background: radial-gradient(
+    ellipse at 0% 100%,
+    rgba(255, 252, 245, 0.78) 0%,
+    rgba(255, 252, 245, 0.42) 26%,
+    rgba(255, 252, 245, 0.12) 48%,
+    rgba(255, 252, 245, 0) 68%
+  );
   pointer-events: none;
 }
 
@@ -76,6 +70,7 @@
   bottom: clamp(64px, 9vw, 96px);
   max-width: min(560px, 62%);
   text-align: left;
+  text-shadow: 0 1px 16px rgba(255, 252, 245, 0.95), 0 1px 4px rgba(255, 252, 245, 0.8);
 }
 
 .hero-copy .section-kicker {
@@ -109,9 +104,10 @@
   .hero-media::after {
     background: linear-gradient(
       0deg,
-      rgba(255, 252, 245, 0.94) 0%,
-      rgba(255, 252, 245, 0.66) 46%,
-      rgba(255, 252, 245, 0) 88%
+      rgba(255, 252, 245, 0.82) 0%,
+      rgba(255, 252, 245, 0.45) 24%,
+      rgba(255, 252, 245, 0.12) 48%,
+      rgba(255, 252, 245, 0) 72%
     );
   }
 
