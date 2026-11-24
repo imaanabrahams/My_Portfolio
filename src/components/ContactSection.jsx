@@ -3,11 +3,34 @@ import Reveal from './Reveal.jsx'
 import '../styles/ContactSection.css'
 
 const EMAIL = 'imaanabrahams15@gmail.com'
+const CV_FILE = 'ImaanAbrahams_CV.pdf'
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false)
 
   const mailtoHref = `mailto:${EMAIL}?subject=${encodeURIComponent('Hello Imaan')}`
+
+  const downloadCv = async (event) => {
+    event.preventDefault()
+    const cvUrl = new URL(CV_FILE, document.baseURI).href
+
+    try {
+      const response = await fetch(cvUrl)
+      if (!response.ok) throw new Error(`CV request failed: ${response.status}`)
+
+      const blob = await response.blob()
+      const blobUrl = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = blobUrl
+      link.download = CV_FILE
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      window.setTimeout(() => URL.revokeObjectURL(blobUrl), 1000)
+    } catch {
+      window.open(cvUrl, '_blank', 'noopener,noreferrer')
+    }
+  }
 
   const copyEmail = async () => {
     try {
@@ -76,16 +99,18 @@ export default function ContactSection() {
                 <div>
                   <span className="contact-label">Resume</span>
                   <a
-                    href="./ImaanAbrahams_CV.pdf"
-                    download="ImaanAbrahams_CV.pdf"
+                    href={`./${CV_FILE}`}
+                    download={CV_FILE}
+                    onClick={downloadCv}
                   >
                     Download my CV
                   </a>
                 </div>
                 <a
                   className="contact-arrow"
-                  href="./ImaanAbrahams_CV.pdf"
-                  download="ImaanAbrahams_CV.pdf"
+                  href={`./${CV_FILE}`}
+                  download={CV_FILE}
+                  onClick={downloadCv}
                   aria-label="Download resume"
                 >
                   ↓
