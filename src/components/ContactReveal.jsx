@@ -5,16 +5,11 @@ export default function ContactReveal() {
 
   return (
     <footer className="footer-reveal" aria-label="Footer">
-      <video
+      <img
         className="footer-gif"
-        src="./fallingflowers.mp4"
-        poster="./fallingflowers-poster.webp"
+        src="./lazycat-landscape-hd.webp"
+        alt=""
         aria-hidden="true"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
       />
 
       <div className="footer-inner">
