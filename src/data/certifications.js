@@ -79,4 +79,14 @@ export const certifications = [
     pdf: './certifications/coursera-advanced-react-testing-firebase-projects.pdf',
     image: './certifications/coursera-advanced-react-testing-firebase-projects.png',
   },
+  {
+    id: 'coursera-building-web-applications-in-php',
+    title: 'Building Web Applications in PHP',
+    issuer: 'University of Michigan',
+    provider: 'Coursera',
+    date: '24 November 2026',
+    certId: '3G9ZOGDGPP9V',
+    pdf: './certifications/coursera-building-web-applications-in-php.pdf',
+    image: './certifications/coursera-building-web-applications-in-php.png',
+  },
 ]
