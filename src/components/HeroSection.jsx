@@ -11,7 +11,6 @@ export default function HeroSection() {
         <div className="hero-media">
           <video
             className="hero-gif"
-            src="./cherryblossomtrees.mp4"
             poster="./cherryblossomtrees-poster.webp"
             aria-label="Animated cherry blossom tree in bloom"
             autoPlay
@@ -19,7 +18,9 @@ export default function HeroSection() {
             loop
             playsInline
             preload="auto"
-          />
+          >
+            <source src="./cherryblossomtrees.mp4" type="video/mp4" />
+          </video>
 
           <div className="hero-copy">
             <span className="section-kicker">Hello, I&rsquo;m Imaan</span>

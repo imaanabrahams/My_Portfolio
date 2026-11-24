@@ -100,7 +100,7 @@ export default function ContactReveal() {
       <img
         ref={catRef}
         className="footer-cat"
-        src="./jumpingluna-cat.webp"
+        src="./jumpingluna-cat.apng"
         role="img"
         aria-label="Luna follows your cursor, or use the arrow keys to move her"
         tabIndex={0}
