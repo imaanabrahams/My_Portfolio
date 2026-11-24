@@ -35,7 +35,7 @@ export default function ProjectCard({ project, variant = 'stack', index = 0 }) {
         <div className="mini-links">
           {project.githubUrl && (
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-              GitHub ↗
+              {project.linkLabel || 'GitHub'} ↗
             </a>
           )}
           {project.demoUrl && (
@@ -104,7 +104,7 @@ export default function ProjectCard({ project, variant = 'stack', index = 0 }) {
                 rel="noopener noreferrer"
                 onClick={(event) => event.stopPropagation()}
               >
-                GitHub ↗
+                {project.linkLabel || 'GitHub'} ↗
               </a>
             )}
           </div>

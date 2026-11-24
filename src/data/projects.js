@@ -170,6 +170,7 @@ export const learningProjects = [
     description:
       'An ongoing research track exploring security concepts and digital safety — how systems are protected against threats, JWT authentication, secure API design and best practices for a safer digital environment.',
     technologies: ['Cybersecurity', 'Security Concepts', 'Best Practices'],
-    githubUrl: 'https://github.com/imaanabrahams',
+    githubUrl: 'https://www.netacad.com/profile?tab=badges',
+    linkLabel: 'Cisco Dashboard',
   },
 ]

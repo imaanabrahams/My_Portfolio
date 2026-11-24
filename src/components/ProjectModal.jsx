@@ -103,7 +103,7 @@ export default function ProjectModal() {
               rel="noopener noreferrer"
               className="btn-secondary"
             >
-              GitHub
+              {activeProject.linkLabel || 'GitHub'}
             </a>
             {activeProject.repoLinks?.map((link) => (
               <a
