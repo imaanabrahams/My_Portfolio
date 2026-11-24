@@ -23,7 +23,7 @@ export default function HeroSection() {
               Full-Stack Web Developer
             </p>
             <p className="hero-sub">
-              Based in South Africa · Open to junior developer roles and
+              Based in South Africa · Open to software developer roles and
               collaborative projects.
             </p>
           </div>
