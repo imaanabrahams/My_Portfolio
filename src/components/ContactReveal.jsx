@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import '../styles/ContactReveal.css'
 
 const KEYBOARD_STEP = 24
+const FOLLOW_EASE = 0.14
 
 export default function ContactReveal() {
   const year = new Date().getFullYear()
@@ -14,11 +15,9 @@ export default function ContactReveal() {
 
     let x = 0
     let y = 0
-    let startX = 0
-    let startY = 0
-    let startOffsetX = 0
-    let startOffsetY = 0
-    let dragging = false
+    let targetX = 0
+    let targetY = 0
+    let frame = 0
 
     const clamp = (value, min, max) => Math.min(max, Math.max(min, value))
 
@@ -32,31 +31,30 @@ export default function ContactReveal() {
       cat.style.setProperty('--cat-y', `${y}px`)
     }
 
-    const handlePointerDown = (event) => {
-      dragging = true
-      startX = event.clientX
-      startY = event.clientY
-      startOffsetX = x
-      startOffsetY = y
-      cat.setPointerCapture(event.pointerId)
-      cat.classList.add('is-dragging')
-    }
+    const tick = () => {
+      x += (targetX - x) * FOLLOW_EASE
+      y += (targetY - y) * FOLLOW_EASE
 
-    const handlePointerMove = (event) => {
-      if (!dragging) return
-      const { maxX, maxY } = limits()
-      x = clamp(startOffsetX + event.clientX - startX, -maxX, maxX)
-      y = clamp(startOffsetY + event.clientY - startY, -maxY, maxY)
+      if (Math.abs(targetX - x) < 0.5 && Math.abs(targetY - y) < 0.5) {
+        x = targetX
+        y = targetY
+        frame = 0
+      } else {
+        frame = window.requestAnimationFrame(tick)
+      }
+
       apply()
     }
 
-    const endDrag = (event) => {
-      if (!dragging) return
-      dragging = false
-      cat.classList.remove('is-dragging')
-      if (cat.hasPointerCapture(event.pointerId)) {
-        cat.releasePointerCapture(event.pointerId)
-      }
+    const schedule = () => {
+      if (!frame) frame = window.requestAnimationFrame(tick)
+    }
+
+    const handlePointerMove = (event) => {
+      const { maxX, maxY } = limits()
+      targetX = clamp(event.clientX - window.innerWidth / 2, -maxX, maxX)
+      targetY = clamp(event.clientY - window.innerHeight / 2, -maxY, maxY)
+      schedule()
     }
 
     const handleKeyDown = (event) => {
@@ -71,32 +69,29 @@ export default function ContactReveal() {
       if (!move) return
 
       event.preventDefault()
-      x = clamp(x + move[0], -maxX, maxX)
-      y = clamp(y + move[1], -maxY, maxY)
-      apply()
+      targetX = clamp(targetX + move[0], -maxX, maxX)
+      targetY = clamp(targetY + move[1], -maxY, maxY)
+      schedule()
     }
 
     const handleResize = () => {
       const { maxX, maxY } = limits()
+      targetX = clamp(targetX, -maxX, maxX)
+      targetY = clamp(targetY, -maxY, maxY)
       x = clamp(x, -maxX, maxX)
       y = clamp(y, -maxY, maxY)
       apply()
     }
 
-    cat.addEventListener('pointerdown', handlePointerDown)
-    cat.addEventListener('pointermove', handlePointerMove)
-    cat.addEventListener('pointerup', endDrag)
-    cat.addEventListener('pointercancel', endDrag)
-    cat.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('pointermove', handlePointerMove, { passive: true })
     window.addEventListener('resize', handleResize)
+    cat.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      cat.removeEventListener('pointerdown', handlePointerDown)
-      cat.removeEventListener('pointermove', handlePointerMove)
-      cat.removeEventListener('pointerup', endDrag)
-      cat.removeEventListener('pointercancel', endDrag)
-      cat.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('pointermove', handlePointerMove)
       window.removeEventListener('resize', handleResize)
+      cat.removeEventListener('keydown', handleKeyDown)
+      if (frame) window.cancelAnimationFrame(frame)
     }
   }, [])
 
@@ -107,7 +102,7 @@ export default function ContactReveal() {
         className="footer-cat"
         src="./jumpingluna-cat.webp"
         role="img"
-        aria-label="Drag Luna around, or move her with the arrow keys"
+        aria-label="Luna follows your cursor, or use the arrow keys to move her"
         tabIndex={0}
         loading="eager"
       />

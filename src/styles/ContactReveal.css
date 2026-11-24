@@ -20,13 +20,7 @@
   --cat-x: 0px;
   --cat-y: 0px;
   transform: translate(-50%, -50%) translate3d(var(--cat-x), var(--cat-y), 0);
-  cursor: grab;
-  touch-action: none;
   will-change: transform;
-}
-
-.footer-cat.is-dragging {
-  cursor: grabbing;
 }
 
 .footer-cat:focus-visible {
