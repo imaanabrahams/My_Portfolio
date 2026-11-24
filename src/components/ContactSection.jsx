@@ -76,16 +76,16 @@ export default function ContactSection() {
                 <div>
                   <span className="contact-label">Resume</span>
                   <a
-                    href="./Imaan_Abrahams_CV.pdf"
-                    download="Imaan_Abrahams_CV.pdf"
+                    href="./ImaanAbrahams_CV.pdf"
+                    download="ImaanAbrahams_CV.pdf"
                   >
                     Download my CV
                   </a>
                 </div>
                 <a
                   className="contact-arrow"
-                  href="./Imaan_Abrahams_CV.pdf"
-                  download="Imaan_Abrahams_CV.pdf"
+                  href="./ImaanAbrahams_CV.pdf"
+                  download="ImaanAbrahams_CV.pdf"
                   aria-label="Download resume"
                 >
                   ↓
