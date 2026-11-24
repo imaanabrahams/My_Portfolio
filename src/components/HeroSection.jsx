@@ -9,12 +9,16 @@ export default function HeroSection() {
         </h1>
 
         <div className="hero-media">
-          <img
+          <video
             className="hero-gif"
-            src="./cherryblossomtree.gif"
-            alt="Animated cherry blossom tree in bloom"
-            loading="eager"
-            fetchPriority="high"
+            src="./cherryblossomtree.mp4"
+            poster="./cherryblossomtree-poster.webp"
+            aria-label="Animated cherry blossom tree in bloom"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
           />
 
           <div className="hero-copy">
