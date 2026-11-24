@@ -5,11 +5,16 @@ export default function ContactReveal() {
 
   return (
     <footer className="footer-reveal" aria-label="Footer">
-      <img
+      <video
         className="footer-gif"
-        src="./relaxinganimation-hd.webp"
-        alt=""
+        src="./jumpingluna.mp4"
+        poster="./jumpingluna-poster.webp"
         aria-hidden="true"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
       />
 
       <div className="footer-inner">
