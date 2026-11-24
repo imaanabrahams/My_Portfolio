@@ -55,10 +55,10 @@
   inset: 0;
   background: radial-gradient(
     ellipse at 0% 100%,
-    rgba(255, 252, 245, 0.78) 0%,
-    rgba(255, 252, 245, 0.42) 26%,
-    rgba(255, 252, 245, 0.12) 48%,
-    rgba(255, 252, 245, 0) 68%
+    rgba(255, 252, 245, 0.94) 0%,
+    rgba(255, 252, 245, 0.72) 28%,
+    rgba(255, 252, 245, 0.34) 52%,
+    rgba(255, 252, 245, 0) 76%
   );
   pointer-events: none;
 }
@@ -70,7 +70,8 @@
   bottom: clamp(64px, 9vw, 96px);
   max-width: min(560px, 62%);
   text-align: left;
-  text-shadow: 0 1px 16px rgba(255, 252, 245, 0.95), 0 1px 4px rgba(255, 252, 245, 0.8);
+  text-shadow: 0 2px 20px rgba(255, 252, 245, 1),
+    0 1px 6px rgba(255, 252, 245, 0.98), 0 0 2px rgba(255, 252, 245, 1);
 }
 
 .hero-copy .section-kicker {
@@ -90,8 +91,9 @@
 .hero-sub {
   margin-top: 1rem;
   font-size: clamp(0.85rem, 1.3vw, 1rem);
+  font-weight: 600;
   line-height: 1.5;
-  color: var(--muted);
+  color: var(--ink);
 }
 
 @media (max-width: 810px) {
@@ -104,10 +106,10 @@
   .hero-media::after {
     background: linear-gradient(
       0deg,
-      rgba(255, 252, 245, 0.82) 0%,
-      rgba(255, 252, 245, 0.45) 24%,
-      rgba(255, 252, 245, 0.12) 48%,
-      rgba(255, 252, 245, 0) 72%
+      rgba(255, 252, 245, 0.95) 0%,
+      rgba(255, 252, 245, 0.68) 26%,
+      rgba(255, 252, 245, 0.28) 52%,
+      rgba(255, 252, 245, 0) 76%
     );
   }
 
