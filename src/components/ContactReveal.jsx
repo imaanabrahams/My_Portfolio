@@ -5,11 +5,11 @@ const KEYBOARD_STEP = 24
 
 export default function ContactReveal() {
   const year = new Date().getFullYear()
-  const videoRef = useRef(null)
+  const catRef = useRef(null)
 
   useEffect(() => {
-    const video = videoRef.current
-    if (!video) return undefined
+    const cat = catRef.current
+    if (!cat) return undefined
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
 
     let x = 0
@@ -23,13 +23,13 @@ export default function ContactReveal() {
     const clamp = (value, min, max) => Math.min(max, Math.max(min, value))
 
     const limits = () => ({
-      maxX: Math.max(0, (window.innerWidth - video.offsetWidth) / 2),
-      maxY: Math.max(0, (window.innerHeight - video.offsetHeight) / 2),
+      maxX: Math.max(0, (window.innerWidth - cat.offsetWidth) / 2),
+      maxY: Math.max(0, (window.innerHeight - cat.offsetHeight) / 2),
     })
 
     const apply = () => {
-      video.style.setProperty('--cat-x', `${x}px`)
-      video.style.setProperty('--cat-y', `${y}px`)
+      cat.style.setProperty('--cat-x', `${x}px`)
+      cat.style.setProperty('--cat-y', `${y}px`)
     }
 
     const handlePointerDown = (event) => {
@@ -38,8 +38,8 @@ export default function ContactReveal() {
       startY = event.clientY
       startOffsetX = x
       startOffsetY = y
-      video.setPointerCapture(event.pointerId)
-      video.classList.add('is-dragging')
+      cat.setPointerCapture(event.pointerId)
+      cat.classList.add('is-dragging')
     }
 
     const handlePointerMove = (event) => {
@@ -53,9 +53,9 @@ export default function ContactReveal() {
     const endDrag = (event) => {
       if (!dragging) return
       dragging = false
-      video.classList.remove('is-dragging')
-      if (video.hasPointerCapture(event.pointerId)) {
-        video.releasePointerCapture(event.pointerId)
+      cat.classList.remove('is-dragging')
+      if (cat.hasPointerCapture(event.pointerId)) {
+        cat.releasePointerCapture(event.pointerId)
       }
     }
 
@@ -83,38 +83,33 @@ export default function ContactReveal() {
       apply()
     }
 
-    video.addEventListener('pointerdown', handlePointerDown)
-    video.addEventListener('pointermove', handlePointerMove)
-    video.addEventListener('pointerup', endDrag)
-    video.addEventListener('pointercancel', endDrag)
-    video.addEventListener('keydown', handleKeyDown)
+    cat.addEventListener('pointerdown', handlePointerDown)
+    cat.addEventListener('pointermove', handlePointerMove)
+    cat.addEventListener('pointerup', endDrag)
+    cat.addEventListener('pointercancel', endDrag)
+    cat.addEventListener('keydown', handleKeyDown)
     window.addEventListener('resize', handleResize)
 
     return () => {
-      video.removeEventListener('pointerdown', handlePointerDown)
-      video.removeEventListener('pointermove', handlePointerMove)
-      video.removeEventListener('pointerup', endDrag)
-      video.removeEventListener('pointercancel', endDrag)
-      video.removeEventListener('keydown', handleKeyDown)
+      cat.removeEventListener('pointerdown', handlePointerDown)
+      cat.removeEventListener('pointermove', handlePointerMove)
+      cat.removeEventListener('pointerup', endDrag)
+      cat.removeEventListener('pointercancel', endDrag)
+      cat.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('resize', handleResize)
     }
   }, [])
 
   return (
     <footer className="footer-reveal" aria-label="Footer">
-      <video
-        ref={videoRef}
-        className="footer-gif"
-        src="./jumpingluna.mp4"
-        poster="./jumpingluna-poster.webp"
+      <img
+        ref={catRef}
+        className="footer-cat"
+        src="./jumpingluna-cat.webp"
         role="img"
-        aria-label="Drag the Luna animation around, or move it with the arrow keys"
+        aria-label="Drag Luna around, or move her with the arrow keys"
         tabIndex={0}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
+        loading="eager"
       />
 
       <div className="footer-inner">
