@@ -7,7 +7,7 @@ export default function ContactReveal() {
     <footer className="footer-reveal" aria-label="Footer">
       <img
         className="footer-gif"
-        src="./lazycat-landscape-hd.webp"
+        src="./relaxinganimation-hd.webp"
         alt=""
         aria-hidden="true"
       />
