@@ -32,14 +32,15 @@ export const skills = [
 ]
 
 export const learningStatus = [
-  { skill: 'Full-Stack Development Trainee', status: 'ongoing' },
-  { skill: 'HTML, CSS, JavaScript & Bootstrap', status: 'ongoing' },
-  { skill: 'Vue 3, Vue Router & Pinia', status: 'ongoing' },
-  { skill: 'Node.js & Express', status: 'ongoing' },
-  { skill: 'REST APIs & JWT Authentication', status: 'ongoing' },
-  { skill: 'MySQL & SQLite', status: 'ongoing' },
+  { skill: 'Full-Stack Development Trainee', status: 'completed' },
+  { skill: 'HTML, CSS, JavaScript & Bootstrap', status: 'completed' },
+  { skill: 'Vue 3, Vue Router & Pinia', status: 'completed' },
+  { skill: 'Node.js & Express', status: 'completed' },
+  { skill: 'REST APIs & JWT Authentication', status: 'completed' },
+  { skill: 'MySQL & SQLite', status: 'completed' },
   { skill: 'PHP', status: 'completed' },
-  { skill: 'Cybersecurity Practice', status: 'ongoing' },
+  { skill: 'Cybersecurity', status: 'ongoing' },
+  { skill: 'Ethical Hacker', status: 'ongoing' },
   { skill: 'Python Foundations', status: 'completed' },
   { skill: 'Cisco: Introduction to Cybersecurity', status: 'completed' },
   { skill: 'Cisco: Introduction to Data Science', status: 'completed' },
