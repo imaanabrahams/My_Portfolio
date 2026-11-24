@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import '../styles/ContactReveal.css'
 
-const DRAG_SCALE = 1.2
 const KEYBOARD_STEP = 24
 
 export default function ContactReveal() {
@@ -12,8 +11,6 @@ export default function ContactReveal() {
     const video = videoRef.current
     if (!video) return undefined
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
-
-    video.style.setProperty('--cat-scale', String(DRAG_SCALE))
 
     let x = 0
     let y = 0
@@ -26,8 +23,8 @@ export default function ContactReveal() {
     const clamp = (value, min, max) => Math.min(max, Math.max(min, value))
 
     const limits = () => ({
-      maxX: ((DRAG_SCALE - 1) * video.offsetWidth) / 2,
-      maxY: ((DRAG_SCALE - 1) * video.offsetHeight) / 2,
+      maxX: Math.max(0, (window.innerWidth - video.offsetWidth) / 2),
+      maxY: Math.max(0, (window.innerHeight - video.offsetHeight) / 2),
     })
 
     const apply = () => {
