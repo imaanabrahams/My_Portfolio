@@ -60,7 +60,7 @@ export default function CertificationsSection() {
               href={badge.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`View ${badge.title} badge details`}
+              aria-label={`View ${badge.title} badge`}
             >
               <img src={badge.image} alt={`${badge.title} badge`} loading="lazy" />
               <div className="badge-info">
