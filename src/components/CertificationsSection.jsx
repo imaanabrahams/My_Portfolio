@@ -48,20 +48,12 @@ export default function CertificationsSection() {
 
         <Reveal className="badges-head">
           <h3>Digital badges</h3>
-          <p>Open badges earned along the way — compact proof of a skill learned.</p>
+          <p>Badges earned along the way — a visual snapshot of skills learned.</p>
         </Reveal>
 
         <div className="badge-grid">
           {badges.map((badge) => (
-            <Reveal
-              as="a"
-              key={badge.id}
-              className="badge-card"
-              href={badge.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${badge.title} badge`}
-            >
+            <Reveal as="article" key={badge.id} className="badge-card">
               <img src={badge.image} alt={`${badge.title} badge`} loading="lazy" />
               <div className="badge-info">
                 <h4>{badge.title}</h4>
@@ -70,7 +62,6 @@ export default function CertificationsSection() {
                   {badge.provider} &middot; {badge.date}
                 </p>
               </div>
-              <span className="badge-open" aria-hidden="true">↗</span>
             </Reveal>
           ))}
         </div>

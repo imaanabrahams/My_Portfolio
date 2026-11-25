@@ -99,7 +99,6 @@ export const badges = [
     provider: 'Open Badges',
     date: 'May 2026',
     image: './badges/uiux-foundation-badge.png',
-    url: 'https://openbadges.education/public/badges/L57R7efsRW-Kmnn82q11kQ',
   },
   {
     id: 'cisco-networking-devices-initial-configuration',
@@ -108,7 +107,6 @@ export const badges = [
     provider: 'Cisco Verified',
     date: '16 November 2026',
     image: './badges/cisco-networking-devices-initial-configuration-badge.png',
-    url: './certifications/cisco-networking-devices-initial-configuration.pdf',
   },
   {
     id: 'cisco-networking-basics',
@@ -117,7 +115,6 @@ export const badges = [
     provider: 'Cisco Verified',
     date: '2 November 2026',
     image: './badges/cisco-networking-basics-badge.png',
-    url: './certifications/cisco-networking-basics.pdf',
   },
   {
     id: 'cisco-introduction-to-cybersecurity',
@@ -126,7 +123,6 @@ export const badges = [
     provider: 'Cisco Verified',
     date: '28 August 2026',
     image: './badges/cisco-introduction-to-cybersecurity-badge.png',
-    url: './certifications/cisco-introduction-to-cybersecurity.pdf',
   },
   {
     id: 'cisco-introduction-to-data-science',
@@ -135,6 +131,5 @@ export const badges = [
     provider: 'Cisco Verified',
     date: '28 August 2026',
     image: './badges/cisco-introduction-to-data-science-badge.png',
-    url: './certifications/cisco-introduction-to-data-science.pdf',
   },
 ]
