@@ -13,11 +13,13 @@ export default function HeroSection() {
             className="hero-gif"
             poster="./cherryblossomtrees-poster.webp"
             aria-label="Animated cherry blossom tree in bloom"
+            width={1280}
+            height={848}
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
           >
             <source src="./cherryblossomtrees.mp4" type="video/mp4" />
           </video>
