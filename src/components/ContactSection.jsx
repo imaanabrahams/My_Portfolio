@@ -3,6 +3,8 @@ import Reveal from './Reveal.jsx'
 import '../styles/ContactSection.css'
 
 const EMAIL = 'imaanabrahams15@gmail.com'
+const PHONE = '0611351411'
+const PHONE_HREF = 'tel:+27611151411'
 const CV_FILE = 'ImaanAbrahams_CV.pdf'
 
 export default function ContactSection() {
@@ -71,6 +73,20 @@ export default function ContactSection() {
                 >
                   {copied ? 'Copied!' : 'Copy'}
                 </button>
+              </li>
+              <li className="contact-item">
+                <span className="contact-icon">📱</span>
+                <div>
+                  <span className="contact-label">Phone</span>
+                  <a href={PHONE_HREF}>{PHONE}</a>
+                </div>
+                <a
+                  className="contact-arrow"
+                  href={PHONE_HREF}
+                  aria-label={`Call ${PHONE}`}
+                >
+                  →
+                </a>
               </li>
               <li className="contact-item">
                 <span className="contact-icon">💼</span>
