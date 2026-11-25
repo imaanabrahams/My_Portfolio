@@ -90,3 +90,15 @@ export const certifications = [
     image: './certifications/coursera-building-web-applications-in-php.png',
   },
 ]
+
+export const badges = [
+  {
+    id: 'lcs-uiux-foundation',
+    title: 'UI/UX Foundations',
+    issuer: 'Life Choices Academy',
+    provider: 'Open Badges',
+    date: 'May 2026',
+    image: './badges/uiux-foundation-badge.png',
+    url: 'https://openbadges.education/public/badges/L57R7efsRW-Kmnn82q11kQ',
+  },
+]

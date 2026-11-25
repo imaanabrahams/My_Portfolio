@@ -1,5 +1,5 @@
 import Reveal from './Reveal.jsx'
-import { certifications } from '../data/certifications.js'
+import { certifications, badges } from '../data/certifications.js'
 import '../styles/CertificationsSection.css'
 
 const sortedCertifications = [...certifications].sort(
@@ -42,6 +42,35 @@ export default function CertificationsSection() {
                   <span className="cert-id">ID: {cert.certId}</span>
                 </div>
               </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="badges-head">
+          <h3>Digital badges</h3>
+          <p>Open badges earned along the way — compact proof of a skill learned.</p>
+        </Reveal>
+
+        <div className="badge-grid">
+          {badges.map((badge) => (
+            <Reveal
+              as="a"
+              key={badge.id}
+              className="badge-card"
+              href={badge.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${badge.title} badge details`}
+            >
+              <img src={badge.image} alt={`${badge.title} badge`} loading="lazy" />
+              <div className="badge-info">
+                <h4>{badge.title}</h4>
+                <p className="badge-issuer">{badge.issuer}</p>
+                <p className="badge-meta">
+                  {badge.provider} &middot; {badge.date}
+                </p>
+              </div>
+              <span className="badge-open" aria-hidden="true">↗</span>
             </Reveal>
           ))}
         </div>
