@@ -3,7 +3,7 @@ import Reveal from './Reveal.jsx'
 import '../styles/ContactSection.css'
 
 const EMAIL = 'imaanabrahams15@gmail.com'
-const PHONE = '0611351411'
+const PHONE = '+27 611351411'
 const PHONE_HREF = 'tel:+27611151411'
 const CV_FILE = 'ImaanAbrahams_CV.pdf'
 
