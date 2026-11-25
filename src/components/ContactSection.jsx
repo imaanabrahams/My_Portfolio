@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Reveal from './Reveal.jsx'
 import '../styles/ContactSection.css'
 
@@ -8,7 +8,8 @@ const PHONE_HREF = 'tel:+27611151411'
 const CV_FILE = 'ImaanAbrahams_CV.pdf'
 
 export default function ContactSection() {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(null)
+  const copyTimer = useRef(null)
 
   const mailtoHref = `mailto:${EMAIL}?subject=${encodeURIComponent('Hello Imaan')}`
 
@@ -34,12 +35,13 @@ export default function ContactSection() {
     }
   }
 
-  const copyEmail = async () => {
+  const copyToClipboard = async (value, type) => {
     try {
-      await navigator.clipboard.writeText(EMAIL)
-      setCopied(true)
-      window.setTimeout(() => {
-        setCopied(false)
+      await navigator.clipboard.writeText(value)
+      setCopied(type)
+      window.clearTimeout(copyTimer.current)
+      copyTimer.current = window.setTimeout(() => {
+        setCopied(null)
       }, 2000)
     } catch {
       /* clipboard unavailable (non-secure context) */
@@ -67,11 +69,11 @@ export default function ContactSection() {
                   <a href={mailtoHref}>{EMAIL}</a>
                 </div>
                 <button
-                  className={`quick-copy${copied ? ' copied' : ''}`}
+                  className={`quick-copy${copied === 'email' ? ' copied' : ''}`}
                   aria-label={`Copy ${EMAIL}`}
-                  onClick={copyEmail}
+                  onClick={() => copyToClipboard(EMAIL, 'email')}
                 >
-                  {copied ? 'Copied!' : 'Copy'}
+                  {copied === 'email' ? 'Copied!' : 'Copy'}
                 </button>
               </li>
               <li className="contact-item">
@@ -80,13 +82,13 @@ export default function ContactSection() {
                   <span className="contact-label">Phone</span>
                   <a href={PHONE_HREF}>{PHONE}</a>
                 </div>
-                <a
-                  className="contact-arrow"
-                  href={PHONE_HREF}
-                  aria-label={`Call ${PHONE}`}
+                <button
+                  className={`quick-copy${copied === 'phone' ? ' copied' : ''}`}
+                  aria-label={`Copy ${PHONE}`}
+                  onClick={() => copyToClipboard(PHONE, 'phone')}
                 >
-                  →
-                </a>
+                  {copied === 'phone' ? 'Copied!' : 'Copy'}
+                </button>
               </li>
               <li className="contact-item">
                 <span className="contact-icon">💼</span>
